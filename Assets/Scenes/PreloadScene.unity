@@ -443,51 +443,6 @@ Transform:
   - {fileID: 1598496389}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1500292633
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1500292635}
-  - component: {fileID: 1500292634}
-  m_Layer: 0
-  m_Name: SceneTransitionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1500292634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500292633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de148720ab3031842a181db96986e719, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScreenFader: {fileID: 1702039741}
---- !u!4 &1500292635
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500292633}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 546.9878, y: 349.14117, z: -5.447659}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1536918807
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +709,14 @@ PrefabInstance:
       propertyPath: m_BlockingMask.m_Bits
       value: 55
       objectReference: {fileID: 0}
+    - target: {fileID: 5632337821388787285, guid: 5eb05a6b6859d3747b21c176834e8fa6, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632337821388787285, guid: 5eb05a6b6859d3747b21c176834e8fa6, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6602465619417289365, guid: 5eb05a6b6859d3747b21c176834e8fa6, type: 3}
       propertyPath: m_Name
       value: SceneTransitionCanvas
@@ -761,7 +724,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6602465619417289365, guid: 5eb05a6b6859d3747b21c176834e8fa6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1702039743}
   m_SourcePrefab: {fileID: 100100000, guid: 5eb05a6b6859d3747b21c176834e8fa6, type: 3}
 --- !u!114 &1702039741 stripped
 MonoBehaviour:
@@ -774,11 +740,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1702039742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6602465619417289365, guid: 5eb05a6b6859d3747b21c176834e8fa6, type: 3}
+  m_PrefabInstance: {fileID: 1702039740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1702039743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702039742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de148720ab3031842a181db96986e719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreenFader: {fileID: 1702039741}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1702039740}
-  - {fileID: 1500292635}
   - {fileID: 1453468974}
   - {fileID: 1536918809}
