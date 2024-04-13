@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
@@ -14,8 +15,10 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 	
 	[SerializeField] private GameObject _parent;
 	
+	public UnityEvent OnCardClicked;
+	
 	[HideInInspector]
-	public bool Selected = false;
+	private bool _selected = false;
 
 	private Vector3 _startPos;
 	private Vector3 _startScale;
@@ -28,10 +31,10 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 	}
 	
 	private void Update() {
-		if (Selected && Input.GetMouseButtonDown(0))
+		if (_selected && Input.GetMouseButtonDown(0))
 		{
 			//NOTE: this is mostly a test, to see if selecting a card works.
-			Destroy(_parent);
+			OnCardClicked?.Invoke();
 		}
 	}
 
@@ -80,12 +83,12 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 	public void OnSelect(BaseEventData eventData)
 	{
 		StartCoroutine(AnimateCardOnHover(true));
-		Selected = true;
+		_selected = true;
 	}
 
 	public void OnDeselect(BaseEventData eventData)
 	{
 		StartCoroutine(AnimateCardOnHover(false));
-		Selected = false;
+		_selected = false;
 	}
 }
