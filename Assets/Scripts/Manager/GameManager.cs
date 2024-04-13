@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
 		}
 	}
 	
+	private void Start()
+	{
+		//ensure timescale running etc...
+		Play();
+	}
+	
 	public void TogglePause()
 	{
 		if (Time.timeScale == 0.0f)
@@ -41,7 +47,7 @@ public class GameManager : MonoBehaviour
 
 	public void Exit()
 	{
-        SceneTransitionManager.Instance.LoadScene(Enums.Scenes.MainMenu);
+		SceneTransitionManager.Instance.LoadScene(Enums.Scenes.MainMenu);
 		Debug.Log("Exiting to main menu.");
-    }
+	}
 }

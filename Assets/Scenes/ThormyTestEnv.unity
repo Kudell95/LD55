@@ -1369,42 +1369,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3297294471375325923, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: OnCardClicked.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297294471375325923, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: OnCardClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297294471375325923, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: OnCardClicked.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297294471375325923, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: OnCardClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2027233460}
-    - target: {fileID: 3297294471375325923, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: OnCardClicked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297294471375325923, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: OnCardClicked.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297294471375325923, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: OnCardClicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UseCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297294471375325923, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: OnCardClicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CardController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297294471375325923, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: OnCardClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8165869542380570927, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
       propertyPath: m_Name
       value: Card Prefab
@@ -1419,17 +1383,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
   m_PrefabInstance: {fileID: 2027233458}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2027233460 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6060560235002268465, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-  m_PrefabInstance: {fileID: 2027233458}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 930d09316bd565440a93db38a842c8ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2135388082
 GameObject:
   m_ObjectHideFlags: 0
