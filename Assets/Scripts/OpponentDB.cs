@@ -8,7 +8,7 @@ public class OpponentDB : MonoBehaviour
     public List<Opponent> AvailableOpponents = new List<Opponent>();
 
     [SerializeField]
-    private OpponentSO CurrentOpponent;
+    private OpponentDatabase CurrentOpponent;
 
     private void GenerateOpponents()
     {
