@@ -16,7 +16,7 @@ MonoBehaviour:
   Description: Basic weed removal
   Mana: 1
   CardRarity: 0
-  Image: {fileID: 0}
+  Image: {fileID: -2114532774617526769, guid: 96e42eaab77f2a342a27d469fef659ed, type: 3}
   CardAbilities:
   - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
   - {fileID: 11400000, guid: c05b58ed6d4a03c4aa53a91f4a3c2b2a, type: 2}

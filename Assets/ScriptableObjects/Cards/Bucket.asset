@@ -17,6 +17,6 @@ MonoBehaviour:
     can be used to heal fellow plants.
   Mana: 2
   CardRarity: 0
-  Image: {fileID: 0}
+  Image: {fileID: 8971428285142081661, guid: 96e42eaab77f2a342a27d469fef659ed, type: 3}
   CardAbilities:
   - {fileID: 11400000, guid: 846ad5b066314e94a920ab0bd9048832, type: 2}

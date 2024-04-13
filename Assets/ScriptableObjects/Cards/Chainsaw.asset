@@ -17,6 +17,6 @@ MonoBehaviour:
     of wizards...
   Mana: 5
   CardRarity: 3
-  Image: {fileID: 0}
+  Image: {fileID: -6384264542737997063, guid: 96e42eaab77f2a342a27d469fef659ed, type: 3}
   CardAbilities:
   - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}

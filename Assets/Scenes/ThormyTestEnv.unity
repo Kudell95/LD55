@@ -308,6 +308,7 @@ MonoBehaviour:
   NameText: {fileID: 1679138307}
   DescriptionText: {fileID: 1002261962}
   ManaText: {fileID: 1353597309}
+  CardImage: {fileID: 1919973242}
 --- !u!1 &423256589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,8 +1177,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6213, y: 91.5521}
-  m_SizeDelta: {x: 277.2426, y: 173.2958}
+  m_AnchoredPosition: {x: 0.00006175, y: 91.1938}
+  m_SizeDelta: {x: 197.334, y: 197.3288}
   m_Pivot: {x: 0.50000024, y: 0.49999997}
 --- !u!114 &1919973242
 MonoBehaviour:
