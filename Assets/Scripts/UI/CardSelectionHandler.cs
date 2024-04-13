@@ -33,7 +33,6 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 	private void Update() {
 		if (_selected && Input.GetMouseButtonDown(0))
 		{
-			//NOTE: this is mostly a test, to see if selecting a card works.
 			OnCardClicked?.Invoke();
 		}
 	}
