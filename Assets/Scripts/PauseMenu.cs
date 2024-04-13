@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitButton()
     {
-        GameManager.Instance.Exit();
+        GameManager.Instance.Play(); //if paused, Exit() will not work!
+        GameManager.Instance.Exit(); // To MainMenu!
     }
 }
