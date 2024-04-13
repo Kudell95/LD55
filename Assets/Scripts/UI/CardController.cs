@@ -4,7 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardTester : MonoBehaviour
+/// <summary>
+/// The controller for individual cards that are used in UI, updates UI and handles interactions
+/// with the card
+/// </summary>
+public class CardController : MonoBehaviour
 {
 	public TextMeshProUGUI NameText;
 	public TextMeshProUGUI DescriptionText;
