@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CardDB : MonoBehaviour
@@ -26,6 +27,9 @@ public class CardDB : MonoBehaviour
 	}
 	
 	
-	
+	public Card GetRandomCard()
+	{
+		return AvailableCards[Random.Range(0, AvailableCards.Count)].Clone();
+	}
 	
 }

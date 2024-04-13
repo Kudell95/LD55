@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class Card : ICard
 {
 	public CardDataSO CardData;
-	
+	public string GUID;
 	
 	public void Discard()
 	{
@@ -16,10 +17,19 @@ public class Card : ICard
 	{
 		throw new System.NotImplementedException();
 	}
+
+	public Card Clone()
+	{
+		return (Card)MemberwiseClone();
+	}
 	
-	public Card(){}
+	public Card()
+	{
+		GUID = System.Guid.NewGuid().ToString();		
+	}
 	public Card(CardDataSO carddata)	
 	{
+		GUID = System.Guid.NewGuid().ToString();
 		CardData = carddata;
 	}
 
