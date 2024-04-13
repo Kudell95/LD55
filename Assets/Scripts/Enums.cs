@@ -31,4 +31,26 @@ public class Enums : MonoBehaviour
 		Place,
 		Discard
 	}
+
+	public enum OpponentDifficulty
+	{
+		Recruit = 1,
+		Champion,
+		Legend
+	}
+
+	public enum OpponentAbilities // WIP
+	{
+		BasicAttack,
+		Retreat,
+		Heal
+	}
+
+	public enum OpponentAttributes // WIP
+	{
+		Stunned,
+		Thorned,
+		Frightened,
+		Thirsty
+	}
 }
