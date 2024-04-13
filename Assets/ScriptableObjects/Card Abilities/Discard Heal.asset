@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a898319456b7114f8fe89b9dbeb48cb, type: 3}
-  m_Name: CardDB
+  m_Script: {fileID: 11500000, guid: 36ece402145c94943b7237beee35cc76, type: 3}
+  m_Name: Discard Heal
   m_EditorClassIdentifier: 
-  Cards: []
+  Name: Heal on discard
+  Description: 
+  AbilityType: 1
+  AbilityActionType: 1
+  Power: 1
