@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewOpponentAbility", menuName = "Opponent/OpponentAbility", order = 1)]
+[CreateAssetMenu(fileName = "NewOpponentAbility", menuName = "Opponents/OpponentAbility", order = 1)]
 public class OpponentAbilitySO : ScriptableObject
 {
     public string Name;
