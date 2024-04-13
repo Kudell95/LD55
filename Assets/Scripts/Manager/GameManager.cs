@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
 
 	public void Exit()
 	{
-		//
-	}
+		Play(); //if paused, Exit() will not work!
+        SceneTransitionManager.Instance.LoadScene(Enums.Scenes.MainMenu);
+		Debug.Log("Exiting to main menu.");
+    }
 }

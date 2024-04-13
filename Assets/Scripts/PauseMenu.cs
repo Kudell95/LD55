@@ -37,6 +37,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitButton()
     {
-       SceneTransitionManager.Instance.LoadScene(Enums.Scenes.MainMenu);
+        GameManager.Instance.Exit();
     }
 }
