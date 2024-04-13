@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Opponent : IOpponent
 {
+    public OpponentDataSO OpponentData;
+    public string GUID;
+    
     public void Attack()
     {
         throw new System.NotImplementedException();
@@ -13,4 +16,21 @@ public class Opponent : IOpponent
     {
         throw new System.NotImplementedException();
     }
+
+    public Opponent Clone()
+    {
+        return (Opponent)MemberwiseClone();
+    }
+
+    public Opponent()
+    {
+        GUID = System.Guid.NewGuid().ToString();
+    }
+    public Opponent(OpponentDataSO opponenentData)
+    {
+        GUID = System.Guid.NewGuid().ToString();
+        OpponentData = opponenentData;
+    }
 }
+
+

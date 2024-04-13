@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Opponent", menuName = "Opponents/OpponentData", order = 1)]
 public class OpponentSO : ScriptableObject
 {
-    public List<OpponentSO> Opponents = new List<OpponentSO>();
+    public List<OpponentDataSO> Opponents = new List<OpponentDataSO>();
 }
