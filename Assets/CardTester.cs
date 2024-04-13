@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardTester : MonoBehaviour
 {
 	public TextMeshProUGUI NameText;
 	public TextMeshProUGUI DescriptionText;
 	public TextMeshProUGUI ManaText;
+	public Image CardImage;
 	
 	
 	public void Start()
 	{
-		GetRandomCard();		
+		GetRandomCard();
 	}
 	
 	public void GetRandomCard()
@@ -22,6 +24,7 @@ public class CardTester : MonoBehaviour
 		NameText.text = card.CardData.Name;
 		DescriptionText.text = card.CardData.Description;
 		ManaText.text = card.CardData.Mana.ToString();
+		CardImage.sprite = card.CardData.Image;
 	}
 	
 	public void Update()

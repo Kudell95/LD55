@@ -39,13 +39,13 @@ public class CardDB : MonoBehaviour
 		switch(rarity)
 		{
 			case Enums.Rarity.Common:
-				return 0.91f;
+				return ConfigManager.Instance.ConfigObject.CommonCardWeight;
 			case Enums.Rarity.Rare:
-				return 0.2f;
+				return ConfigManager.Instance.ConfigObject.RareCardWeight;
 			case Enums.Rarity.Epic:
-				return 0.1f;
+				return ConfigManager.Instance.ConfigObject.EpicCardWeight;
 			case Enums.Rarity.Legendary:
-				return 0.05f;
+				return ConfigManager.Instance.ConfigObject.LegendaryCardWeight;
 			default:
 				return 1f;
 		}
