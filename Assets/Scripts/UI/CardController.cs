@@ -10,6 +10,8 @@ using UnityEngine.UI;
 /// </summary>
 public class CardController : MonoBehaviour
 {
+	public ICard CurrentCard;
+	
 	public TextMeshProUGUI NameText;
 	public TextMeshProUGUI DescriptionText;
 	public TextMeshProUGUI ManaText;
@@ -21,10 +23,22 @@ public class CardController : MonoBehaviour
 		GetRandomCard();
 	}
 	
+	
+	
+	public void SetCard(Card card)
+	{
+		CurrentCard = card;
+		NameText.text = card.CardData.Name;
+		DescriptionText.text = card.CardData.Description;
+		ManaText.text = card.CardData.Mana.ToString();
+		CardImage.sprite = card.CardData.Image;
+	}
+	
+	
 	public void GetRandomCard()
 	{
 		Card card = GameManager.Instance.CardDatabase.GetRandomCard();
-		
+		CurrentCard = card;
 		NameText.text = card.CardData.Name;
 		DescriptionText.text = card.CardData.Description;
 		ManaText.text = card.CardData.Mana.ToString();
@@ -39,5 +53,11 @@ public class CardController : MonoBehaviour
 			GetRandomCard();
 		}
 		#endif
+	}
+	
+	
+	public void UseCard()
+	{
+		CurrentCard.PlayCard();
 	}
 }
