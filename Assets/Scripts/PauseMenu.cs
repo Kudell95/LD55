@@ -5,11 +5,36 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     private readonly KeyCode pauseMenuKey = KeyCode.Escape;
-    private void Update()
+    private bool isPaused = false;
+    public GameObject pauseMenu;
+
+   void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
+    void Update()
     {
         if (Input.GetKeyDown(pauseMenuKey))
         {
             GameManager.Instance.TogglePause();
+            if (isPaused)
+            {
+                isPaused = false;
+            }
+            else
+            {
+                isPaused = true;
+            }
         }
+    }
+
+    public void MuteButton()
+    {
+        SoundManager.Instance.ToggleMute();
+    }
+
+    public void ExitButton()
+    {
+        //GameManager.Exit();
     }
 }
