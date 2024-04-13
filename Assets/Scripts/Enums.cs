@@ -46,11 +46,11 @@ public class Enums : MonoBehaviour
 		Heal
 	}
 
-	public enum OpponentAttributes // WIP
-	{
-		Stunned,
-		Thorned,
-		Frightened,
-		Thirsty
-	}
+	//public enum OpponentAttributes // WIP
+	//{
+	//	Stunned,
+	//	Thorned,
+	//	Frightened,
+	//	Thirsty
+	//}
 }
