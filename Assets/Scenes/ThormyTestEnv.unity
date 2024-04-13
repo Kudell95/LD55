@@ -182,11 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardDatabase: {fileID: 316792041}
---- !u!4 &363855437 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-  m_PrefabInstance: {fileID: 2456470857481973029}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &485048895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -337,8 +332,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 363855437}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -483,83 +477,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1001 &2456470857481973029
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1291471803}
-    m_Modifications:
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212424454816633956, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8165869542380570927, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      propertyPath: m_Name
-      value: Card Prefab
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4254155102834049955, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2456470857481973031}
-  m_SourcePrefab: {fileID: 100100000, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
---- !u!1 &2456470857481973030 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4254155102834049955, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
-  m_PrefabInstance: {fileID: 2456470857481973029}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2456470857481973031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2456470857481973030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec0dffb717be5a34ea85ca72966c82d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

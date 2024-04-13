@@ -54,4 +54,13 @@ public class Enums : MonoBehaviour
 	//	Frightened,
 	//	Thirsty
 	//}
+	
+	
+	public enum TurnStates
+	{
+		PlayerTurn,
+		
+		OpponentTurn,
+		
+	}
 }
