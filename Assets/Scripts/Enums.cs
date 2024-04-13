@@ -58,6 +58,7 @@ public class Enums : MonoBehaviour
 	
 	public enum TurnStates
 	{
+		InitialTurn,
 		PlayerTurn,
 		
 		OpponentTurn,

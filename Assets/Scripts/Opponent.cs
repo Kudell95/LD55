@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Opponent : IOpponent
+public class Opponent : MonoBehaviour, IOpponent
 {
     public OpponentDataSO OpponentData;
     public string GUID;

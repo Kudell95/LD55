@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 316792040}
   - component: {fileID: 316792042}
   - component: {fileID: 316792041}
+  - component: {fileID: 316792043}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -182,6 +183,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardDatabase: {fileID: 316792041}
+--- !u!114 &316792043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316792039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207209d4620ca094ead7f6fea583ed0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &485048895
 PrefabInstance:
   m_ObjectHideFlags: 0

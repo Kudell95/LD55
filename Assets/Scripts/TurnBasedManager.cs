@@ -8,10 +8,14 @@ public class TurnBasedManager : MonoBehaviour
 	public Action<Enums.TurnStates> OnTurnEnded;
 	public Action<Enums.TurnStates> OnTurnStarted;
 	
-	public Enums.TurnStates CurrentTurnState { get; private set; }
+	public Enums.TurnStates CurrentTurnState { get; private set; } = Enums.TurnStates.InitialTurn;
 	
 	public void StartTurn(Enums.TurnStates turnState)
-	{
+	{		
+		//if we try and start
+		if(CurrentTurnState != turnState && CurrentTurnState != Enums.TurnStates.InitialTurn)
+			EndTurn();
+			
 		CurrentTurnState = turnState;
 		OnTurnStarted?.Invoke(turnState);
 	}

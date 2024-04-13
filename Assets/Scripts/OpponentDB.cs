@@ -1,30 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class OpponentDB : MonoBehaviour
 {
-    [HideInInspector]
-    public List<Opponent> AvailableOpponents = new List<Opponent>();
+	[SerializeField]
+	private OpponentDatabase AvailableOpponents;
 
-    [SerializeField]
-    private OpponentDatabase CurrentOpponent;
+	// Generate opponents based on the opponent data in CurrentOpponent, adding them to AvailableOpponents.
+	//COMMENTED OUT: this is likely not needed for opponents.
+	// private void GenerateOpponents()
+	// {
+	// 	// foreach(OpponentDataSO opponentData in CurrentOpponent.Opponents)
+	// 	// {
+	// 	//     Opponent newOpponent = new Opponent(opponentData);
+	// 	//     AvailableOpponents.Add(newOpponent);
+	// 	// }
+	// }
 
-    // Generate opponents based on the opponent data in CurrentOpponent, adding them to AvailableOpponents.
-    private void GenerateOpponents()
-    {
-        foreach(OpponentDataSO opponentData in CurrentOpponent.Opponents)
-        {
-            Opponent newOpponent = new Opponent(opponentData);
-            AvailableOpponents.Add(newOpponent);
-        }
-    }
 
-    // Awake function is responsible for initializing the object when it is created.
-    public void Awake()
-    {
-        GenerateOpponents();
-    }
-
-    public Opponent GetRandomOpponent() => AvailableOpponents[Random.Range(0, AvailableOpponents.Count)].Clone();
+	public OpponentDataSO GetRandomOpponent() => AvailableOpponents.Opponents[Random.Range(0, AvailableOpponents.Opponents.Count)];
+	
+	public OpponentDataSO GetRandomOpponent(Enums.OpponentDifficulty difficulty)
+	{
+		if(AvailableOpponents == null   || AvailableOpponents.Opponents == null || AvailableOpponents.Opponents.Count == 0)
+			return null;
+		
+		List<OpponentDataSO> opponents = AvailableOpponents.Opponents.Where(x=> x.OpponentDifficulty == difficulty)?.ToList();
+		
+		if(opponents == null || opponents.Count == 0)
+			return null;
+		
+		return opponents[Random.Range(0, opponents.Count)];
+	}
+	
 }

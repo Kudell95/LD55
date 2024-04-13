@@ -10,11 +10,11 @@ public class OpponentDataSO : ScriptableObject
 	public string Description;
 	public int Health;
 
-    Enums.OpponentDifficulty OpponentDifficulty;
+    public Enums.OpponentDifficulty OpponentDifficulty;
     //Enums.OpponentAttributes OpponentAttributes;
-    Enums.OpponentAbility OpponentAbilities;
+    public Enums.OpponentAbility OpponentAbilities;
 
-	Sprite Image;
+	public Sprite Image;
 
     //public List<OpponentAbilitySO> OpponentAbilities = new List<OpponentAbility>();
     //public List<OpponentAttributesSO> OpponentAttributes = new List<OpponentAttributes>();
