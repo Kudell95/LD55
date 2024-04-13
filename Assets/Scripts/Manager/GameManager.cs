@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 	
 	public Player PlayerController;
 	public CardDB CardDatabase;
+
+	public OpponentDB OpponentList;
 	
 	
 	private void Awake() {
