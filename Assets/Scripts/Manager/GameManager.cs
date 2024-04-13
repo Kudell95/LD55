@@ -39,4 +39,10 @@ public class GameManager : MonoBehaviour
 	{
 		Time.timeScale = 1.0f;
 	}
+
+	public void Exit()
+	{
+        SceneTransitionManager.Instance.LoadScene(Enums.Scenes.MainMenu);
+		Debug.Log("Exiting to main menu.");
+    }
 }
