@@ -10,4 +10,12 @@ public class Enums : MonoBehaviour
 		GameScene = 2,
 		LoadingScene = 3,
 	}
+	
+	public enum Rarity
+	{
+		Common,
+		Rare,
+		Epic,
+		Legendary
+	}
 }
