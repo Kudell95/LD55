@@ -13,6 +13,7 @@ public class Card : ICard
 		throw new System.NotImplementedException();
 	}
 
+	//TODO: This will grab the card data, loop through the abilities and perform actions based on the ability type
 	public void PlayCard()
 	{
 		throw new System.NotImplementedException();
