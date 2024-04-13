@@ -20,10 +20,12 @@ public class PauseMenu : MonoBehaviour
             if (isPaused)
             {
                 isPaused = false;
+                pauseMenu.SetActive(false);
             }
             else
             {
                 isPaused = true;
+                pauseMenu.SetActive(true);
             }
         }
     }
@@ -35,6 +37,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitButton()
     {
-        //GameManager.Exit();
+       SceneTransitionManager.Instance.LoadScene(Enums.Scenes.MainMenu);
     }
 }
