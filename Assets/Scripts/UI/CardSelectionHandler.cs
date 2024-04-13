@@ -35,7 +35,7 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 		}
 	}
 
-	private IEnumerator MoveCard(bool startingAnimation)
+	private IEnumerator AnimateCardOnHover(bool startingAnimation)
 	{
 		Vector3 endPosition;
 		Vector3 endScale;
@@ -79,13 +79,13 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 
 	public void OnSelect(BaseEventData eventData)
 	{
-		StartCoroutine(MoveCard(true));
+		StartCoroutine(AnimateCardOnHover(true));
 		Selected = true;
 	}
 
 	public void OnDeselect(BaseEventData eventData)
 	{
-		StartCoroutine(MoveCard(false));
+		StartCoroutine(AnimateCardOnHover(false));
 		Selected = false;
 	}
 }
