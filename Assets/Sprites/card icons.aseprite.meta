@@ -333,10 +333,10 @@ ScriptedImporter:
     - name: card icons
       frameIndex: 0
       cellRect:
-        x: 5
-        y: 326
-        width: 493
-        height: 168
+        x: 9
+        y: 397
+        width: 372
+        height: 103
       spriteId: 27e4e194358466f489bd28acf60c2509
     linkedCells: []
     parentIndex: -1
@@ -368,4 +368,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 765, y: 506}
+  canvasSize: {x: 765, y: 512}
