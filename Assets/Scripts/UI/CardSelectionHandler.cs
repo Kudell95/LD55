@@ -1,71 +1,91 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
-    [SerializeField] private float _verticalMoveAmount = 30f;
-    [SerializeField] private float _moveTime = 0.1f;
-    [Range(0f, 2f), SerializeField] private float _scaleAmount = 1.1f;
+	[SerializeField] private float _verticalMoveAmount = 30f;
+	[SerializeField] private float _moveTime = 0.1f;
+	[Range(0f, 2f), SerializeField] private float _scaleAmount = 1.1f;
+	
+	
+	[SerializeField] private RectTransform _rectTransform;
+	
+	[SerializeField] private GameObject _parent;
+	
+	[HideInInspector]
+	public bool Selected = false;
 
-    private Vector3 _startPos;
-    private Vector3 _startScale;
+	private Vector3 _startPos;
+	private Vector3 _startScale;
 
-    private void Start()
-    {
-        _startPos = transform.position;
-        _startScale = transform.localScale;
-    }
+	private void Start()
+	{
+		_startPos = _rectTransform.anchoredPosition;
+		Debug.Log(_startPos);
+		_startScale = transform.localScale;
+	}
+	
+	private void Update() {
+		if (Selected && Input.GetMouseButtonDown(0))
+		{
+			//NOTE: this is mostly a test, to see if selecting a card works.
+			Destroy(_parent);
+		}
+	}
 
-    private IEnumerator MoveCard(bool startingAnimation)
-    {
-        Vector3 endPosition;
-        Vector3 endScale;
+	private IEnumerator MoveCard(bool startingAnimation)
+	{
+		Vector3 endPosition;
+		Vector3 endScale;
 
-        float elapsedTime = 0f;
-        while (elapsedTime < _moveTime)
-        {
-            elapsedTime += Time.deltaTime;
+		float elapsedTime = 0f;
+		while (elapsedTime < _moveTime)
+		{
+			elapsedTime += Time.deltaTime;
 
-            if (startingAnimation)
-            {
-                endPosition = _startPos + new Vector3(0f, _verticalMoveAmount, 0f);
-                endScale = _startScale * _scaleAmount;
-            }
+			if (startingAnimation)
+			{
+				endPosition = _startPos + new Vector3(0f, _verticalMoveAmount, 0f);
+				endScale = _startScale * _scaleAmount;
+			}
 
-            else
-            {
-                endPosition = _startPos;
-                endScale = _startScale;
-            }
+			else
+			{
+				endPosition = _startPos;
+				endScale = _startScale;
+			}
 
-            Vector3 lerpedPos = Vector3.Lerp(transform.position, endPosition, (elapsedTime / _moveTime));
-            Vector3 lerpedScale = Vector3.Lerp(transform.localScale, endScale, (elapsedTime / _moveTime));
+			Vector3 lerpedPos = Vector3.Lerp(_rectTransform.anchoredPosition, endPosition, (elapsedTime / _moveTime));
+			Vector3 lerpedScale = Vector3.Lerp(transform.localScale, endScale, (elapsedTime / _moveTime));
 
-            transform.position = lerpedPos;
-            transform.localScale = lerpedScale;
+			_rectTransform.anchoredPosition = lerpedPos;
+			transform.localScale = lerpedScale;
 
-            yield return null;
-        }
-    }
+			yield return null;
+		}
+	}
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        eventData.selectedObject = this.gameObject;
-    }
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		eventData.selectedObject = this.gameObject;
+	}
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        eventData.selectedObject = null;
-    }
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		eventData.selectedObject = null;
+	}
 
-    public void OnSelect(BaseEventData eventData)
-    {
-        StartCoroutine(MoveCard(true));
-    }
+	public void OnSelect(BaseEventData eventData)
+	{
+		StartCoroutine(MoveCard(true));
+		Selected = true;
+	}
 
-    public void OnDeselect(BaseEventData eventData)
-    {
-        StartCoroutine(MoveCard(false));
-    }
+	public void OnDeselect(BaseEventData eventData)
+	{
+		StartCoroutine(MoveCard(false));
+		Selected = false;
+	}
 }
