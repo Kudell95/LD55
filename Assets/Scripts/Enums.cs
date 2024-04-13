@@ -15,7 +15,8 @@ public class Enums : MonoBehaviour
 	{
 		Common,
 		Rare,
-		Epic
+		Epic,
+		Legendary
 	}
 	
 	
