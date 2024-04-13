@@ -85,9 +85,11 @@ public class SoundManager : MonoBehaviour
 		if (AudioListener.volume == 0)
 		{
 			Unmute();
-        }
-
-		AudioListener.volume = 0;
+		}
+		else
+		{
+			AudioListener.volume = 0;
+		}
 	}
 
 	public void Unmute()
