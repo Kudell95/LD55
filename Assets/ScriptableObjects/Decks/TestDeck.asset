@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a898319456b7114f8fe89b9dbeb48cb, type: 3}
-  m_Name: CardDB
+  m_Name: TestDeck
   m_EditorClassIdentifier: 
-  Cards: []
+  Cards:
+  - {fileID: 11400000, guid: 0d3b81b31e37e374fbbe24ce29383c84, type: 2}
+  - {fileID: 11400000, guid: c43ab45f81a0e594e850c229e8b16717, type: 2}
+  - {fileID: 11400000, guid: f6a415cf411812648a2d07a96cac325c, type: 2}

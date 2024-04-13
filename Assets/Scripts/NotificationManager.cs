@@ -23,11 +23,6 @@ public class NotificationManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-            Notify("Hello World!", true);
-    }
 
     public void Notify(string message, bool Urgent = false)
     {

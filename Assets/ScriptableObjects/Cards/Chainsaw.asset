@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
-  m_Name: Trowel
+  m_Name: Chainsaw
   m_EditorClassIdentifier: 
-  Name: Trowel
-  Description: Basic weed removal
-  Mana: 1
-  CardRarity: 0
+  Name: Chainsaw
+  Description: A legendary gardenning tool, only able to be summoned by the greatest
+    of wizards...
+  Mana: 5
+  CardRarity: 3
   Image: {fileID: 0}
   CardAbilities:
   - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
-  - {fileID: 11400000, guid: c05b58ed6d4a03c4aa53a91f4a3c2b2a, type: 2}
