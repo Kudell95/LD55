@@ -1108,6 +1108,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 00a0bb8581c907c458a9c072557d4d06, type: 2}
+    - target: {fileID: 6060560235002268465, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 00a0bb8581c907c458a9c072557d4d06, type: 2}
     - target: {fileID: 8165869542380570927, guid: b5c6c4cee145c704fb5d6ecf2f5720a6, type: 3}
       propertyPath: m_Name
       value: Card Prefab
@@ -1328,6 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53df0cdf91d2904ab137249593b97e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerController: {fileID: 0}
   CardDatabase: {fileID: 0}
 --- !u!224 &1283180168 stripped
 RectTransform:
