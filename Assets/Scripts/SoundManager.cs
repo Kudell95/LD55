@@ -89,12 +89,14 @@ public class SoundManager : MonoBehaviour
 		else
 		{
 			AudioListener.volume = 0;
+			Debug.Log("Muted Audio!");
 		}
 	}
 
 	public void Unmute()
 	{
 		AudioListener.volume = 1;
+        Debug.Log("Unmuted Audio!");
     }
    
 }
