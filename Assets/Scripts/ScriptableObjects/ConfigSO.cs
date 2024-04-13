@@ -11,4 +11,9 @@ public class ConfigSO : ScriptableObject
 	public float EpicCardWeight;
 	public float LegendaryCardWeight;
 	
+	[Header("Player")]
+	public int StartingHealth;
+	public int StartingMana;	
+	public int MaxCardsInHand;
+	
 }

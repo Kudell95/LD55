@@ -16,7 +16,33 @@ public class Card : ICard
 	//TODO: This will grab the card data, loop through the abilities and perform actions based on the ability type
 	public void PlayCard()
 	{
-		throw new System.NotImplementedException();
+		foreach(CardAbilitySO ability in CardData.CardAbilities)		
+		{
+			//if we are not placing, just skip...
+			if(ability.AbilityActionType != Enums.AbilityActionType.Place)
+				continue;
+			
+			//TODO: Maybe should implement events for attack/heal etc... as there will only be one enemy at a time for now no need to worry about targets etc...
+			switch(ability.AbilityType)
+			{
+				case Enums.AbilityType.Attack:
+					//TODO: Perform attack
+					//will reference Opponent and attack that opponent based on power of card.
+					
+					break;
+				case Enums.AbilityType.Heal:
+					//TODO: Perform healing.
+					//will reference player and heal that player based on power of card.
+					
+					break;
+				case Enums.AbilityType.Repel:
+					//TODO: Perform debuff
+					break;
+				default:
+					Debug.LogWarning("Ability type not implemented: " + ability.AbilityType);
+					break;
+			}
+		}
 	}
 
 	public Card Clone()
