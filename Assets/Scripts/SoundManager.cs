@@ -79,5 +79,10 @@ public class SoundManager : MonoBehaviour
 		PlayMusic(clip, repeat);
 		
 	}
+
+	public void ToggleMute()
+	{
+		AudioListener.volume = 0;
+	}
    
 }

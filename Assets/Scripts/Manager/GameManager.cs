@@ -17,4 +17,19 @@ public class GameManager : MonoBehaviour
 			Destroy(this);
 		}
 	}
+    public void TogglePause()
+    {
+        if (Time.timeScale == 0.0f)
+        {
+            Play();
+        }
+
+
+        Time.timeScale = 0.0f;
+    }
+
+    public void Play()
+    {
+        Time.timeScale = 1.0f;
+    }
 }
