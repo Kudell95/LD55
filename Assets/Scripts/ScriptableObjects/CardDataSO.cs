@@ -12,4 +12,5 @@ public class CardDataSO : ScriptableObject
 	public int Mana;
 	public Enums.Rarity CardRarity;
 	public Sprite Image;
+	public List<CardAbilitySO> CardAbilities = new List<CardAbilitySO>();
 }

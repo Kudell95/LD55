@@ -8,12 +8,12 @@ public class CardDB : MonoBehaviour
 	public List<Card> AvailableCards = new List<Card>();
 	
 	[SerializeField]
-	private List<CardDataSO> CardData = new List<CardDataSO>();
+	private CardDBSO CardData;
 	
 	
 	private void GenerateCards()
 	{
-		foreach(CardDataSO c in CardData)
+		foreach(CardDataSO c in CardData.Cards)
 		{
 			Card newCard = new Card(c);
 			AvailableCards.Add(newCard);

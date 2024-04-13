@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
-  m_Name: Trowel
+  m_Script: {fileID: 11500000, guid: 36ece402145c94943b7237beee35cc76, type: 3}
+  m_Name: Basic Attack
   m_EditorClassIdentifier: 
-  Name: Trowel
-  Description: Basic weed removal
-  Mana: 1
-  CardRarity: 0
-  Image: {fileID: 0}
-  CardAbilities:
-  - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
+  Name: Basic Attack
+  Description: 'A basic attack move
+
+'
+  AbilityType: 0
+  Power: 2

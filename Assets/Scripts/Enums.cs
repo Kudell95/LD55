@@ -15,7 +15,20 @@ public class Enums : MonoBehaviour
 	{
 		Common,
 		Rare,
-		Epic,
-		Legendary
+		Epic
+	}
+	
+	
+	public enum AbilityType
+	{
+		Attack,
+		Heal,
+		Repel,
+	}
+	
+	public enum AbilityActionType
+	{
+		Place,
+		Discard
 	}
 }
