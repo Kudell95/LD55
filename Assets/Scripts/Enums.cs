@@ -39,7 +39,7 @@ public class Enums : MonoBehaviour
 		Legend
 	}
 
-	public enum OpponentAbilities // WIP
+	public enum OpponentAbility // WIP
 	{
 		BasicAttack,
 		Retreat,

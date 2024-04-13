@@ -12,7 +12,7 @@ public class OpponentDataSO : ScriptableObject
 
     Enums.OpponentDifficulty OpponentDifficulty;
     //Enums.OpponentAttributes OpponentAttributes;
-    Enums.OpponentAbilities OpponentAbilities;
+    Enums.OpponentAbility OpponentAbilities;
 
 	Sprite Image;
 
