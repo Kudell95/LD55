@@ -79,5 +79,24 @@ public class SoundManager : MonoBehaviour
 		PlayMusic(clip, repeat);
 		
 	}
+
+	public void ToggleMute()
+	{
+		if (AudioListener.volume == 0)
+		{
+			Unmute();
+		}
+		else
+		{
+			AudioListener.volume = 0;
+			Debug.Log("Muted Audio!");
+		}
+	}
+
+	public void Unmute()
+	{
+		AudioListener.volume = 1;
+        Debug.Log("Unmuted Audio!");
+    }
    
 }

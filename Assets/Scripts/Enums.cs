@@ -10,4 +10,25 @@ public class Enums : MonoBehaviour
 		GameScene = 2,
 		LoadingScene = 3,
 	}
+	
+	public enum Rarity
+	{
+		Common,
+		Rare,
+		Epic
+	}
+	
+	
+	public enum AbilityType
+	{
+		Attack,
+		Heal,
+		Repel,
+	}
+	
+	public enum AbilityActionType
+	{
+		Place,
+		Discard
+	}
 }
