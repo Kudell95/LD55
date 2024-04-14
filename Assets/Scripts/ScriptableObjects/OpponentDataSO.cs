@@ -11,6 +11,8 @@ public class OpponentDataSO : ScriptableObject
 	public int Health;
 	
 	public bool Boss;
+	public bool FinalBoss;
+	
 
 	public Enums.OpponentDifficulty OpponentDifficulty;
 	//Enums.OpponentAttributes OpponentAttributes;

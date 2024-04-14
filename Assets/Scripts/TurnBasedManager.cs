@@ -31,7 +31,7 @@ public class TurnBasedManager : MonoBehaviour
 	
 	public Enums.TurnStates CurrentTurnState { get; private set; } = Enums.TurnStates.InitialTurn;
 	
-	public void StartTurn(Enums.TurnStates turnState, bool drawCards = false)
+	public void StartTurn(Enums.TurnStates turnState, bool drawCards = false, bool Notify = true)
 	{		
 		if(turnState == Enums.TurnStates.PlayerTurn && drawCards)
 		{
@@ -42,8 +42,8 @@ public class TurnBasedManager : MonoBehaviour
 		CurrentTurnState = turnState;
 		OnTurnStarted?.Invoke(turnState);
 		
-		
-		NotificationManager.Instance?.Notify(getTurnText(turnState));
+		if(Notify)
+			NotificationManager.Instance?.Notify(getTurnText(turnState));
 	}
 	
 	public void EndTurn()
@@ -66,6 +66,9 @@ public class TurnBasedManager : MonoBehaviour
 		
 		StartTurn(nextTurn, true);
 	}
+	
+	
+	
 	
 	
 	public string getTurnText(Enums.TurnStates turnStates)

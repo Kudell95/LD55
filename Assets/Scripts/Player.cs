@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 			return;
 		}
 		Health -= damage;		
+		//TODO: implement damage animation
 		OnHealthUpdated?.Invoke(Health);
 	}
 	
@@ -96,6 +97,8 @@ public class Player : MonoBehaviour
 	
 	public void Die()
 	{
-		
+		//TODO: play death animation. 
+		//Signal player death.
+		//Block all actions and show death screen.
 	}
 }

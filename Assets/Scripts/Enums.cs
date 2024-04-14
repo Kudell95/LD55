@@ -74,8 +74,8 @@ public class Enums : MonoBehaviour
 	{
 		InitialTurn,
 		PlayerTurn,
-		
 		OpponentTurn,
+		OpponentSpawnTurn,
 		
 	}
 }

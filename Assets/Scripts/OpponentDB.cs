@@ -50,4 +50,17 @@ public class OpponentDB : MonoBehaviour
 		return opponents[Random.Range(0, opponents.Count)];
 	}
 	
+	public OpponentDataSO GetFinalBoss()
+	{
+		if(AvailableOpponents == null   || AvailableOpponents.Opponents == null || AvailableOpponents.Opponents.Count == 0)
+			return null;
+		
+		List<OpponentDataSO> opponents = AvailableOpponents.Opponents.Where(x => x.FinalBoss)?.ToList();
+		
+		if(opponents == null || opponents.Count == 0)
+			return null;
+		
+		return opponents[Random.Range(0, opponents.Count)];
+	}
+	
 }

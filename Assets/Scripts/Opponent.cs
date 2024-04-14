@@ -105,8 +105,10 @@ public class Opponent : MonoBehaviour, IOpponent
 
 	public void Die()
 	{
+		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.OpponentSpawnTurn,false,false);
+		//TODO: implement death animation
 		
-		
+		OnOpponentDeath?.Invoke();		
 	}
 
 	public Opponent Clone()
@@ -150,13 +152,13 @@ public class Opponent : MonoBehaviour, IOpponent
 			return;
 		}
 		Health -= damage;
+		//TODO: implement damage animation
+		
 		OnHealthUpdated?.Invoke(Health);
 	}
 	
 	public void SpawnNewOpponent(OpponentDataSO newOpponentData)
 	{
-		//TODO: flesh this out a bit more with some animations etc...
-		//How do we wait to continue. events???
 		
 		OpponentData = newOpponentData;
 		Health = OpponentData.Health;
@@ -173,9 +175,6 @@ public class Opponent : MonoBehaviour, IOpponent
 		OnHealthInitialised?.Invoke(Health);
 	
 		
-		
-		//play animation here.
-		//once animation done.
 		// OpponentManager.OnOpponentReadyForFight?.Invoke();
 	}
 	

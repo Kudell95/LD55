@@ -7,7 +7,6 @@ public class OpponentManager : MonoBehaviour
 {
 	public Action OnNewOpponent;	
 	
-	public Action OnOpponentDeath;
 	
 	public Opponent OpponentObject;
 	
@@ -27,7 +26,7 @@ public class OpponentManager : MonoBehaviour
 	private void Start() {
 		TurnBasedManager.Instance.OnTurnStarted += OnNewTurn;
 	}
-	
+
 	public void OnNewTurn(Enums.TurnStates state)
 	{
 		if(state != Enums.TurnStates.OpponentTurn)
@@ -36,12 +35,15 @@ public class OpponentManager : MonoBehaviour
 		OpponentObject.Attack();
 	}
 	
-	public void GetNewOpponent(Enums.OpponentDifficulty difficulty, bool boss = false)
+	public void GetNewOpponent(Enums.OpponentDifficulty difficulty, bool boss = false, bool finalboss = false)
 	{
-		var newOpponentData = GameManager.Instance.OpponentList.GetRandomOpponent(difficulty, boss);
-		
-		OpponentObject.SpawnNewOpponent(newOpponentData);
-		
+		OpponentDataSO newOpponentData = null;
+		if(!finalboss)
+		 	newOpponentData = GameManager.Instance.OpponentList.GetRandomOpponent(difficulty, boss);
+		else
+			newOpponentData = GameManager.Instance.OpponentList.GetFinalBoss();
+			
+		OpponentObject.SpawnNewOpponent(newOpponentData);		
 	}
 	
 	private void OnDestroy() {

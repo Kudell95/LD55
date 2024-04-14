@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
 	public static Action OnCardAddComplete;
 	public static Action OnCardUsed;
 	
+	int MinionCounter;
+	bool finalboss = false;
+	//dont like this method of doing this, but JAM BABY
+	bool isFreshStart;
+	
 	private void Awake() {
 		if (Instance == null) {
 			Instance = this;
@@ -32,29 +37,54 @@ public class GameManager : MonoBehaviour
 	{
 		OpponentManager.OnOpponentReadyForFight += onOpponentReadyForFight;
 		OnCardAddComplete += onCardAddComplete;
-		
+		Opponent.OnOpponentDeath += onOpponentDeath;
+		isFreshStart = true;
 		CurrentDifficulty = Enums.OpponentDifficulty.Recruit;
 		//ensure timescale running etc...
 		Play();
 		
-		//TODO: Initialise the Turn Manager... What order do we need!!!
-		// Game manager handles each level, on opponent kill we advance to the next enemy/boss.
-		// when new enemy queued, play lil animation.
-		// and let the turn manager know to queue up a player turn.
-		// If player dies, display death screen with stats.
-		// Once all enemies are dead, display victory screen with stats? or something... Fireworks 😳
-		// 
+		GetNewOpponent(CurrentDifficulty);		
+	}
+
+	private void onOpponentDeath()
+	{
+		if(finalboss)
+		{
+			//TODO: Display Victory Screen, Fireworks etc...
+			return;
+		}
 		
-		OpponentManagerObject.GetNewOpponent(CurrentDifficulty);
+		bool boss = false;
+		finalboss = false;
+		if(MinionCounter == ConfigManager.Instance.ConfigObject.NumberOfMinionsPerDifficulty && CurrentDifficulty != Enums.OpponentDifficulty.Legend)		
+		{
+			boss = true;
+		}else if (MinionCounter == ConfigManager.Instance.ConfigObject.NumberOfMinionsPerDifficulty && CurrentDifficulty == Enums.OpponentDifficulty.Legend)
+		{
+			finalboss = true;
+		}else if(MinionCounter > ConfigManager.Instance.ConfigObject.NumberOfMinionsPerDifficulty)		
+		{
+			MinionCounter = 0;
+			CurrentDifficulty = CurrentDifficulty + 1;
+		}
 		
-		//Levels consist of 2/3 minion enemies, 1 boss enemy.
-		//After 3 levels, show final boss.
+		GetNewOpponent(CurrentDifficulty,boss,finalboss);
+		
+		
 	}
 
 	private void onOpponentReadyForFight()
 	{
 		//if the opponent is ready to fight, tell the turn manager to start a player turn.
-		DrawCards(ConfigManager.Instance.ConfigObject.CardsForStartOfRound);	
+		if(isFreshStart)
+		{
+			DrawCards(ConfigManager.Instance.ConfigObject.CardsForStartOfRound);	
+		}
+		else
+		{
+			DrawCards(ConfigManager.Instance.ConfigObject.CardsReceivedEndOfTurn);
+		}
+		isFreshStart = false;
 	}
 	
 	private void onCardAddComplete()
@@ -72,6 +102,12 @@ public class GameManager : MonoBehaviour
 		{
 			Pause();
 		}
+	}
+	
+	void GetNewOpponent(Enums.OpponentDifficulty difficulty, bool boss = false, bool finalboss = false)
+	{
+		OpponentManagerObject.GetNewOpponent(difficulty, boss,finalboss);
+		MinionCounter++;
 	}
 	
 	public void DrawCards(int amount)
