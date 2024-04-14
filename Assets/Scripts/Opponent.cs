@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Opponent : MonoBehaviour, IOpponent
@@ -13,6 +15,13 @@ public class Opponent : MonoBehaviour, IOpponent
 	public string GUID;
 	public SpriteRenderer OpponentSpriteRenderer;
 	public Transform SpriteOriginPoint;
+	
+	public static Action<int> OnHealOpponent;
+	public static Action<int> OnOpponentDamage;
+	
+	public static Action OnOpponentDeath;
+	public HealthModifierText healthModifierText;
+	
 	
 	float _opponentOriginalScaleY;
 	
@@ -26,12 +35,75 @@ public class Opponent : MonoBehaviour, IOpponent
 	
 	public void Attack()
 	{
-		throw new System.NotImplementedException();
+		
+		OpponentAbilitySO selectedAbility = GetRandomAbility();
+		if(selectedAbility == null)			
+		{
+			LeanTween.delayedCall(2f,()=>
+			{				
+				TurnBasedManager.Instance.EndTurn();
+			});
+			return;
+		}
+		
+		LeanTween.delayedCall(2f,()=>
+		{								
+			SpriteOriginPoint.DOLocalMoveX(-0.8f,0.01f).OnComplete(()=>
+			{
+				PerformAbility(selectedAbility);
+				SpriteOriginPoint.DOLocalMoveX(0.8f,0.4f).OnComplete(()=>
+				{
+					LeanTween.delayedCall(2f,()=>
+					{				
+						
+						TurnBasedManager.Instance.EndTurn();
+					});
+				});
+			});
+		});
+	}
+	
+	
+	public OpponentAbilitySO GetRandomAbility()
+	{
+		if(Health <= (OpponentData.Health * ConfigManager.Instance.ConfigObject.OpponentHealThreshold))
+		{
+			return OpponentData.OpponentAbilities[UnityEngine.Random.Range(0,OpponentData.OpponentAbilities.Count)];
+		}
+		else
+		{
+			List<OpponentAbilitySO> availableAbilities = new List<OpponentAbilitySO>();
+			availableAbilities = OpponentData.OpponentAbilities.Where(x=> x.BroadAbilityType != Enums.OpponentAbilityType.Heal).ToList();
+			if(availableAbilities == null || availableAbilities.Count == 0 )
+				return null;
+			return availableAbilities[UnityEngine.Random.Range(0,availableAbilities.Count)];
+		}
+		
+		
+		
+	}
+	
+	
+	public void PerformAbility(OpponentAbilitySO ability)
+	{
+		switch(ability.OpponentAbility)
+		{
+			case Enums.OpponentAbility.BasicAttack:
+				GameManager.Instance.PlayerController.TakeDamage(ability.PowerModifier);
+				break;
+			case Enums.OpponentAbility.Heal:
+				Heal(ability.PowerModifier);
+				break;
+			default:
+				return;
+
+		}
 	}
 
 	public void Die()
 	{
-		throw new System.NotImplementedException();
+		
+		
 	}
 
 	public Opponent Clone()
@@ -49,6 +121,31 @@ public class Opponent : MonoBehaviour, IOpponent
 		OpponentData = opponenentData;
 	}
 	
+	public void Heal(int amount)
+	{
+		if(Health + amount > OpponentData.Health)
+		{
+			Health = OpponentData.Health;
+		}
+		else
+		{
+			Health += amount;
+		}
+		
+		healthModifierText.ShowHeal(amount);
+	}
+	
+	public void TakeDamage(int damage)
+	{
+		healthModifierText.ShowDamage(damage);
+		if(Health - damage <= 0)
+		{
+			Health = 0;
+			Die();
+			return;
+		}
+		Health -= damage;
+	}
 	
 	public void SpawnNewOpponent(OpponentDataSO newOpponentData)
 	{
@@ -68,13 +165,14 @@ public class Opponent : MonoBehaviour, IOpponent
 			});			
 		});
 		
-		
+	
 		
 		
 		//play animation here.
 		//once animation done.
 		// OpponentManager.OnOpponentReadyForFight?.Invoke();
 	}
+	
 }
 
 

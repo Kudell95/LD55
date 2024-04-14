@@ -18,6 +18,8 @@ public class OpponentDB : MonoBehaviour
 	// 	//     AvailableOpponents.Add(newOpponent);
 	// 	// }
 	// }
+	
+	
 
 
 	public OpponentDataSO GetRandomOpponent() => AvailableOpponents.Opponents[Random.Range(0, AvailableOpponents.Opponents.Count)];

@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Yellow Chomper
   Description: 
   Health: 5
-  Boss: 0
+  Boss: 1
   OpponentDifficulty: 1
   OpponentAbilities:
   - {fileID: 11400000, guid: 1b5c28356c941f84da791d2addb3af41, type: 2}

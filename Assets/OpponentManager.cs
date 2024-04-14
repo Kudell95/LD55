@@ -23,12 +23,29 @@ public class OpponentManager : MonoBehaviour
 	}
 	
 	
+	
+	private void Start() {
+		TurnBasedManager.Instance.OnTurnStarted += OnNewTurn;
+	}
+	
+	public void OnNewTurn(Enums.TurnStates state)
+	{
+		if(state != Enums.TurnStates.OpponentTurn)
+			return;			
+			
+		OpponentObject.Attack();
+	}
+	
 	public void GetNewOpponent(Enums.OpponentDifficulty difficulty, bool boss = false)
 	{
 		var newOpponentData = GameManager.Instance.OpponentList.GetRandomOpponent(difficulty, boss);
 		
 		OpponentObject.SpawnNewOpponent(newOpponentData);
 		
+	}
+	
+	private void OnDestroy() {
+		TurnBasedManager.Instance.OnTurnStarted -= OnNewTurn;
 	}
 	
 }

@@ -19,16 +19,14 @@ public class CardController : MonoBehaviour
 	public TextMeshProUGUI ManaText;
 	public Image CardImage;
 
-    //for animation
-    public CanvasGroup CardCanvasGroup;
-    public Image CardFrameImage;
-    public Image ItemImage;
+	//for animation
+	public CanvasGroup CardCanvasGroup;
+	public Image CardFrameImage;
+	public Image ItemImage;
 	public RectTransform ImageRectTransform;
 
-    public void Start()
-	{
-		GetRandomCard();
-    }
+	
+	
 	
 	public void SetCard(Card card)
 	{
@@ -80,7 +78,7 @@ public class CardController : MonoBehaviour
 		}
 		//LeanTween.delayedCall(1f, () => { ItemImage.DOFade(0f, 4f)};
 		ItemImage.DOFade(0f, 4f);
-    }
+	}
 	
 	
 	public void UseCard()
@@ -89,8 +87,8 @@ public class CardController : MonoBehaviour
 		CurrentCard.PlayCard();
 	}
 
-    public void OnDestroy()
-    {
+	public void OnDestroy()
+	{
 		StartCoroutine(AnimateUseCard(false));
-    }
+	}
 }
