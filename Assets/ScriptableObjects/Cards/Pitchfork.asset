@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
-  m_Name: Trowel
+  m_Name: Pitchfork
   m_EditorClassIdentifier: 
-  Name: Trowel
-  Description: Your basic gardening tool. Deals between 1 - 4 damage.
-  Mana: 1
+  Name: Pitchfork
+  Description: Stabs target dealing three ticks of damage between 0 - 3.
+  Mana: 3
   CardRarity: 0
-  Image: {fileID: -923224362, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
+  Image: {fileID: -1092934116, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
   - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
-  - {fileID: 11400000, guid: c05b58ed6d4a03c4aa53a91f4a3c2b2a, type: 2}
   BroadAbilityType: 0
