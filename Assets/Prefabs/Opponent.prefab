@@ -137,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1747112860, guid: 6aea5b157408cba43a2f44fda7c09323, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,9 +145,58 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6832531359086273023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5087582545796215221}
+  - component: {fileID: 688299525189619218}
+  m_Layer: 0
+  m_Name: HealthTextParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5087582545796215221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832531359086273023}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.450001, y: -1.76, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3124060353682448886}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &688299525189619218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832531359086273023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec04f2d2768ae5d4d868dd887ae09a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxPositionModifier: 1
+  MinPositionModifier: -1
+  DamageColour: {r: 1, g: 0, b: 0, a: 1}
+  HealColour: {r: 0.41379714, g: 1, b: 0, a: 1}
+  TextPrefab: {fileID: 8960960452084995564, guid: 458840adcccd84145909e190d770b04d, type: 3}
 --- !u!1 &9023991971902269544
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +228,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2357421240100324270}
+  - {fileID: 5087582545796215221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6215938793743217838
@@ -198,3 +248,4 @@ MonoBehaviour:
   GUID: f9da3871-7b6e-4602-ae1a-fcb9c96a02d7
   OpponentSpriteRenderer: {fileID: 2689761348199871070}
   SpriteOriginPoint: {fileID: 6920108621439160293}
+  healthModifierText: {fileID: 688299525189619218}

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cdd75c4e2bc9a42bf3b378eafd1c35, type: 3}
   m_Name: Attack Ability
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Attack
   Description: 
   OpponentAbility: 0
-  PowerModifier: 0
+  BroadAbilityType: 0
+  PowerModifier: 1

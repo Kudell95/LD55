@@ -46,6 +46,12 @@ public class Enums : MonoBehaviour
 		Retreat,
 		Heal
 	}
+	
+	public enum OpponentAbilityType // WIP
+	{
+		Attack,
+		Heal
+	}
 
 	//public enum OpponentAttributes // WIP
 	//{

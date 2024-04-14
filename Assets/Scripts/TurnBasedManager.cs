@@ -23,12 +23,13 @@ public class TurnBasedManager : MonoBehaviour
 	
 	public Enums.TurnStates CurrentTurnState { get; private set; } = Enums.TurnStates.InitialTurn;
 	
-	public void StartTurn(Enums.TurnStates turnState)
+	public void StartTurn(Enums.TurnStates turnState, bool drawCards = false)
 	{		
-		//if we try and start
-		if(CurrentTurnState != turnState && CurrentTurnState != Enums.TurnStates.InitialTurn)
-			EndTurn();
-			
+		if(turnState == Enums.TurnStates.PlayerTurn && drawCards)
+		{
+			GameManager.Instance.DrawCards(ConfigManager.Instance.ConfigObject.CardsReceivedEndOfTurn);
+			return;
+		}			
 		CurrentTurnState = turnState;
 		OnTurnStarted?.Invoke(turnState);
 		
@@ -38,8 +39,23 @@ public class TurnBasedManager : MonoBehaviour
 	
 	public void EndTurn()
 	{
-		CurrentTurnState = Enums.TurnStates.PlayerTurn;
+		Enums.TurnStates nextTurn;
+		switch(CurrentTurnState)
+		{
+			case Enums.TurnStates.PlayerTurn:
+				nextTurn = Enums.TurnStates.OpponentTurn;
+				break;
+			case Enums.TurnStates.OpponentTurn:
+				nextTurn = Enums.TurnStates.PlayerTurn;
+				break;
+			default:
+				nextTurn = Enums.TurnStates.PlayerTurn;
+				break;
+		}
+		
 		OnTurnEnded?.Invoke(CurrentTurnState);
+		
+		StartTurn(nextTurn);
 	}
 	
 	

@@ -28,12 +28,12 @@ public class Card : ICard
 				case Enums.AbilityType.Attack:
 					//TODO: Perform attack
 					//will reference Opponent and attack that opponent based on power of card.
-					
+					GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(ability.Power);
 					break;
 				case Enums.AbilityType.Heal:
 					//TODO: Perform healing.
 					//will reference player and heal that player based on power of card.
-					
+					GameManager.Instance.PlayerController.Heal(ability.Power);
 					break;
 				case Enums.AbilityType.Repel:
 					//TODO: Perform debuff

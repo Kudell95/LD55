@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,6 +16,10 @@ public class GameManager : MonoBehaviour
 	
 	public Enums.OpponentDifficulty CurrentDifficulty;
 	
+	public GameObject CardPrefab;
+	
+	public Action<int> OnCardsAdded;
+	public Action OnCardAddComplete;
 	
 	private void Awake() {
 		if (Instance == null) {
@@ -27,6 +32,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		OpponentManager.OnOpponentReadyForFight += onOpponentReadyForFight;
+		OnCardAddComplete += onCardAddComplete;
 		
 		CurrentDifficulty = Enums.OpponentDifficulty.Recruit;
 		//ensure timescale running etc...
@@ -49,7 +55,14 @@ public class GameManager : MonoBehaviour
 	private void onOpponentReadyForFight()
 	{
 		//if the opponent is ready to fight, tell the turn manager to start a player turn.
-		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.PlayerTurn);
+		DrawCards(ConfigManager.Instance.ConfigObject.CardsForStartOfRound);
+		
+		
+	}
+	
+	private void onCardAddComplete()
+	{
+		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.PlayerTurn, false);
 	}
 
 	public void TogglePause()
@@ -63,6 +76,12 @@ public class GameManager : MonoBehaviour
 			Pause();
 		}
 	}
+	
+	public void DrawCards(int amount)
+	{
+		OnCardsAdded?.Invoke(amount);
+	}
+	
 	
 	public void Pause()
 	{

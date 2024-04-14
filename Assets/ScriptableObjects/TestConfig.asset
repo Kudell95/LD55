@@ -16,3 +16,7 @@ MonoBehaviour:
   RareCardWeight: 0.5
   EpicCardWeight: 0.2
   LegendaryCardWeight: 0.05
+  StartingHealth: 15
+  StartingMana: 15
+  MaxCardsInHand: 6
+  OpponentHealThreshold: 0.4

@@ -36,6 +36,8 @@ public class CardDB : MonoBehaviour
 	
 	public float GetRarityWeight(Enums.Rarity rarity)
 	{
+		if(ConfigManager.Instance == null)
+			return 1f;
 		switch(rarity)
 		{
 			case Enums.Rarity.Common:
