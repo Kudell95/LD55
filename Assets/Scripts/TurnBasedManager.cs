@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class TurnBasedManager : MonoBehaviour
@@ -20,6 +21,13 @@ public class TurnBasedManager : MonoBehaviour
 	public Action<Enums.TurnStates> OnTurnStarted;
 	
 	
+	public bool IsPlayerTurn {
+		get
+		{
+			return CurrentTurnState == Enums.TurnStates.PlayerTurn;
+		}
+	}
+	
 	
 	public Enums.TurnStates CurrentTurnState { get; private set; } = Enums.TurnStates.InitialTurn;
 	
@@ -28,6 +36,7 @@ public class TurnBasedManager : MonoBehaviour
 		if(turnState == Enums.TurnStates.PlayerTurn && drawCards)
 		{
 			GameManager.Instance.DrawCards(ConfigManager.Instance.ConfigObject.CardsReceivedEndOfTurn);
+			GameManager.Instance.PlayerController.AddMana(ConfigManager.Instance.ConfigObject.ManaRestoredAtEndOfRound);
 			return;
 		}			
 		CurrentTurnState = turnState;
@@ -55,7 +64,7 @@ public class TurnBasedManager : MonoBehaviour
 		
 		OnTurnEnded?.Invoke(CurrentTurnState);
 		
-		StartTurn(nextTurn);
+		StartTurn(nextTurn, true);
 	}
 	
 	

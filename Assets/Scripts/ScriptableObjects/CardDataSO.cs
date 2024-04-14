@@ -13,4 +13,5 @@ public class CardDataSO : ScriptableObject
 	public Enums.Rarity CardRarity;
 	public Sprite Image;
 	public List<CardAbilitySO> CardAbilities = new List<CardAbilitySO>();
+	public Enums.BroadAbilityType BroadAbilityType;
 }

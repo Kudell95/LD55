@@ -27,6 +27,14 @@ public class Enums : MonoBehaviour
 		Repel,
 	}
 	
+	public enum BroadAbilityType
+	{
+		Attack,
+		Heal,
+		Buff,
+		Debuff,
+	}
+	
 	public enum AbilityActionType
 	{
 		Place,

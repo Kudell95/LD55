@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -13,6 +14,7 @@ using UnityEngine.UI;
 public class CardController : MonoBehaviour
 {
 	public ICard CurrentCard;
+	public CardDataSO CardData;
 	
 	public TextMeshProUGUI NameText;
 	public TextMeshProUGUI DescriptionText;
@@ -24,28 +26,51 @@ public class CardController : MonoBehaviour
 	public Image CardFrameImage;
 	public Image ItemImage;
 	public RectTransform ImageRectTransform;
-
 	
+	public TextMeshProUGUI CardTypeText;
+	public Sprite CommonFrame;
+	public Sprite RareFrame;
+	public Sprite EpicFrame;
+	public Sprite LegendaryFrame;
+	
+	
+
 	
 	
 	public void SetCard(Card card)
 	{
 		CurrentCard = card;
+		CardData = card.CardData;
 		NameText.text = card.CardData.Name;
 		DescriptionText.text = card.CardData.Description;
 		ManaText.text = card.CardData.Mana.ToString();
 		CardImage.sprite = card.CardData.Image;
+		CardFrameImage.sprite = GetFrameByRarity(card.CardData.CardRarity);
+		CardTypeText.text = card.CardData.BroadAbilityType.ToString();
+	}
+	
+	Sprite GetFrameByRarity(Enums.Rarity rarity)
+	{
+		switch(rarity)
+		{
+			case Enums.Rarity.Common:
+				return CommonFrame;
+			case Enums.Rarity.Rare:
+				return RareFrame;
+			case Enums.Rarity.Epic:
+				return EpicFrame;
+			case Enums.Rarity.Legendary:
+				return LegendaryFrame;
+			default:
+				return CommonFrame;
+		}
 	}
 	
 	
 	public void GetRandomCard()
 	{
-		Card card = GameManager.Instance.CardDatabase.GetRandomCard();
-		CurrentCard = card;
-		NameText.text = card.CardData.Name;
-		DescriptionText.text = card.CardData.Description;
-		ManaText.text = card.CardData.Mana.ToString();
-		CardImage.sprite = card.CardData.Image;
+		Card card = GameManager.Instance.CardDatabase.GetRandomCard();		
+		SetCard(card);
 	}
 	
 	public void Update()
@@ -67,7 +92,6 @@ public class CardController : MonoBehaviour
 		float elapsedTime = 0f;
 
 
-
 		while (elapsedTime < moveTime)
 		{
 			elapsedTime += Time.deltaTime;
@@ -76,19 +100,41 @@ public class CardController : MonoBehaviour
 
 			yield return null;
 		}
+		
+		
 		//LeanTween.delayedCall(1f, () => { ItemImage.DOFade(0f, 4f)};
-		ItemImage.DOFade(0f, 4f);
+		ItemImage.DOFade(0f, 1f).OnComplete(()=>
+		{
+			Destroy(this.gameObject);
+		});
 	}
 	
 	
+	public void UnableToUseCard()
+	{
+		CardFrameImage.transform.DOLocalRotate(new Vector3(0f, 0f, 5f), 0.1f).SetEase(Ease.InOutQuad).SetLoops(4,LoopType.Yoyo).OnComplete(()=> 
+		{
+			CardFrameImage.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 0.1f);
+		});
+	}
+	
 	public void UseCard()
 	{
+		if(CardData.Mana > GameManager.Instance.PlayerController.Mana)
+		{
+			UnableToUseCard();
+			return;
+		}
+		
 		StartCoroutine(AnimateUseCard(true));
 		CurrentCard.PlayCard();
+		GameManager.OnCardUsed?.Invoke();		
 	}
 
 	public void OnDestroy()
 	{
-		StartCoroutine(AnimateUseCard(false));
+		ItemImage.DOKill();
+		CardCanvasGroup.DOKill();
+		ImageRectTransform.DOKill();
 	}
 }
