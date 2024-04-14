@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Trowel
   m_EditorClassIdentifier: 
   Name: Trowel
-  Description: Your basic gardening tool. Deals between 1 - 4 damage.
+  Description: Your basic gardening tool. Deals between 1 - 4 damage. Can be discared
+    to heal.
   Mana: 1
   CardRarity: 0
   Image: {fileID: -923224362, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
