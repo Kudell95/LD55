@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Opponent : MonoBehaviour, IOpponent
@@ -8,6 +11,18 @@ public class Opponent : MonoBehaviour, IOpponent
 	
 	public int Health;
 	public string GUID;
+	public SpriteRenderer OpponentSpriteRenderer;
+	public Transform SpriteOriginPoint;
+	
+	float _opponentOriginalScaleY;
+	
+	private void Awake() {
+		_opponentOriginalScaleY = SpriteOriginPoint.localScale.y;
+		SpriteOriginPoint.transform.DOScaleY(0,0);
+		
+		SpriteOriginPoint.transform.localScale = new Vector3(SpriteOriginPoint.transform.localScale.x, 0, SpriteOriginPoint.transform.localScale.z);
+		
+	}
 	
 	public void Attack()
 	{
@@ -39,11 +54,25 @@ public class Opponent : MonoBehaviour, IOpponent
 	{
 		//TODO: flesh this out a bit more with some animations etc...
 		//How do we wait to continue. events???
+		
 		OpponentData = newOpponentData;
 		Health = OpponentData.Health;
+		OpponentSpriteRenderer.sprite = OpponentData.Image;
+		SpriteOriginPoint.transform.DOKill();
+		
+		SoundManager.Instance.PlaySound("OpponentGrowl");
+		SpriteOriginPoint.transform.DOScaleY(_opponentOriginalScaleY,1f).OnComplete(()=>{			
+			SpriteOriginPoint.transform.DOShakePosition(1f,0.5f).OnComplete(()=>{				
+		 		OpponentManager.OnOpponentReadyForFight?.Invoke();		
+				SpriteOriginPoint.transform.DOMoveY(0.5f, 1.5f).OnComplete(()=>{SpriteOriginPoint.transform.DOScaleY(0.9f,0.3f);}).SetLoops(-1,LoopType.Yoyo);
+			});			
+		});
+		
+		
+		
+		
 		//play animation here.
 		//once animation done.
-		LeanTween.delayedCall(1f, () => { OpponentManager.OnOpponentReadyForFight?.Invoke(); });
 		// OpponentManager.OnOpponentReadyForFight?.Invoke();
 	}
 }

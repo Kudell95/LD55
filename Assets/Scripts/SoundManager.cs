@@ -43,6 +43,10 @@ public class SoundManager : MonoBehaviour
 	//   void
 	public void PlaySound(string _AudioClipName)
 	{
+		if(!AudioClipDB.AudioClips.ContainsKey(_AudioClipName))
+			return;
+		
+		
 		AudioClip clip = AudioClipDB.AudioClips[_AudioClipName];
 		
 		if(clip == null)
@@ -96,7 +100,7 @@ public class SoundManager : MonoBehaviour
 	public void Unmute()
 	{
 		AudioListener.volume = 1;
-        Debug.Log("Unmuted Audio!");
-    }
+		Debug.Log("Unmuted Audio!");
+	}
    
 }
