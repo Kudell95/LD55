@@ -16,7 +16,8 @@ MonoBehaviour:
   Description: The bucket can be used to carry many things. A lot of these things
     can be used to heal fellow plants.
   Mana: 2
-  CardRarity: 0
+  CardRarity: 1
   Image: {fileID: -43939837, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
   - {fileID: 11400000, guid: 846ad5b066314e94a920ab0bd9048832, type: 2}
+  BroadAbilityType: 1

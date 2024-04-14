@@ -25,6 +25,7 @@ public class Enums : MonoBehaviour
 		Attack,
 		Heal,
 		Repel,
+		AttackRange,
 	}
 	
 	public enum BroadAbilityType

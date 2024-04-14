@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			DrawCards(ConfigManager.Instance.ConfigObject.CardsReceivedEndOfTurn);
+			PlayerController.AddMana(ConfigManager.Instance.ConfigObject.ManaRestoredAtEndOfRound);
 		}
 		isFreshStart = false;
 	}
