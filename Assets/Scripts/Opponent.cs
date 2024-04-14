@@ -6,6 +6,7 @@ using DG.Tweening;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class Opponent : MonoBehaviour, IOpponent
 {
@@ -25,6 +26,7 @@ public class Opponent : MonoBehaviour, IOpponent
 	public static Action<int> OnHealthInitialised;
 	public static Action<int> OnHealthUpdated;
 	
+	private AnimationHelper animationHelper;
 	
 	float _opponentOriginalScaleY;
 	
@@ -33,7 +35,7 @@ public class Opponent : MonoBehaviour, IOpponent
 		SpriteOriginPoint.transform.DOScaleY(0,0);
 		
 		SpriteOriginPoint.transform.localScale = new Vector3(SpriteOriginPoint.transform.localScale.x, 0, SpriteOriginPoint.transform.localScale.z);
-		
+		animationHelper = GetComponent<AnimationHelper>();
 	}
 	
 	public void Attack()
@@ -105,10 +107,16 @@ public class Opponent : MonoBehaviour, IOpponent
 
 	public void Die()
 	{
-		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.OpponentSpawnTurn,false,false);
+		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.OpponentSpawnTurn,false,true);
 		//TODO: implement death animation
-		
-		OnOpponentDeath?.Invoke();		
+		// animationHelper.OnHit(transform);
+		SpriteOriginPoint.transform.DOScaleY(0,0.2f).OnComplete(()=>
+		{
+			LeanTween.delayedCall(2f,()=>
+			{				
+				OnOpponentDeath?.Invoke();
+			});
+		});
 	}
 
 	public Opponent Clone()
@@ -152,8 +160,7 @@ public class Opponent : MonoBehaviour, IOpponent
 			return;
 		}
 		Health -= damage;
-		//TODO: implement damage animation
-		
+		animationHelper.OnHit(SpriteOriginPoint.transform);
 		OnHealthUpdated?.Invoke(Health);
 	}
 	

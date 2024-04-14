@@ -38,7 +38,13 @@ public class TurnBasedManager : MonoBehaviour
 			GameManager.Instance.DrawCards(ConfigManager.Instance.ConfigObject.CardsReceivedEndOfTurn);
 			GameManager.Instance.PlayerController.AddMana(ConfigManager.Instance.ConfigObject.ManaRestoredAtEndOfRound);
 			return;
-		}			
+		}
+		
+		// if(turnState == Enums.TurnStates.OpponentSpawnTurn)
+		// {
+		// 	GameManager.Instance.PlayerController.AddMana(ConfigManager.Instance.ConfigObject.ManaRestoredAtEndOfRound);
+		// }
+			
 		CurrentTurnState = turnState;
 		OnTurnStarted?.Invoke(turnState);
 		
@@ -79,6 +85,8 @@ public class TurnBasedManager : MonoBehaviour
 				return "Player's Turn";
 			case Enums.TurnStates.OpponentTurn:
 				return "Opponent's Turn";
+			case Enums.TurnStates.OpponentSpawnTurn:
+				return "Opponent Killed. Waiting for next opponent...";
 			default:
 				return "";
 		}

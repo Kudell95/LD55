@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d64bb84572fe3b4f9fbf9676fa81bde, type: 3}
-  m_Name: Yellow Chomper
+  m_Name: Sinister Sunflower
   m_EditorClassIdentifier: 
-  Name: Yellow Chomper
+  Name: Sinister Sunflower
   Description: 
-  Health: 5
+  Health: 10
   Boss: 1
+  FinalBoss: 0
   OpponentDifficulty: 1
   OpponentAbilities:
   - {fileID: 11400000, guid: 1b5c28356c941f84da791d2addb3af41, type: 2}
-  Image: {fileID: -294494793, guid: 6aea5b157408cba43a2f44fda7c09323, type: 3}
+  Image: {fileID: 1747112860, guid: 6aea5b157408cba43a2f44fda7c09323, type: 3}

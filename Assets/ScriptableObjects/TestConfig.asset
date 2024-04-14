@@ -21,5 +21,6 @@ MonoBehaviour:
   MaxCardsInHand: 6
   ManaRestoredAtEndOfRound: 6
   OpponentHealThreshold: 0.4
+  NumberOfMinionsPerDifficulty: 2
   CardsForStartOfRound: 4
   CardsReceivedEndOfTurn: 2

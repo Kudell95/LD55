@@ -33,6 +33,10 @@ public class Card : ICard
 				case Enums.AbilityType.Repel:
 					//TODO: Perform debuff
 					break;
+				case Enums.AbilityType.AttackRange:
+					int attackPower = UnityEngine.Random.Range(ability.AttackRangeStart, ability.AttackRangeEnd);
+					GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(attackPower);
+					return;
 				default:
 					Debug.LogWarning("Ability type not implemented: " + ability.AbilityType);
 					break;
