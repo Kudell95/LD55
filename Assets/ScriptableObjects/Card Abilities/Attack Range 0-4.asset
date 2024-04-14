@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36ece402145c94943b7237beee35cc76, type: 3}
-  m_Name: Attack Range
+  m_Name: Attack Range 0-4
   m_EditorClassIdentifier: 
-  Name: Basic Attack
+  Name: Basic Attack 0-4
   Description: 'A basic attack move
 
 '
-  AbilityType: 0
+  AbilityType: 3
+  AbilityActionType: 0
   Power: 2
+  AttackRangeStart: 0
+  AttackRangeEnd: 4
