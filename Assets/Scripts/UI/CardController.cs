@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,14 +17,15 @@ public class CardController : MonoBehaviour
 	public TextMeshProUGUI DescriptionText;
 	public TextMeshProUGUI ManaText;
 	public Image CardImage;
+
+	//for animation
+	public CanvasGroup TextCanvasGroup;
 	
 	
 	public void Start()
 	{
 		GetRandomCard();
 	}
-	
-	
 	
 	public void SetCard(Card card)
 	{
@@ -54,10 +56,17 @@ public class CardController : MonoBehaviour
 		}
 		#endif
 	}
+
+	public IEnumerator AnimateUseCard(bool startingAnimation)
+	{
+		TextCanvasGroup.DOFade(0f, 1f);
+        yield return null;
+	}
 	
 	
 	public void UseCard()
 	{
+		StartCoroutine(AnimateUseCard(true));
 		CurrentCard.PlayCard();
 	}
 }

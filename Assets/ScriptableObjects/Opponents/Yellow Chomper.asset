@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d64bb84572fe3b4f9fbf9676fa81bde, type: 3}
+  m_Name: Yellow Chomper
+  m_EditorClassIdentifier: 
+  Name: Yellow Chomper
+  Description: 
+  Health: 5
+  Boss: 0
+  OpponentDifficulty: 1
+  OpponentAbilities:
+  - {fileID: 11400000, guid: 1b5c28356c941f84da791d2addb3af41, type: 2}
+  Image: {fileID: -294494793, guid: 6aea5b157408cba43a2f44fda7c09323, type: 3}
