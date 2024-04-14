@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using System;
 
 public class GameOverMenu : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class GameOverMenu : MonoBehaviour
     public void Start()
     {
         gameOverMenu.SetActive(false);
+        GameOverText.alpha = 255f;
+        GameOverSubText.alpha = 255f;
     }
 
     private void Update()
@@ -24,25 +27,22 @@ public class GameOverMenu : MonoBehaviour
             GameOver();
         }
     }
-    public IEnumerator GameOverScreenAnimation()
+    private void DoDelayAction(float delayTime)
     {
-        float _moveTime = 0f;
-        float elapsedTime = 0f;
-        while (elapsedTime < _moveTime)
-        {
-            elapsedTime += Time.deltaTime;
+        StartCoroutine(DelayAction(delayTime));
+    }
 
-            GameOverText.DOFade(255f, 3f);
-            
-            yield return null;
-        }
-
+    private IEnumerator DelayAction(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        GameOverSubText.DOFade(2f, 5f);
     }
 
     public void GameOver()
     {
         gameOverMenu.SetActive(true);
-        StartCoroutine(GameOverScreenAnimation());
+        GameOverText.DOFade(1f, 3f);
+        DoDelayAction(2f);
     }
 
     public void ExitButton()
