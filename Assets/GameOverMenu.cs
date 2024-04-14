@@ -16,8 +16,6 @@ public class GameOverMenu : MonoBehaviour
     public void Start()
     {
         gameOverMenu.SetActive(false);
-        GameOverText.alpha = 255f;
-        GameOverSubText.alpha = 255f;
     }
 
     private void Update()
