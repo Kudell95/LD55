@@ -83,32 +83,32 @@ public class CardController : MonoBehaviour
 		#endif
 	}
 
-	public IEnumerator AnimateUseCard(bool startingAnimation)
+	public void AnimateUseCard()
 	{
+		
+		
+		
+		
 		//fade card
-		CardCanvasGroup.DOFade(0f, 1f);
-
-		float moveTime = 1f;
-		float elapsedTime = 0f;
-
-
-		while (elapsedTime < moveTime)
+		CardCanvasGroup.DOFade(0f, 1f).OnComplete(()=>
 		{
-			elapsedTime += Time.deltaTime;
-
-			ImageRectTransform.DOLocalMoveY(ImageRectTransform.position.y + 0f, 2.2f);
-
-			yield return null;
-		}
+			transform.SetParent(transform.parent.parent);
+		});
+		// move item up.
+		ImageRectTransform.DOLocalMoveY(ImageRectTransform.position.y + 0f, 2.2f).OnComplete(()=>
+		{
+			
+			ItemImage.DOFade(0f, 1f).OnComplete(()=>
+			{
+				Destroy(this.gameObject);
+			});
+		
+		});
 		
 		
 		//LeanTween.delayedCall(1f, () => { ItemImage.DOFade(0f, 4f)};
-		ItemImage.DOFade(0f, 1f).OnComplete(()=>
-		{
-			Destroy(this.gameObject);
-		});
+		
 	}
-	
 	
 	public void UnableToUseCard()
 	{
@@ -126,7 +126,7 @@ public class CardController : MonoBehaviour
 			return;
 		}
 		
-		StartCoroutine(AnimateUseCard(true));
+		AnimateUseCard();
 		CurrentCard.PlayCard();
 		GameManager.OnCardUsed?.Invoke();		
 	}
