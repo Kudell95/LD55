@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; }
-	
-	
 	public Player PlayerController;
 	public CardDB CardDatabase;
+	
+	public OpponentManager OpponentManagerObject;
 
 	public OpponentDB OpponentList;
+	
+	public Enums.OpponentDifficulty CurrentDifficulty;
 	
 	
 	private void Awake() {
@@ -23,6 +26,9 @@ public class GameManager : MonoBehaviour
 	
 	private void Start()
 	{
+		OpponentManager.OnOpponentReadyForFight += onOpponentReadyForFight;
+		
+		CurrentDifficulty = Enums.OpponentDifficulty.Recruit;
 		//ensure timescale running etc...
 		Play();
 		
@@ -34,11 +40,18 @@ public class GameManager : MonoBehaviour
 		// Once all enemies are dead, display victory screen with stats? or something... Fireworks 😳
 		// 
 		
+		OpponentManagerObject.GetNewOpponent(CurrentDifficulty);
 		
 		//Levels consist of 2/3 minion enemies, 1 boss enemy.
 		//After 3 levels, show final boss.
 	}
-	
+
+	private void onOpponentReadyForFight()
+	{
+		//if the opponent is ready to fight, tell the turn manager to start a player turn.
+		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.PlayerTurn);
+	}
+
 	public void TogglePause()
 	{
 		if (Time.timeScale == 0.0f)
@@ -65,5 +78,10 @@ public class GameManager : MonoBehaviour
 	{
 		SceneTransitionManager.Instance.LoadScene(Enums.Scenes.MainMenu);
 		Debug.Log("Exiting to main menu.");
+	}
+	
+	
+	private void OnDestroy() {
+		OpponentManager.OnOpponentReadyForFight -= onOpponentReadyForFight;
 	}
 }

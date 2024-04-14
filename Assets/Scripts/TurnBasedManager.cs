@@ -31,12 +31,29 @@ public class TurnBasedManager : MonoBehaviour
 			
 		CurrentTurnState = turnState;
 		OnTurnStarted?.Invoke(turnState);
+		
+		
+		NotificationManager.Instance?.Notify(getTurnText(turnState));
 	}
 	
 	public void EndTurn()
 	{
 		CurrentTurnState = Enums.TurnStates.PlayerTurn;
 		OnTurnEnded?.Invoke(CurrentTurnState);
+	}
+	
+	
+	public string getTurnText(Enums.TurnStates turnStates)
+	{
+		switch(turnStates)
+		{
+			case Enums.TurnStates.PlayerTurn:
+				return "Player's Turn";
+			case Enums.TurnStates.OpponentTurn:
+				return "Opponent's Turn";
+			default:
+				return "";
+		}
 	}
 	
 }

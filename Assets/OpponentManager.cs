@@ -27,7 +27,7 @@ public class OpponentManager : MonoBehaviour
 	{
 		var newOpponentData = GameManager.Instance.OpponentList.GetRandomOpponent(difficulty, boss);
 		
-		
+		OpponentObject.SpawnNewOpponent(newOpponentData);
 		
 	}
 	

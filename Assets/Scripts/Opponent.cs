@@ -5,6 +5,8 @@ using UnityEngine;
 public class Opponent : MonoBehaviour, IOpponent
 {
 	public OpponentDataSO OpponentData;
+	
+	public int Health;
 	public string GUID;
 	
 	public void Attack()
@@ -38,6 +40,11 @@ public class Opponent : MonoBehaviour, IOpponent
 		//TODO: flesh this out a bit more with some animations etc...
 		//How do we wait to continue. events???
 		OpponentData = newOpponentData;
+		Health = OpponentData.Health;
+		//play animation here.
+		//once animation done.
+		LeanTween.delayedCall(1f, () => { OpponentManager.OnOpponentReadyForFight?.Invoke(); });
+		// OpponentManager.OnOpponentReadyForFight?.Invoke();
 	}
 }
 

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ef18c3ef918504ba58e147ab7cd976, type: 3}
   m_Name: OpponentDB
   m_EditorClassIdentifier: 
-  Opponents: []
+  Opponents:
+  - {fileID: 11400000, guid: 00550d37e0554784fb1cb6dbbcb5c7a6, type: 2}
