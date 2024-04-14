@@ -41,13 +41,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DIssolveScale: 295.24
-    - _DissolveAmount: 0
-    - _OutlineThickness: 0.03
+    - _DIssolveScale: 100
+    - _DissolveAmount: 0.5
+    - _OutlineThickness: 0.1
     m_Colors:
-    - _OutlineColour: {r: 1, g: 0, b: 0.9878478, a: 0}
+    - _OutlineColour: {r: 0.5989194, g: 0, b: 1, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4564447200243771545
+--- !u!114 &6242510363893850450
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
