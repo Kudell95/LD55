@@ -26,7 +26,6 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 	private void Start()
 	{
 		_startPos = _rectTransform.anchoredPosition;
-		Debug.Log(_startPos);
 		_startScale = transform.localScale;
 	}
 	
@@ -81,8 +80,15 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 
 	public void OnSelect(BaseEventData eventData)
 	{
-		StartCoroutine(AnimateCardOnHover(true));
-		_selected = true;
+		if(TurnBasedManager.Instance.IsPlayerTurn)
+		{
+			StartCoroutine(AnimateCardOnHover(true));
+			_selected = true;
+		}else
+		{
+			//reset variable here just in case (or if we add enter key binding to new turn...)
+			_selected = false;
+		}
 	}
 
 	public void OnDeselect(BaseEventData eventData)

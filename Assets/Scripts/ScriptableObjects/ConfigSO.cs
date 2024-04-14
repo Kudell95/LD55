@@ -15,6 +15,7 @@ public class ConfigSO : ScriptableObject
 	public int StartingHealth;
 	public int StartingMana;	
 	public int MaxCardsInHand;
+	public int ManaRestoredAtEndOfRound;
 	
 	[Header("Opponents")]
 	public float OpponentHealThreshold;

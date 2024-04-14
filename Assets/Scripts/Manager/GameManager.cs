@@ -14,12 +14,11 @@ public class GameManager : MonoBehaviour
 
 	public OpponentDB OpponentList;
 	
-	public Enums.OpponentDifficulty CurrentDifficulty;
+	public Enums.OpponentDifficulty CurrentDifficulty;	
 	
-	public GameObject CardPrefab;
-	
-	public Action<int> OnCardsAdded;
-	public Action OnCardAddComplete;
+	public static Action<int> OnCardsAdded;
+	public static Action OnCardAddComplete;
+	public static Action OnCardUsed;
 	
 	private void Awake() {
 		if (Instance == null) {
@@ -55,9 +54,7 @@ public class GameManager : MonoBehaviour
 	private void onOpponentReadyForFight()
 	{
 		//if the opponent is ready to fight, tell the turn manager to start a player turn.
-		DrawCards(ConfigManager.Instance.ConfigObject.CardsForStartOfRound);
-		
-		
+		DrawCards(ConfigManager.Instance.ConfigObject.CardsForStartOfRound);	
 	}
 	
 	private void onCardAddComplete()
@@ -79,6 +76,7 @@ public class GameManager : MonoBehaviour
 	
 	public void DrawCards(int amount)
 	{
+		Debug.Log("drawing cards");
 		OnCardsAdded?.Invoke(amount);
 	}
 	
@@ -102,5 +100,6 @@ public class GameManager : MonoBehaviour
 	
 	private void OnDestroy() {
 		OpponentManager.OnOpponentReadyForFight -= onOpponentReadyForFight;
+		OnCardAddComplete -= onCardAddComplete;
 	}
 }

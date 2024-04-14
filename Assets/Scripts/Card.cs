@@ -42,7 +42,9 @@ public class Card : ICard
 					Debug.LogWarning("Ability type not implemented: " + ability.AbilityType);
 					break;
 			}
+			
 		}
+		GameManager.Instance.PlayerController.RemoveMana(CardData.Mana);
 	}
 
 	public Card Clone()
