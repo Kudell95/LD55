@@ -1214,17 +1214,17 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 0
-        y: 0
-        width: 640
-        height: 363
+        y: 76
+        width: 588
+        height: 279
       spriteId: 89e3438dce6d35049915192d123c048a
     - name: LD55 buttons_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
-        y: 0
-        width: 640
-        height: 363
+        y: 106
+        width: 489
+        height: 248
       spriteId: 6b24b045f9daf6e41be33189922d5e16
     linkedCells: []
     parentIndex: -1
