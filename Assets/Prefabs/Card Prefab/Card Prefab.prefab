@@ -442,6 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7499533518205191202}
   - component: {fileID: 3267119969489276692}
+  - component: {fileID: 6257780141262121225}
   m_Layer: 0
   m_Name: Card Canvas
   m_TagString: Untagged
@@ -501,6 +502,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &6257780141262121225
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3404813241511195769}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4201610721376023764
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +962,7 @@ MonoBehaviour:
   DescriptionText: {fileID: 2312209313526821109}
   ManaText: {fileID: 4995867106081143398}
   CardImage: {fileID: 2613820595139633139}
-  CardCanvasGroup: {fileID: 8836736281715980948}
+  CardCanvasGroup: {fileID: 6257780141262121225}
   CardFrameImage: {fileID: 4405545883485743696}
   ItemImage: {fileID: 2613820595139633139}
   ImageRectTransform: {fileID: 7422331600444806260}
