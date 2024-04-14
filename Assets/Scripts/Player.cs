@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 	
 	
 	private void Awake() {
+		if(ConfigManager.Instance == null)
+			return;
 		_StartingHealth = ConfigManager.Instance.ConfigObject.StartingHealth;
 		_StartingMana = ConfigManager.Instance.ConfigObject.StartingMana;
 		Health = _StartingHealth;
