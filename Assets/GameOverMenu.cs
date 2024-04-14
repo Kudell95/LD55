@@ -20,10 +20,7 @@ public class GameOverMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            GameOver();
-        }
+
     }
     private void DoDelayAction(float delayTime)
     {
