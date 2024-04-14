@@ -18,8 +18,14 @@ public class CardController : MonoBehaviour
 	public TextMeshProUGUI DescriptionText;
 	public TextMeshProUGUI ManaText;
 	public Image CardImage;
-	
-	public void Start()
+
+    //for animation
+    public CanvasGroup CardCanvasGroup;
+    public Image CardFrameImage;
+    public Image ItemImage;
+	public RectTransform ImageRectTransform;
+
+    public void Start()
 	{
 		GetRandomCard();
     }
@@ -53,14 +59,38 @@ public class CardController : MonoBehaviour
 		}
 		#endif
 	}
+
+	public IEnumerator AnimateUseCard(bool startingAnimation)
+	{
+		//fade card
+		CardCanvasGroup.DOFade(0f, 1f);
+
+		float moveTime = 1f;
+		float elapsedTime = 0f;
+
+
+
+		while (elapsedTime < moveTime)
+		{
+			elapsedTime += Time.deltaTime;
+
+			ImageRectTransform.DOLocalMoveY(ImageRectTransform.position.y + 0f, 2.2f);
+
+			yield return null;
+		}
+		//LeanTween.delayedCall(1f, () => { ItemImage.DOFade(0f, 4f)};
+		ItemImage.DOFade(0f, 4f);
+    }
 	
 	
 	public void UseCard()
 	{
+		StartCoroutine(AnimateUseCard(true));
 		CurrentCard.PlayCard();
 	}
 
     public void OnDestroy()
     {
+		StartCoroutine(AnimateUseCard(false));
     }
 }
