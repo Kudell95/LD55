@@ -123,15 +123,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: LD55 card icons
     originalName: 
-    pivot: {x: 0.5, y: -0.009861933}
+    pivot: {x: 1.0039474, y: -0.010101011}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 765
-      height: 507
+      width: 380
+      height: 495
     spriteID: 3caa161c0a60ca044a621f2bd07b0e3e
     spriteBone: []
     spriteOutline: []
@@ -153,10 +153,10 @@ ScriptedImporter:
     - name: LD55 card icons
       frameIndex: 0
       cellRect:
-        x: 0
+        x: 1
         y: 5
-        width: 765
-        height: 507
+        width: 380
+        height: 495
       spriteId: 3caa161c0a60ca044a621f2bd07b0e3e
     linkedCells: []
     parentIndex: -1
