@@ -51,9 +51,23 @@ public class Card : ICard
 						GameManager.Instance.InputBlockers.Pop();
 					});
 					break;
-				case Enums.AbilityType.Repel:
-					GameManager.Instance.InputBlockers.Pop();
-					//TODO: Perform debuff
+				case Enums.AbilityType.DefenceBuff:
+					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
+					{
+						GameManager.Instance.InputBlockers.Pop();
+						GameManager.Instance.PlayerController.AddBuff(CardData, ability.Power);
+						MutatorList.Instance.Add(CardData);
+					});
+					
+					break;
+				case Enums.AbilityType.TurnSkip:
+					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
+					{
+						//just add the mutator
+						GameManager.Instance.InputBlockers.Pop();
+						MutatorList.Instance.Add(CardData);
+					});
+					
 					break;
 				case Enums.AbilityType.AttackRange:
 					int attackPower = UnityEngine.Random.Range(ability.AttackRangeStart, ability.AttackRangeEnd);

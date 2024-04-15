@@ -62,7 +62,6 @@ public class VisualAnimationController : MonoBehaviour
 		//set to white but transperant
 		sr.sprite = cardData.Image;
 		
-		//TODO: Particle effects here...
 		GameObject particle = Instantiate(SpawnParticlePrefab, prefabParent);
 		particle.transform.localPosition = transform.position;
 		Destroy(particle, 1.3f);

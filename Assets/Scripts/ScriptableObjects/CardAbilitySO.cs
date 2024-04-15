@@ -15,12 +15,15 @@ public class CardAbilitySO : ScriptableObject
 	
 	[HideIf("AbilityType", Enums.AbilityType.AttackRange)]
 	public int Power;
+	public bool SkipTurn;
 	
 	[HideIf("AbilityType", Enums.AbilityType.Attack)]
+	[HideIf("AbilityType", Enums.AbilityType.DefenceBuff)]
 	
 	public int AttackRangeStart;
 	
 	[HideIf("AbilityType", Enums.AbilityType.Attack)]
+	[HideIf("AbilityType", Enums.AbilityType.DefenceBuff)]
 	public int AttackRangeEnd;
 	
 }
