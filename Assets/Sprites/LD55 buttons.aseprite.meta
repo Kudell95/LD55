@@ -1543,9 +1543,17 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 106
-        width: 489
+        width: 587
         height: 248
       spriteId: 6b24b045f9daf6e41be33189922d5e16
+    - name: LD55 buttons_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 106
+        width: 585
+        height: 248
+      spriteId: dfbac687ba4f3e7468c1f56e151d649a
     linkedCells: []
     parentIndex: -1
   platformSettings:
