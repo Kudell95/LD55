@@ -31,6 +31,7 @@ public class EndTurnButton : MonoBehaviour
 	
 	public void EndTurn()
 	{
+		SoundManager.Instance?.PlaySound("ButtonClick");
 		TurnBasedManager.Instance.EndTurn();
 	}
 	

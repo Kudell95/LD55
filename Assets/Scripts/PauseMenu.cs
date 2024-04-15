@@ -45,11 +45,13 @@ public class PauseMenu : MonoBehaviour
 
 	public void MuteButton()
 	{
+		SoundManager.Instance?.PlaySound("ButtonClick");
 		SoundManager.Instance.ToggleMute();
 	}
 
 	public void ExitButton()
 	{
+		SoundManager.Instance?.PlaySound("ButtonClick");
 		GameManager.Instance.Play(); //if paused, Exit() will not work!
 		Hide();
 		GameManager.Instance.Exit(); // To MainMenu!
@@ -57,7 +59,7 @@ public class PauseMenu : MonoBehaviour
 	
 	public void ResumeButton()
 	{
-		
+		SoundManager.Instance?.PlaySound("ButtonClick");
 		GameManager.Instance.TogglePause();
 		Hide();
 	}

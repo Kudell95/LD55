@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Blight Blossom
   Description: 
-  Health: 0
+  Health: 8
   Boss: 0
   FinalBoss: 0
-  OpponentDifficulty: 0
-  OpponentAbilities: []
+  OpponentDifficulty: 3
+  OpponentAbilities:
+  - {fileID: 11400000, guid: 58d9165666563274da53d7aea83f5871, type: 2}
+  - {fileID: 11400000, guid: 63903790bb8c3e04686d144a6d3cb0d9, type: 2}
+  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
+  - {fileID: 11400000, guid: 1b5c28356c941f84da791d2addb3af41, type: 2}
+  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
   Image: {fileID: -1580059009, guid: 6aea5b157408cba43a2f44fda7c09323, type: 3}

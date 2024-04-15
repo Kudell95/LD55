@@ -35,14 +35,12 @@ public class GameOverMenu : MonoBehaviour
 		gameOverMenu.SetActive(false);
 	}
 
-	private void Update()
-	{
-
-	}
+	
 	private void DoDelaySubTextAlpha(float delayTime)
 	{
 		StartCoroutine(DelayAction(delayTime));
 	}
+	
 	private IEnumerator DelayAction(float delayTime)
 	{
 		yield return new WaitForSeconds(delayTime);
@@ -51,6 +49,7 @@ public class GameOverMenu : MonoBehaviour
 
 	public void GameOver()
 	{
+		
 		gameOverMenu.SetActive(true);
 		GameOverText.DOFade(1f, 3f);
 		DoDelaySubTextAlpha(2f);
@@ -58,6 +57,7 @@ public class GameOverMenu : MonoBehaviour
 
 	public void ExitButton()
 	{
+		SoundManager.Instance?.PlaySound("ButtonClick");
 		GameManager.Instance.Play(); //if paused, Exit() will not work!
 		GameManager.Instance.Exit(); // To MainMenu!
 	}

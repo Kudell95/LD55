@@ -12,11 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d64bb84572fe3b4f9fbf9676fa81bde, type: 3}
   m_Name: IronBark
   m_EditorClassIdentifier: 
-  Name: 
+  Name: IronBark
   Description: 
-  Health: 0
-  Boss: 0
-  FinalBoss: 0
-  OpponentDifficulty: 0
-  OpponentAbilities: []
-  Image: {fileID: 0}
+  Health: 18
+  Boss: 1
+  FinalBoss: 1
+  OpponentDifficulty: 3
+  OpponentAbilities:
+  - {fileID: 11400000, guid: 1b5c28356c941f84da791d2addb3af41, type: 2}
+  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
+  - {fileID: 11400000, guid: 63903790bb8c3e04686d144a6d3cb0d9, type: 2}
+  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
+  - {fileID: 11400000, guid: 1b5c28356c941f84da791d2addb3af41, type: 2}
+  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
+  - {fileID: 11400000, guid: 63903790bb8c3e04686d144a6d3cb0d9, type: 2}
+  - {fileID: 11400000, guid: 58d9165666563274da53d7aea83f5871, type: 2}
+  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
+  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
+  - {fileID: 11400000, guid: 58d9165666563274da53d7aea83f5871, type: 2}
+  - {fileID: 11400000, guid: 63903790bb8c3e04686d144a6d3cb0d9, type: 2}
+  - {fileID: 11400000, guid: 1b5c28356c941f84da791d2addb3af41, type: 2}
+  - {fileID: 11400000, guid: 04e0651066b7e5c46b028e5e6daed8aa, type: 2}
+  - {fileID: 11400000, guid: 7d45453674969194fa7d14e850a3902b, type: 2}
+  - {fileID: 11400000, guid: fcf273faa495be7428690dde73aa15c6, type: 2}
+  - {fileID: 11400000, guid: de0608bb029678747bcbb63f90060d18, type: 2}
+  - {fileID: 11400000, guid: de0608bb029678747bcbb63f90060d18, type: 2}
+  Image: {fileID: 21300000, guid: ef41cf7eb88b5c64597c60ddca827ce8, type: 3}
