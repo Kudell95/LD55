@@ -184,13 +184,43 @@ public class ThoughtBubble : MonoBehaviour
         {
            "He looks tough, time to finish this!",
            "Oh boy, this job might be beyond the scope of a gardener...", // wanted this to be more likely to pop up.
-           "Oh boy, this job might be beyond the scope of a gardener...",
+           "This job might be beyond the scope of a gardener...",
            "Oh boy, this job might be beyond the scope of a gardener...",
            "Time to end this, right here and now!",
            "Come on then, if you think you're tough enough!",
            "I'll show you what it really means to garden!"
         };
         string outputMessage = finalBossMessages[Random.Range(0, finalBossMessages.Length)];
+        NewThought(outputMessage);
+    }
+
+    public void OnMissMessage()
+    {
+        string[] missMessages =
+        {
+           "Whoops, must be my old fingers!",
+           "I missed? I am really out of practice.",
+           "Did I mention I was retired?",
+           "Uhh... That was a warning shot!",
+           "Ok, ok.. maybe we can negotiate?",
+           "I don't know what you expected from an old man..."
+        };
+        string outputMessage = missMessages[Random.Range(0, missMessages.Length)];
+        NewThought(outputMessage);
+    }
+
+    public void OnNoManaMessage()
+    {
+        string[] noManaMessages =
+        {
+           "I don't have enough mana!",
+           "I'm all out of mana for that one...", 
+           "In my old age, mana is a virtue.",
+           "Why didn't I buy the 'no mana required' edition?",
+           "Look, I'm old. Mana is akin to mojo these days...",
+           "Ok, ok.. maybe we can negotiate?"
+        };
+        string outputMessage = noManaMessages[Random.Range(0, noManaMessages.Length)];
         NewThought(outputMessage);
     }
 }

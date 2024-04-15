@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
   m_Name: Fertiliser
   m_EditorClassIdentifier: 
-  Name: Dr. Plant's Perculiar Fertiliser
-  Description: Provides a small healing effect per round until the current enemy
-    dies.
+  Name: Fertiliser
+  Description: Dr. Plants Peculiar Fertiliser! Provides a small healing effect per
+    round until the current enemy dies.
   Mana: 3
   CardRarity: 1
   Image: {fileID: 1308827955, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
-  - {fileID: 11400000, guid: e6aa86b59b91568418e1e1d12d7679d7, type: 2}
+  - {fileID: 11400000, guid: 3fff38c33a63afd49837b451f6b7c8ac, type: 2}
   BroadAbilityType: 2
-  ActiveTillEndOfRound: 0
+  ActiveTillEndOfRound: 1
+  SingleUse: 0

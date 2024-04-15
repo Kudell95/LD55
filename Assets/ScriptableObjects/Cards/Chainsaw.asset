@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Chainsaw
   m_EditorClassIdentifier: 
   Name: Chainsaw
-  Description: The ultimate plant killer. Deals 7 damage. Make plant very unhappy.
+  Description: The ultimate plant killer. Deals 7 damage. Makes plant very unhappy.
   Mana: 6
   CardRarity: 3
   Image: {fileID: 1004743760, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
-  - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
+  - {fileID: 11400000, guid: 3c5c306025d98e048b44879296c331f7, type: 2}
   BroadAbilityType: 0
+  ActiveTillEndOfRound: 0
+  SingleUse: 0
