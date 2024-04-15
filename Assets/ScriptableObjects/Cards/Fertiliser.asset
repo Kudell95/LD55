@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Fertiliser
   m_EditorClassIdentifier: 
   Name: Dr. Plant's Perculiar Fertiliser
-  Description: does stuff to your plants!!! yeah!
-  Mana: 5
+  Description: Provides a small healing effect per round until the current enemy
+    dies.
+  Mana: 3
   CardRarity: 1
   Image: {fileID: 1308827955, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:

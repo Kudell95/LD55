@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
-  m_Name: Bucket
+  m_Name: RoseBush
   m_EditorClassIdentifier: 
-  Name: Watering Can
-  Description: Provides a much needed refreshment for our garden oriented wizard!
-  Mana: 2
-  CardRarity: 1
-  Image: {fileID: -43939837, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
-  CardAbilities:
-  - {fileID: 11400000, guid: 846ad5b066314e94a920ab0bd9048832, type: 2}
+  Name: Rose Bush
+  Description: An overwhelmingly restorative essence courses through its stem. Beware
+    the thorns!
+  Mana: 6
+  CardRarity: 3
+  Image: {fileID: 477095293, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
+  CardAbilities: []
   BroadAbilityType: 1
