@@ -168,7 +168,8 @@ public class ThoughtBubble : MonoBehaviour
 		   "Ok, no more mister nice wizard!",
 		   "My patience is running thin, petal boy!",
 		   "Careful, you might just make me mad...",
-		   "Can't you"
+		   "Can't you just go away? I'm getting annoyed.",
+		   "I'd really appreciate it if you didn't hurt me."
         };
         string outputMessage = playerHitMessages[Random.Range(0, playerHitMessages.Length)];
         NewThought(outputMessage);
@@ -213,7 +214,9 @@ public class ThoughtBubble : MonoBehaviour
            "Did I mention I was retired?",
            "Uhh... That was a warning shot!",
            "Ok, ok.. maybe we can negotiate?",
-           "I don't know what you expected from an old man..."
+           "I don't know what you expected from an old man...",
+		   "I missed? Aren't you a stationary plant?",
+		   "You're more nimble than you seem, immobile plant!"
         };
         string outputMessage = missMessages[Random.Range(0, missMessages.Length)];
         NewThought(outputMessage);
