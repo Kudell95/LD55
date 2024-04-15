@@ -14,10 +14,11 @@ public class ThoughtBubble : MonoBehaviour
 	public Transform SpriteOriginPoint;
 
 	[Header("Parameters")]
-	[SerializeField] private float _typingSpeed = 0.06f;
+	[SerializeField] private float _typingSpeed = 0.08f;
 	[SerializeField] private float _displayTimer = 3f;
 
 	private Coroutine DisplayLineCoroutine;
+	private Coroutine DisplayTimerCoroutine;
 	
 	private void Awake() {
 		if(Instance == null)
@@ -49,20 +50,8 @@ public class ThoughtBubble : MonoBehaviour
 
 	public void AnimateBubble()
 	{
-		while (ThoughtBubbleCanvas.isActiveAndEnabled)
-		{
-			StartCoroutine(BubbleAnimation());
-		}
-		// SpriteOriginPoint.transform.DOMoveY(0.02f, 0.3f).OnComplete(() => { SpriteOriginPoint.transform.DOScaleY(0.02f, 0.3f); }).SetLoops(-1, LoopType.Yoyo);
+		SpriteOriginPoint.transform.DOMoveY(0.02f, 0.3f).OnComplete(() => { SpriteOriginPoint.transform.DOScaleY(0.02f, 0.3f); }).SetLoops(-1, LoopType.Yoyo);
 	}
-
-	public IEnumerator BubbleAnimation()
-	{
-		SpriteOriginPoint.transform.DOMoveY(0.02f, 0.3f);
-		yield return new WaitForSeconds(0.4f);
-        SpriteOriginPoint.transform.DOMoveY(-0.02f, -0.3f);
-        yield return new WaitForSeconds(0.4f);
-    }
 	private IEnumerator DisplayLine(string line)
 	{
 		//remove dialogue text
@@ -156,7 +145,7 @@ public class ThoughtBubble : MonoBehaviour
 		   "Time to summon some tools!",
 		   "And I thought I retired from summoning...",
 		   "It's about time I dusted off the ol' book!",
-		   "I'll show you what it really means to garden!"
+		   "I'll show you what it really meants to garden!"
 		};
 		string outputMessage = playerStartMessages[Random.Range(0, playerStartMessages.Length)];
 		NewThought(outputMessage);
