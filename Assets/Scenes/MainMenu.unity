@@ -156,10 +156,10 @@ RectTransform:
   - {fileID: 786709200}
   m_Father: {fileID: 947654233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -229.5, y: -473.5}
-  m_SizeDelta: {x: -2458, y: -1342}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -168.00006, y: -685.1}
+  m_SizeDelta: {x: 470, y: 1018}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &133061725
 MonoBehaviour:
@@ -567,7 +567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 184.01143, y: 460.43582}
+  m_AnchoredPosition: {x: 184.01, y: 322}
   m_SizeDelta: {x: 368.0227, y: 920.8716}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &947654234
@@ -775,8 +775,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -229, y: 18}
-  m_SizeDelta: {x: 1219.0913, y: 237.9363}
+  m_AnchoredPosition: {x: -168, y: 0}
+  m_SizeDelta: {x: 1821.5508, y: 352.1958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1172068745
 MonoBehaviour:
@@ -798,10 +798,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LD55 Jam
+  m_text: "The Cultivator\u2019s Conjuring Compendium"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 157240e5245db06449458969928cb846, type: 2}
+  m_sharedMaterial: {fileID: -9068679502954986648, guid: 157240e5245db06449458969928cb846, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -825,8 +825,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 175
-  m_fontSizeBase: 175
+  m_fontSize: 157.9
+  m_fontSizeBase: 157.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

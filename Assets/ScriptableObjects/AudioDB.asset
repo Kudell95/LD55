@@ -17,7 +17,25 @@ MonoBehaviour:
     - BattleTheme
     - MenuTheme
     - ButtonClick
+    - TakeDamage
+    - PlayerDeath
+    - Pause
+    - Resume
+    - OpponentTakeDamage
+    - OpponentDie
+    - OpponentGrowl
+    - PlayerMiscSound
+    - OpponentAttack
     valueData:
     - {fileID: 8300000, guid: a2eaa1ecb80ddde4189c3f56fc15608a, type: 3}
     - {fileID: 8300000, guid: b7caaaef7ba8a7f4dae55fb7f3b89131, type: 3}
     - {fileID: 8300000, guid: 3249346d774e99e438cd240b7a8bcfdf, type: 3}
+    - {fileID: 8300000, guid: 5abd6e840e271954b89ed24557a6fe2a, type: 3}
+    - {fileID: 8300000, guid: 7dba516b084a9214db5ffabc65fae8a0, type: 3}
+    - {fileID: 8300000, guid: 1736ffbf8addf144e87c79a897c30b28, type: 3}
+    - {fileID: 8300000, guid: 66aae96463ae70b45873c0c99c56cd8b, type: 3}
+    - {fileID: 8300000, guid: 12ed8206b95a9584c80d6cc23cabfc48, type: 3}
+    - {fileID: 8300000, guid: 202ea05fb7fb2c64da2742779fb4ad71, type: 3}
+    - {fileID: 8300000, guid: 367342234ffbb634aabdac82452e4a2f, type: 3}
+    - {fileID: 8300000, guid: 494a71a38c3bde04dbf8e3405fa89ca1, type: 3}
+    - {fileID: 8300000, guid: 063ab17144aebac4db3d1494cee95365, type: 3}
