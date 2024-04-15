@@ -49,7 +49,26 @@ public class Player : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		SoundManager.Instance.PlaySound("TakeDamage");
-		HealthText.ShowDamage(damage);
+		int BlockedDamage = 0;
+		
+		if(MutatorList.Instance.ContainsDefenceBuff() && damage > 0)
+		{
+			BlockedDamage = MutatorList.Instance.GetTotalDefenceBuff(out List<Mutator> mutators);
+			
+			if(mutators != null && mutators.Count > 0)
+			{
+				MutatorList.Instance.Remove(mutators);
+			}
+		}		
+		
+		if(damage - BlockedDamage <= 0)
+			damage = 0;
+		else
+			damage -= BlockedDamage;
+		
+		HealthText.ShowDamage(damage,false, BlockedDamage);	
+		
+		
 		Debug.Log("Damage Taken");
 		if(Health - damage <= 0)
 		{

@@ -132,8 +132,7 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("drawing cards");
 		OnCardsAdded?.Invoke(amount);
-	}
-	
+	}	
 	
 	public void Pause()
 	{

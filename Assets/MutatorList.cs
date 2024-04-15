@@ -46,6 +46,54 @@ public class MutatorList : MonoBehaviour
 		}
 		return false;
 	}
+	public bool ContainsDefenceBuff()
+	{
+		return Mutators.Any(x=>x.CardData.CardAbilities.Any(x=>x.AbilityType == Enums.AbilityType.DefenceBuff));
+	}
+	
+	public bool ContainsAttackBuff()
+	{
+		return Mutators.Any(x=>x.CardData.CardAbilities.Any(x=>x.AbilityType == Enums.AbilityType.DefenceBuff));
+	}
+	
+	public int GetTotalDefenceBuff(out List<Mutator> mutators)
+	{
+		int sum = 0;
+		mutators = new List<Mutator>();
+		foreach(Mutator m in Mutators.Where(x => x.CardData.CardAbilities.Any(x=>x.AbilityType == Enums.AbilityType.DefenceBuff)))		
+		{
+			foreach(CardAbilitySO ability in m.CardData.CardAbilities)
+			{
+				if(ability.AbilityType == Enums.AbilityType.DefenceBuff)
+				{
+					sum += ability.Power;
+				}
+			}
+			if(m.CardData.SingleUse)
+				mutators.Add(m);
+		}
+		
+		return sum;
+	}
+	
+	public int GetTotalAttackbuff(out List<Mutator> mutators)	
+	{
+		int sum = 0;
+		mutators = new List<Mutator>();
+		foreach(Mutator m in Mutators.Where(x => x.CardData.CardAbilities.Any(x=>x.AbilityType == Enums.AbilityType.AttackBuff)))		
+		{
+			foreach(CardAbilitySO ability in m.CardData.CardAbilities)
+			{
+				if(ability.AbilityType == Enums.AbilityType.AttackBuff)
+				{
+					sum += ability.Power;
+				}
+			}
+			mutators.Add(m);
+		}
+		
+		return sum;
+	}
 	
 	/// <summary>
 	/// Removes first card with matching cardData.
@@ -62,6 +110,14 @@ public class MutatorList : MonoBehaviour
 				Destroy(go);
 				return;
 			}
+		}
+	}
+	
+	public void Remove(List<Mutator> mutators)
+	{
+		for(int i = mutators.Count-1; i >= 0; i--)
+		{
+			Remove(mutators[i]);
 		}
 	}
 	

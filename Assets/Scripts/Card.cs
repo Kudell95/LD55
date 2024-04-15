@@ -69,6 +69,14 @@ public class Card : ICard
 					});
 					
 					break;
+				case Enums.AbilityType.AttackBuff:
+					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
+					{
+						GameManager.Instance.InputBlockers.Pop();
+						MutatorList.Instance.Add(CardData);
+					});
+					
+					break;
 				case Enums.AbilityType.AttackRange:
 					int attackPower = UnityEngine.Random.Range(ability.AttackRangeStart, ability.AttackRangeEnd);
 					GameManager.Instance.ObjectAnimationController.PlayAttackAnimation(CardData, ()=>

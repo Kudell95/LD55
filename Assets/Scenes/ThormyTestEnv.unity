@@ -2007,6 +2007,8 @@ MonoBehaviour:
   DamageColour: {r: 1, g: 0, b: 0, a: 1}
   HealColour: {r: 0.41379714, g: 1, b: 0, a: 1}
   MissColour: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
+  BlockedColour: {r: 0.28555536, g: 0.29188892, b: 0.8773585, a: 1}
+  BuffedColour: {r: 0.4716981, g: 0.13572444, b: 0.41843757, a: 1}
   HealParticlePrefab: {fileID: 2348145422012297066, guid: 7ca2ce1f2b8af314da6078f3393e9c03, type: 3}
   DamageParticlePrefab: {fileID: 7633632995138187829, guid: e10c548c2ddff914db3613c5bb5f5c23, type: 3}
   TextPrefab: {fileID: 8960960452084995564, guid: 458840adcccd84145909e190d770b04d, type: 3}
@@ -5359,6 +5361,38 @@ PrefabInstance:
     - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
       propertyPath: MissColour.r
       value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
+      propertyPath: BuffedColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
+      propertyPath: BuffedColour.b
+      value: 0.38221875
+      objectReference: {fileID: 0}
+    - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
+      propertyPath: BuffedColour.g
+      value: 0.045656808
+      objectReference: {fileID: 0}
+    - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
+      propertyPath: BuffedColour.r
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
+      propertyPath: BlockedColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
+      propertyPath: BlockedColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
+      propertyPath: BlockedColour.g
+      value: 0.4799106
+      objectReference: {fileID: 0}
+    - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
+      propertyPath: BlockedColour.r
+      value: 0.2688679
       objectReference: {fileID: 0}
     - target: {fileID: 688299525189619218, guid: dd1c7eb8e7d05134984dc1612ca6f966, type: 3}
       propertyPath: HealParticlePrefab
