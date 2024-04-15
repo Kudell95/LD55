@@ -27,6 +27,7 @@ MonoBehaviour:
     - PlayerMiscSound
     - OpponentAttack
     - PlayerSummon
+    - PlayerHeal
     valueData:
     - {fileID: 8300000, guid: a2eaa1ecb80ddde4189c3f56fc15608a, type: 3}
     - {fileID: 8300000, guid: b7caaaef7ba8a7f4dae55fb7f3b89131, type: 3}
@@ -41,3 +42,4 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 494a71a38c3bde04dbf8e3405fa89ca1, type: 3}
     - {fileID: 8300000, guid: 063ab17144aebac4db3d1494cee95365, type: 3}
     - {fileID: 8300000, guid: 36652a22ba0e6dc468ecc2fd0961006b, type: 3}
+    - {fileID: 8300000, guid: a32ee02e276e72a4dba1a26c8effbf89, type: 3}
