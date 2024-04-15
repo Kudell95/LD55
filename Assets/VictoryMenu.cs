@@ -28,14 +28,11 @@ public class VictoryMenu : MonoBehaviour
 		victoryMenu.SetActive(false);
 	}
 
-	private void Update()
-	{
-
-	}
 	private void DoDelaySubTextAlpha(float delayTime)
 	{
 		StartCoroutine(DelayAction(delayTime));
 	}
+	
 	private IEnumerator DelayAction(float delayTime)
 	{
 		yield return new WaitForSeconds(delayTime);
@@ -44,13 +41,15 @@ public class VictoryMenu : MonoBehaviour
 
 	public void Victory()
 	{
+		SoundManager.Instance?.PlaySound("ButtonClick");
 		victoryMenu.SetActive(true);
 		VictorText.DOFade(1f, 3f);
 		DoDelaySubTextAlpha(2f);
 	}
-
+	
 	public void ExitButton()
 	{
+		SoundManager.Instance?.PlaySound("ButtonClick");
 		GameManager.Instance.Play(); //if paused, Exit() will not work!
 		GameManager.Instance.Exit(); // To MainMenu!
 	}

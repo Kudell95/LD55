@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 			}
 		}		
 		
-		if(BlockedDamage > 0)
+		if(BlockedDamage > 0 && damage - BlockedDamage <= 0)
 			ThoughtBubble.Instance.OnDefendMessage();
 		// else
 			// ThoughtBubble.Instance.OnPlayerHitMessage();
