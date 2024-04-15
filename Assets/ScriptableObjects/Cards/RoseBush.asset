@@ -18,5 +18,8 @@ MonoBehaviour:
   Mana: 6
   CardRarity: 3
   Image: {fileID: 477095293, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
-  CardAbilities: []
+  CardAbilities:
+  - {fileID: 11400000, guid: 846ad5b066314e94a920ab0bd9048832, type: 2}
   BroadAbilityType: 1
+  ActiveTillEndOfRound: 0
+  SingleUse: 0

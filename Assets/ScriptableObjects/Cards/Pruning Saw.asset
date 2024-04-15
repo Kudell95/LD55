@@ -18,7 +18,8 @@ MonoBehaviour:
   Mana: 4
   CardRarity: 1
   Image: {fileID: -1541073465, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
-  CardAbilities: []
+  CardAbilities:
+  - {fileID: 11400000, guid: b50229cd2180e6d4d8834a7eef219cf8, type: 2}
   BroadAbilityType: 0
   ActiveTillEndOfRound: 0
   SingleUse: 0
