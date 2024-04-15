@@ -50,7 +50,7 @@ public class ThoughtBubble : MonoBehaviour
 
 	public void AnimateBubble()
 	{
-		SpriteOriginPoint.transform.DOMoveY(0.02f, 0.3f).OnComplete(() => { SpriteOriginPoint.transform.DOScaleY(0.02f, 0.3f); }).SetLoops(-1, LoopType.Yoyo);
+		SpriteOriginPoint.transform.DOLocalMoveY(0.02f, 0.3f).OnComplete(() => { SpriteOriginPoint.transform.DOScaleY(0.02f, 0.3f); }).SetLoops(-1, LoopType.Yoyo);
 	}
 	private IEnumerator DisplayLine(string line)
 	{
@@ -145,7 +145,7 @@ public class ThoughtBubble : MonoBehaviour
 		   "Time to summon some tools!",
 		   "And I thought I retired from summoning...",
 		   "It's about time I dusted off the ol' book!",
-		   "I'll show you what it really meants to garden!"
+		   "I'll show you what it really means to garden!"
 		};
 		string outputMessage = playerStartMessages[Random.Range(0, playerStartMessages.Length)];
 		NewThought(outputMessage);
