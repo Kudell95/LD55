@@ -55,7 +55,6 @@ public class Card : ICard
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
 					{
 						GameManager.Instance.InputBlockers.Pop();
-						GameManager.Instance.PlayerController.AddBuff(CardData, ability.Power);
 						MutatorList.Instance.Add(CardData);
 					});
 					
@@ -64,6 +63,22 @@ public class Card : ICard
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
 					{
 						//just add the mutator
+						GameManager.Instance.InputBlockers.Pop();
+						MutatorList.Instance.Add(CardData);
+					});
+					
+					break;
+				case Enums.AbilityType.AttackBuff:
+					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
+					{
+						GameManager.Instance.InputBlockers.Pop();
+						MutatorList.Instance.Add(CardData);
+					});
+					
+					break;
+				case Enums.AbilityType.HealForRound:
+					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
+					{
 						GameManager.Instance.InputBlockers.Pop();
 						MutatorList.Instance.Add(CardData);
 					});

@@ -58,11 +58,15 @@ public class GameManager : MonoBehaviour
 		//ensure timescale running etc...
 		Play();
 		
+		ThoughtBubble.Instance.OnStartPlayerMessage();
+		
 		GetNewOpponent(CurrentDifficulty);		
 	}
 
 	private void onOpponentDeath()
 	{
+		MutatorList.Instance.RemoveAtEndOfRound();
+		
 		if(finalboss)
 		{
 			TurnBasedManager.Instance.StartTurn(Enums.TurnStates.VictoryTurn,false,false);
@@ -89,7 +93,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void onOpponentReadyForFight()
-	{
+	{		
 		//if the opponent is ready to fight, tell the turn manager to start a player turn.
 		if(isFreshStart)
 		{
@@ -132,8 +136,7 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("drawing cards");
 		OnCardsAdded?.Invoke(amount);
-	}
-	
+	}	
 	
 	public void Pause()
 	{

@@ -36,9 +36,20 @@ public class Player : MonoBehaviour
 		Health = _StartingHealth;
 		Mana = _StartingMana;
 		_animationHelper = GetComponent<AnimationHelper>();
+		
+		TurnBasedManager.Instance.OnTurnStarted += OnNewTurn;
 	}
-	
-	
+
+	private void OnNewTurn(Enums.TurnStates states)
+	{
+	   if(states != Enums.TurnStates.PlayerTurn)
+	   	return;
+		
+		
+		if(MutatorList.Instance.ContainsAnyHealForRound())
+			Heal(MutatorList.Instance.GetTotalHealForRound());
+	}
+
 	private void Start() {
 		OnHealthUpdated?.Invoke(Health);
 		OnManaUpdated?.Invoke(Mana);
@@ -49,7 +60,26 @@ public class Player : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		SoundManager.Instance.PlaySound("TakeDamage");
-		HealthText.ShowDamage(damage);
+		int BlockedDamage = 0;
+		
+		if(MutatorList.Instance.ContainsDefenceBuff() && damage > 0)
+		{
+			BlockedDamage = MutatorList.Instance.GetTotalDefenceBuff(out List<Mutator> mutators);
+			
+			if(mutators != null && mutators.Count > 0)
+			{
+				MutatorList.Instance.Remove(mutators);
+			}
+		}		
+		
+		if(damage - BlockedDamage <= 0)
+			damage = 0;
+		else
+			damage -= BlockedDamage;
+		
+		HealthText.ShowDamage(damage,false, BlockedDamage);	
+		
+		
 		Debug.Log("Damage Taken");
 		if(Health - damage <= 0)
 		{
@@ -104,11 +134,6 @@ public class Player : MonoBehaviour
 		OnManaUpdated?.Invoke(Mana);
 	}
 	
-	
-	public void AddBuff(CardDataSO card, int power)
-	{
-		//TODO: Implement This
-	}
 	
 	
 	public void Die()

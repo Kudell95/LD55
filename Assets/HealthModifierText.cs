@@ -14,6 +14,10 @@ public class HealthModifierText : MonoBehaviour
 	public Color DamageColour;
 	public Color HealColour;
 	public Color MissColour;
+	public Color BlockedColour;
+	public Color BuffedColour;
+	
+	
 	public GameObject HealParticlePrefab;
 	public GameObject DamageParticlePrefab;
 	
@@ -27,18 +31,27 @@ public class HealthModifierText : MonoBehaviour
 	}
 	
 	
-	public void ShowDamage(int damage)
+	public void ShowDamage(int damage, bool buffedDamage = false, int BlockedDamage = 0)
 	{
 		if(damage == 0)
 		{
 			Show(MissColour, "Miss");
 		}
+		else if(BlockedDamage > 0 && damage == 0)
+		{
+			Show(BlockedColour, "Blocked");
+		}
 		else
 		{
 			string text = $"-{damage.ToString()}";
-			Show(DamageColour, text);
+			if(buffedDamage)
+				Show(BuffedColour, text);
+			else
+				Show(DamageColour, text);
 			var particle = Instantiate(DamageParticlePrefab,transform);
 			Destroy(particle,1.5f);
+			if(BlockedDamage > 0)
+				Show(BlockedColour,$"Blocked {BlockedDamage}");
 		}
 	}
 	
