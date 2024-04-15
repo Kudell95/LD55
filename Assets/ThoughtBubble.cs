@@ -14,11 +14,10 @@ public class ThoughtBubble : MonoBehaviour
 	public Transform SpriteOriginPoint;
 
 	[Header("Parameters")]
-	[SerializeField] private float _typingSpeed = 0.08f;
+	[SerializeField] private float _typingSpeed = 0.06f;
 	[SerializeField] private float _displayTimer = 3f;
 
 	private Coroutine DisplayLineCoroutine;
-	private Coroutine DisplayTimerCoroutine;
 	
 	private void Awake() {
 		if(Instance == null)
@@ -50,8 +49,20 @@ public class ThoughtBubble : MonoBehaviour
 
 	public void AnimateBubble()
 	{
-		SpriteOriginPoint.transform.DOMoveY(0.02f, 0.3f).OnComplete(() => { SpriteOriginPoint.transform.DOScaleY(0.02f, 0.3f); }).SetLoops(-1, LoopType.Yoyo);
+		while (ThoughtBubbleCanvas.isActiveAndEnabled)
+		{
+			StartCoroutine(BubbleAnimation());
+		}
+		// SpriteOriginPoint.transform.DOMoveY(0.02f, 0.3f).OnComplete(() => { SpriteOriginPoint.transform.DOScaleY(0.02f, 0.3f); }).SetLoops(-1, LoopType.Yoyo);
 	}
+
+	public IEnumerator BubbleAnimation()
+	{
+		SpriteOriginPoint.transform.DOMoveY(0.02f, 0.3f);
+		yield return new WaitForSeconds(0.4f);
+        SpriteOriginPoint.transform.DOMoveY(-0.02f, -0.3f);
+        yield return new WaitForSeconds(0.4f);
+    }
 	private IEnumerator DisplayLine(string line)
 	{
 		//remove dialogue text
@@ -85,7 +96,7 @@ public class ThoughtBubble : MonoBehaviour
 	{
 		string[] bossMessages =
 		{
-		   "Wow, he's huge!",
+		   "Wow, he's huge! Look's like the plant boss!",
 		   "Ok, now here's a real challenge!",
 		   "Uh oh, now I've done it...",
 		   "Ok, I wasn't expecting this!",
@@ -101,7 +112,7 @@ public class ThoughtBubble : MonoBehaviour
 		{
 		   "That one felt powerful!",
 		   "This'll pack a punch!",
-		   "I feel strong!",
+		   "I feel strong... and handsome too!",
 		   "Take this, thorned beast!",
 		   "Let's deal some damage!"
 		};
@@ -145,7 +156,7 @@ public class ThoughtBubble : MonoBehaviour
 		   "Time to summon some tools!",
 		   "And I thought I retired from summoning...",
 		   "It's about time I dusted off the ol' book!",
-		   "I'll show you what it really meants to garden!"
+		   "I'll show you what it really means to garden!"
 		};
 		string outputMessage = playerStartMessages[Random.Range(0, playerStartMessages.Length)];
 		NewThought(outputMessage);
@@ -155,12 +166,8 @@ public class ThoughtBubble : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.K))
 		{
-			NewThought("bacon bacon :)");
+			OnStartPlayerMessage();
 		}
 
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			NewThought("i need to stop these plants! what cards do i have?");
-		}
 	}
 }
