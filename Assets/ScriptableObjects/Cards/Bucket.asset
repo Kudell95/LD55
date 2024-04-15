@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
   m_Name: Bucket
   m_EditorClassIdentifier: 
-  Name: Bucket
-  Description: The bucket can be used to carry many things. A lot of these things
-    can be used to heal fellow plants.
+  Name: Watering Can
+  Description: Provides a much needed refreshment for our garden oriented wizard!
   Mana: 2
   CardRarity: 1
   Image: {fileID: -43939837, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}

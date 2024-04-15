@@ -6,21 +6,24 @@ using TMPro;
 using DG.Tweening;
 using System;
 
-public class GameOverMenu : MonoBehaviour
+public class VictoryMenu : MonoBehaviour
 {
-    public GameObject gameOverMenu;
+    public GameObject victoryMenu;
 
     // for animation
-    public TextMeshProUGUI GameOverText;
-    public TextMeshProUGUI GameOverSubText;
+    public TextMeshProUGUI VictorText;
+    public TextMeshProUGUI victorySubText;
     public void Start()
     {
-        gameOverMenu.SetActive(false);
+        victoryMenu.SetActive(false);
     }
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Victory();
+        }
     }
     private void DoDelaySubTextAlpha(float delayTime)
     {
@@ -29,13 +32,13 @@ public class GameOverMenu : MonoBehaviour
     private IEnumerator DelayAction(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        GameOverSubText.DOFade(2f, 5f);
+        victorySubText.DOFade(2f, 5f);
     }
 
-    public void GameOver()
+    public void Victory()
     {
-        gameOverMenu.SetActive(true);
-        GameOverText.DOFade(1f, 3f);
+        victoryMenu.SetActive(true);
+        VictorText.DOFade(1f, 3f);
         DoDelaySubTextAlpha(2f);
     }
 

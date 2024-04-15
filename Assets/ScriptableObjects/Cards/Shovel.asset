@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Shovel
   Description: It's heavy, unbalanced and packs a punch. Deal 0-4 damage.
-  Mana: 3
+  Mana: 2
   CardRarity: 2
   Image: {fileID: 1115354639, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
-  - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
+  - {fileID: 11400000, guid: e8d826688b5cc7c49936117ab898aa1b, type: 2}
   BroadAbilityType: 0
