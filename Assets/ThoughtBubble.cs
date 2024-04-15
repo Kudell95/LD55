@@ -14,7 +14,7 @@ public class ThoughtBubble : MonoBehaviour
 	public Transform SpriteOriginPoint;
 
 	[Header("Parameters")]
-	[SerializeField] private float _typingSpeed = 0.08f;
+	[SerializeField] private float _typingSpeed = 0.06f;
 	[SerializeField] private float _displayTimer = 3f;
 
 	private Coroutine DisplayLineCoroutine;
@@ -63,7 +63,7 @@ public class ThoughtBubble : MonoBehaviour
 			yield return new WaitForSeconds(_typingSpeed);
 		}
 		yield return new WaitForSeconds(_displayTimer);
-		ThoughtBubbleCanvas.gameObject.SetActive(false);
+        ThoughtBubbleCanvas.gameObject.SetActive(false);
 	}
 
 	public void OnDefendMessage()
