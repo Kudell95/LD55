@@ -53,9 +53,7 @@ public class Player : MonoBehaviour
 	private void Start() {
 		OnHealthUpdated?.Invoke(Health);
 		OnManaUpdated?.Invoke(Mana);
-	}
-	
-	
+	}	
 	
 	public void TakeDamage(int damage)
 	{
@@ -71,6 +69,11 @@ public class Player : MonoBehaviour
 				MutatorList.Instance.Remove(mutators);
 			}
 		}		
+		
+		if(BlockedDamage > 0)
+			ThoughtBubble.Instance.OnDefendMessage();
+		// else
+			// ThoughtBubble.Instance.OnPlayerHitMessage();
 		
 		if(damage - BlockedDamage <= 0)
 			damage = 0;

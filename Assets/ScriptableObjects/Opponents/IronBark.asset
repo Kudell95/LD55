@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d64bb84572fe3b4f9fbf9676fa81bde, type: 3}
-  m_Name: Evil Roots
+  m_Name: IronBark
   m_EditorClassIdentifier: 
-  Name: Evil Roots
+  Name: 
   Description: 
-  Health: 3
+  Health: 0
   Boss: 0
   FinalBoss: 0
-  OpponentDifficulty: 1
-  OpponentAbilities:
-  - {fileID: 11400000, guid: 1b5c28356c941f84da791d2addb3af41, type: 2}
-  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
-  Image: {fileID: -1033460690, guid: 6aea5b157408cba43a2f44fda7c09323, type: 3}
+  OpponentDifficulty: 0
+  OpponentAbilities: []
+  Image: {fileID: 0}

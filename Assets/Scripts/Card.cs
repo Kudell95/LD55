@@ -15,7 +15,7 @@ public class Card : ICard
 
 	public void PlayCard()
 	{
-		
+			
 		GameManager.Instance.PlayerController.RemoveMana(CardData.Mana);
 		
 		if(CardData.CardAbilities == null || CardData.CardAbilities.Count == 0)
@@ -43,6 +43,10 @@ public class Card : ICard
 						GameManager.Instance.InputBlockers.Pop();
 					});
 					
+					//TODO: change this if more legendaries
+					// if(CardData.CardRarity == Enums.Rarity.Legendary)
+					// 	ThoughtBubble.Instance.OnChainsawMessage();
+					
 					break;
 				case Enums.AbilityType.Heal:
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
@@ -51,7 +55,7 @@ public class Card : ICard
 						GameManager.Instance.InputBlockers.Pop();
 					});
 					break;
-				case Enums.AbilityType.DefenceBuff:
+				case Enums.AbilityType.DefenceBuff:				
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
 					{
 						GameManager.Instance.InputBlockers.Pop();
@@ -69,6 +73,7 @@ public class Card : ICard
 					
 					break;
 				case Enums.AbilityType.AttackBuff:
+					ThoughtBubble.Instance.OnBuffAttackMessage();
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
 					{
 						GameManager.Instance.InputBlockers.Pop();

@@ -38,6 +38,8 @@ public class OpponentManager : MonoBehaviour
 			if(mutator.CardData.SingleUse)
 				MutatorList.Instance.Remove(mutator);
 				
+			ThoughtBubble.Instance.OnNetUseMessage();
+				
 			LeanTween.delayedCall(1f, ()=>
 			{
 				NotificationManager.Instance.Notify("Skipping turn with " + mutator.CardData.name);

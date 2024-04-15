@@ -20,4 +20,6 @@ MonoBehaviour:
   OpponentDifficulty: 2
   OpponentAbilities:
   - {fileID: 11400000, guid: 1b5c28356c941f84da791d2addb3af41, type: 2}
+  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
+  - {fileID: 11400000, guid: 8ab4fe1be950638488f91d14bf58c10c, type: 2}
   Image: {fileID: 22462539, guid: 6aea5b157408cba43a2f44fda7c09323, type: 3}

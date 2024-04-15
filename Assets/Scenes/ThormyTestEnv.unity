@@ -1331,6 +1331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button_Resume
       objectReference: {fileID: 0}
+    - target: {fileID: 509889070662399898, guid: 6a587c278b33ab048aa314b7c67a2d36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MuteButton
+      objectReference: {fileID: 0}
     - target: {fileID: 575755045929635447, guid: 6a587c278b33ab048aa314b7c67a2d36, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3467,11 +3471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2500722944051567569, guid: 169bb4e4b717b7e449f2fc091eee9336, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4300003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2500722944051567569, guid: 169bb4e4b717b7e449f2fc091eee9336, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.164
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2500722944051567569, guid: 169bb4e4b717b7e449f2fc091eee9336, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3492,6 +3496,14 @@ PrefabInstance:
     - target: {fileID: 2500722944051567569, guid: 169bb4e4b717b7e449f2fc091eee9336, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500722944051567569, guid: 169bb4e4b717b7e449f2fc091eee9336, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500722944051567569, guid: 169bb4e4b717b7e449f2fc091eee9336, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: 2500722944051567569, guid: 169bb4e4b717b7e449f2fc091eee9336, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

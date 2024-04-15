@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
 		} else {
 			Destroy(this);
 		}
+		
+		
+		SoundManager.Instance?.PlayMusic("BattleTheme", true);
 	}
 	
 	private void Start()
@@ -79,9 +82,11 @@ public class GameManager : MonoBehaviour
 		if(MinionCounter == ConfigManager.Instance.ConfigObject.NumberOfMinionsPerDifficulty && CurrentDifficulty != Enums.OpponentDifficulty.Legend)		
 		{
 			boss = true;
+			ThoughtBubble.Instance.OnBossMessage();
 		}else if (MinionCounter == ConfigManager.Instance.ConfigObject.NumberOfMinionsPerDifficulty && CurrentDifficulty == Enums.OpponentDifficulty.Legend)
 		{
 			finalboss = true;
+			// ThoughtBubble.Instance.OnFinalBossMessage();
 		}else if(MinionCounter > ConfigManager.Instance.ConfigObject.NumberOfMinionsPerDifficulty)		
 		{
 			MinionCounter = 0;

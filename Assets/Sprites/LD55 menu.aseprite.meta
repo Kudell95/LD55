@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d27bbd1f6c5475e4c8f4e41ee79bb97e
+guid: eb45ca18c7093ad4282dbcc9d5f906b9
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638487938902896781
+  platformSettingsDirtyTick: 638487928213410829
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: LD55 enemies
+  - name: LD55 menu
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,9 +130,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 765
-      height: 506
-    spriteID: 558a857d688879445a6f6d1f2c532178
+      width: 640
+      height: 512
+    spriteID: 3ad59d108eb368349a0555e107db52d8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,23 +141,43 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  spriteSheetImportData: []
+  spriteSheetImportData:
+  - name: LD55 menu_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 640
+      height: 512
+    spriteID: c2a3fdeee6cc2df45b41a4ce2a94df1a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: 649182784
-    name: LD55 enemies
+    guid: 735000051
+    name: LD55 menu
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: LD55 enemies
+    - name: LD55 menu
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
-        width: 765
-        height: 506
-      spriteId: 558a857d688879445a6f6d1f2c532178
+        width: 640
+        height: 512
+      spriteId: 3ad59d108eb368349a0555e107db52d8
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -188,4 +208,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 765, y: 506}
+  canvasSize: {x: 640, y: 512}

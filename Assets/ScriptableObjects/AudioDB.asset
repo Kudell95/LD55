@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: AudioDB
   m_EditorClassIdentifier: 
   AudioClips:
-    keyData: []
-    valueData: []
+    keyData:
+    - BattleTheme
+    - MenuTheme
+    - ButtonClick
+    valueData:
+    - {fileID: 8300000, guid: a2eaa1ecb80ddde4189c3f56fc15608a, type: 3}
+    - {fileID: 8300000, guid: b7caaaef7ba8a7f4dae55fb7f3b89131, type: 3}
+    - {fileID: 8300000, guid: 3249346d774e99e438cd240b7a8bcfdf, type: 3}
