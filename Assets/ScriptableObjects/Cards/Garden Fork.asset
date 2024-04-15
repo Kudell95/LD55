@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
-  m_Name: Pitchfork
+  m_Name: Garden Fork
   m_EditorClassIdentifier: 
-  Name: Pitchfork
-  Description: Stab the enemy dealing three ticks of damage between 0 - 3.
-  Mana: 4
-  CardRarity: 2
-  Image: {fileID: -918707691, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
+  Name: Garden Fork
+  Description: A simple gardening and/or stabbing implement. Deals 2 damage.
+  Mana: 2
+  CardRarity: 0
+  Image: {fileID: -1092934116, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
-  - {fileID: 11400000, guid: 763d7085d4d611241abeb171c0ecb5e6, type: 2}
-  - {fileID: 11400000, guid: 763d7085d4d611241abeb171c0ecb5e6, type: 2}
-  - {fileID: 11400000, guid: 763d7085d4d611241abeb171c0ecb5e6, type: 2}
+  - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
   BroadAbilityType: 0
   ActiveTillEndOfRound: 0
   SingleUse: 0
