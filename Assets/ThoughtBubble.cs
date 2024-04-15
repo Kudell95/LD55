@@ -216,7 +216,7 @@ public class ThoughtBubble : MonoBehaviour
            "I don't have enough mana!",
            "I'm all out of mana for that one...", 
            "In my old age, mana is a virtue.",
-           "Why didn't I buy the 'no mana required' edition?",
+           "Why didn't I buy the 'no mana required' compendium?",
            "Look, I'm old. Mana is akin to mojo these days...",
            "Ok, ok.. maybe we can negotiate?"
         };

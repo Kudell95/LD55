@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
-  m_Name: Net
+  m_Name: Garden Netting
   m_EditorClassIdentifier: 
-  Name: A Net???
-  Description: what the fuck does this do
+  Name: Garden Netting
+  Description: Made of robust hardware store fibre, this net will entangle any plant
+    giving you time to prune!
   Mana: 6
   CardRarity: 3
   Image: {fileID: 1079969876, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
