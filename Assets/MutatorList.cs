@@ -56,6 +56,32 @@ public class MutatorList : MonoBehaviour
 		return Mutators.Any(x=>x.CardData.CardAbilities.Any(x=>x.AbilityType == Enums.AbilityType.DefenceBuff));
 	}
 	
+	public bool ContainsAnyHealForRound()
+	{
+		return Mutators.Any(x=>x.CardData.CardAbilities.Any(x=>x.AbilityType == Enums.AbilityType.HealForRound));
+	}
+	
+	
+	public int GetTotalHealForRound()
+	{
+		int sum = 0;
+		foreach(Mutator m in Mutators.Where(x => x.CardData.CardAbilities.Any(x=>x.AbilityType == Enums.AbilityType.HealForRound)))		
+		{
+			foreach(CardAbilitySO ability in m.CardData.CardAbilities)
+			{
+				if(ability.AbilityType == Enums.AbilityType.HealForRound)
+				{
+					sum += ability.Power;
+				}
+			}
+		}
+		
+		return sum;
+	}
+	
+	
+	
+	
 	public int GetTotalDefenceBuff(out List<Mutator> mutators)
 	{
 		int sum = 0;

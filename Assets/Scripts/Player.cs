@@ -36,9 +36,20 @@ public class Player : MonoBehaviour
 		Health = _StartingHealth;
 		Mana = _StartingMana;
 		_animationHelper = GetComponent<AnimationHelper>();
+		
+		TurnBasedManager.Instance.OnTurnStarted += OnNewTurn;
 	}
-	
-	
+
+	private void OnNewTurn(Enums.TurnStates states)
+	{
+	   if(states != Enums.TurnStates.PlayerTurn)
+	   	return;
+		
+		
+		if(MutatorList.Instance.ContainsAnyHealForRound())
+			Heal(MutatorList.Instance.GetTotalHealForRound());
+	}
+
 	private void Start() {
 		OnHealthUpdated?.Invoke(Health);
 		OnManaUpdated?.Invoke(Mana);
@@ -123,11 +134,6 @@ public class Player : MonoBehaviour
 		OnManaUpdated?.Invoke(Mana);
 	}
 	
-	
-	public void AddBuff(CardDataSO card, int power)
-	{
-		//TODO: Implement This
-	}
 	
 	
 	public void Die()

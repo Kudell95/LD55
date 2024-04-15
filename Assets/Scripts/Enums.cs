@@ -27,8 +27,9 @@ public class Enums : MonoBehaviour
 		DefenceBuff,
 		AttackRange,
 		TurnSkip,
-		AttackBuff,		
-	}
+		AttackBuff,
+        HealForRound,
+    }
 	
 	public enum BroadAbilityType
 	{

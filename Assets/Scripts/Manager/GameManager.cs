@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
 
 	private void onOpponentDeath()
 	{
+		MutatorList.Instance.RemoveAtEndOfRound();
+		
 		if(finalboss)
 		{
 			TurnBasedManager.Instance.StartTurn(Enums.TurnStates.VictoryTurn,false,false);
