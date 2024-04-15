@@ -177,6 +177,12 @@ public class Opponent : MonoBehaviour, IOpponent
 			
 			
 		SoundManager.Instance.PlaySound("OpponentTakeDamage");
+		
+		if(damage == 0)
+		{
+			ThoughtBubble.Instance.OnMissMessage();
+		}
+		
 		healthModifierText.ShowDamage(damage, BuffedDamage > 0);
 		
 		if(Health - damage <= 0)

@@ -119,6 +119,7 @@ public class CardController : MonoBehaviour
 	{
 		if(CardData.Mana > GameManager.Instance.PlayerController.Mana)
 		{
+			ThoughtBubble.Instance.OnNoManaMessage();
 			UnableToUseCard();
 			return;
 		}

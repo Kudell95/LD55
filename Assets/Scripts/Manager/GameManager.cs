@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
 		Opponent.OnOpponentDeath += onOpponentDeath;
 		isFreshStart = true;
 		CurrentDifficulty = Enums.OpponentDifficulty.Recruit;
+		GameManager.Paused = false;
+		InputBlockers = new Stack<string>();
 		//ensure timescale running etc...
 		Play();
 		
@@ -86,7 +88,7 @@ public class GameManager : MonoBehaviour
 		}else if (MinionCounter == ConfigManager.Instance.ConfigObject.NumberOfMinionsPerDifficulty && CurrentDifficulty == Enums.OpponentDifficulty.Legend)
 		{
 			finalboss = true;
-			// ThoughtBubble.Instance.OnFinalBossMessage();
+			ThoughtBubble.Instance.OnFinalBossMessage();
 		}else if(MinionCounter > ConfigManager.Instance.ConfigObject.NumberOfMinionsPerDifficulty)		
 		{
 			MinionCounter = 0;
@@ -164,5 +166,6 @@ public class GameManager : MonoBehaviour
 	private void OnDestroy() {
 		OpponentManager.OnOpponentReadyForFight -= onOpponentReadyForFight;
 		OnCardAddComplete -= onCardAddComplete;
+		Opponent.OnOpponentDeath -= onOpponentDeath;
 	}
 }

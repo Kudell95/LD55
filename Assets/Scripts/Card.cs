@@ -44,8 +44,8 @@ public class Card : ICard
 					});
 					
 					//TODO: change this if more legendaries
-					// if(CardData.CardRarity == Enums.Rarity.Legendary)
-					// 	ThoughtBubble.Instance.OnChainsawMessage();
+					 if(CardData.CardRarity == Enums.Rarity.Legendary)
+					 	ThoughtBubble.Instance.OnLegendaryAttackMessage();
 					
 					break;
 				case Enums.AbilityType.Heal:

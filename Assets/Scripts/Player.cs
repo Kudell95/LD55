@@ -72,8 +72,8 @@ public class Player : MonoBehaviour
 		SoundManager.Instance.PlaySound("TakeDamage");
 		if(BlockedDamage > 0 && damage - BlockedDamage <= 0)
 			ThoughtBubble.Instance.OnDefendMessage();
-		// else
-			// ThoughtBubble.Instance.OnPlayerHitMessage();
+		else
+			ThoughtBubble.Instance.OnPlayerHitMessage();
 		
 		if(damage - BlockedDamage <= 0)
 			damage = 0;

@@ -65,7 +65,8 @@ public class SoundManager : MonoBehaviour
 	/// <param name="repeat">(Optional) Whether to repeat the music clip. Defaults to false.</param>
 	public void PlayMusic(AudioClip _MusicClip, bool repeat = false)
 	{
-		MusicSource.clip = _MusicClip;		
+		MusicSource.clip = _MusicClip;	
+		MusicSource.loop = repeat;	
 		MusicSource.Play();
 	}
 	
