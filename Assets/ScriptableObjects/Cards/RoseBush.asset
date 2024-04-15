@@ -15,11 +15,11 @@ MonoBehaviour:
   Name: Rose Bush
   Description: An overwhelmingly restorative essence courses through its stem. Beware
     the thorns!
-  Mana: 6
+  Mana: 4
   CardRarity: 3
   Image: {fileID: 477095293, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
-  - {fileID: 11400000, guid: 9e52dac42337fac409e7d964c30c9ef3, type: 2}
+  - {fileID: 11400000, guid: adb3d87b275312844a3a83c0be35a146, type: 2}
   BroadAbilityType: 1
   ActiveTillEndOfRound: 0
   SingleUse: 0

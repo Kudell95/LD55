@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: GumBoots
   m_EditorClassIdentifier: 
   Name: Gum Boots
-  Description: Keeps your feet dry and protected from plant related injury.
-  Mana: 3
-  CardRarity: 2
+  Description: Keeps your feet dry and protected from plant related injury. Blocks
+    1 damage until attacked.
+  Mana: 2
+  CardRarity: 1
   Image: {fileID: -2006727079, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
-  - {fileID: 11400000, guid: d45d8df25010ef544b43598a26e1a47c, type: 2}
+  - {fileID: 11400000, guid: e6aa86b59b91568418e1e1d12d7679d7, type: 2}
   BroadAbilityType: 2
   ActiveTillEndOfRound: 0
   SingleUse: 1

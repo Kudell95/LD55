@@ -16,7 +16,7 @@ MonoBehaviour:
   Description: Dr. Plants Peculiar Fertiliser! Provides a small healing effect per
     round until the current enemy dies.
   Mana: 3
-  CardRarity: 1
+  CardRarity: 2
   Image: {fileID: 1308827955, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
   - {fileID: 11400000, guid: 3fff38c33a63afd49837b451f6b7c8ac, type: 2}

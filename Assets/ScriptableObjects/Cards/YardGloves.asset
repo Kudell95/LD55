@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Yard Gloves
   Description: Protects you from spiky, pointy things! Defends you for two damage
-    for one turn.
-  Mana: 2
+    until attacked.
+  Mana: 3
   CardRarity: 2
   Image: {fileID: 857870459, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
-  - {fileID: 11400000, guid: e6aa86b59b91568418e1e1d12d7679d7, type: 2}
+  - {fileID: 11400000, guid: d45d8df25010ef544b43598a26e1a47c, type: 2}
   BroadAbilityType: 2
   ActiveTillEndOfRound: 0
   SingleUse: 1

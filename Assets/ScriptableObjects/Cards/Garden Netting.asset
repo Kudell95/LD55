@@ -15,8 +15,8 @@ MonoBehaviour:
   Name: Garden Netting
   Description: Made of robust hardware store fibre, this net will entangle any plant
     giving you time to prune!
-  Mana: 6
-  CardRarity: 3
+  Mana: 3
+  CardRarity: 2
   Image: {fileID: 1079969876, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
   - {fileID: 11400000, guid: cb18ca7768807d04280a3fd87e7c13bb, type: 2}
