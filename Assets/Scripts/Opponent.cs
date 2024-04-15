@@ -93,7 +93,7 @@ public class Opponent : MonoBehaviour, IOpponent
 	{
 		switch(ability.OpponentAbility)
 		{
-			case Enums.OpponentAbility.BasicAttack:
+			case Enums.OpponentAbility.BasicAttack:				
 				GameManager.Instance.PlayerController.TakeDamage(ability.PowerModifier);
 				break;
 			case Enums.OpponentAbility.Heal:
@@ -156,8 +156,24 @@ public class Opponent : MonoBehaviour, IOpponent
 	
 	public void TakeDamage(int damage)
 	{
+		int BuffedDamage = 0;
+		
+		if(MutatorList.Instance.ContainsAttackBuff() && damage > 0)
+		{
+			BuffedDamage = MutatorList.Instance.GetTotalAttackbuff(out List<Mutator> mutators);
+			
+			if(mutators != null && mutators.Count > 0)
+			{
+				MutatorList.Instance.Remove(mutators);
+			}
+		}		
+			
+		damage += BuffedDamage;
+			
+			
 		SoundManager.Instance.PlaySound("OpponentTakeDamage");
-		healthModifierText.ShowDamage(damage);
+		healthModifierText.ShowDamage(damage, BuffedDamage > 0);
+		
 		if(Health - damage <= 0)
 		{
 			Health = 0;			
