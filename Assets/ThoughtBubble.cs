@@ -112,7 +112,35 @@ public class ThoughtBubble : MonoBehaviour
         NewThought(outputMessage);
     }
 
-    private void Update()
+    public void OnPlayerClickMessage()
+    {
+        string[] playerClickMessages =
+        {
+           "Please don't click me...",
+           "Come on, stay focused!",
+           "Can't you see I'm busy here?",
+           "Seriously? Now's not the time, dude.",
+           "Quite curious, aren't you?"
+        };
+        string outputMessage = playerClickMessages[Random.Range(0, playerClickMessages.Length)];
+        NewThought(outputMessage);
+    }
+
+    public void OnStartPlayerMessage()
+    {
+        string[] playerStartMessages =
+        {
+           "These plants have got to go!",
+           "Come on, stay focused!",
+           "Can't you see I'm busy here?",
+           "Seriously? Now's not the time, dude.",
+           "Quite curious, aren't you?"
+        };
+        string outputMessage = playerStartMessages[Random.Range(0, playerStartMessages.Length)];
+        NewThought(outputMessage);
+    }
+
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
