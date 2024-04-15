@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Pitchfork
   m_EditorClassIdentifier: 
   Name: Pitchfork
-  Description: Stab the enemy dealing three ticks of damage between 1 - 3.
+  Description: The ends are blunt and rusted. Deals 1 - 3 damage. Get your tetanus
+    shot!
   Mana: 2
   CardRarity: 0
   Image: {fileID: -918707691, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
