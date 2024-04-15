@@ -20,10 +20,7 @@ public class VictoryMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Victory();
-        }
+
     }
     private void DoDelaySubTextAlpha(float delayTime)
     {
