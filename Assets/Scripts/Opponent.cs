@@ -40,7 +40,7 @@ public class Opponent : MonoBehaviour, IOpponent
 	
 	public void Attack()
 	{
-		SoundManager.Instance.PlaySound("OpponentAttack");
+		
 		OpponentAbilitySO selectedAbility = GetRandomAbility();
 		if(selectedAbility == null)			
 		{
@@ -50,6 +50,11 @@ public class Opponent : MonoBehaviour, IOpponent
 			});
 			return;
 		}
+		
+		LeanTween.delayedCall(1f, ()=>
+		{			
+			SoundManager.Instance.PlaySound("OpponentAttack");
+		});
 		
 		LeanTween.delayedCall(2f,()=>
 		{								

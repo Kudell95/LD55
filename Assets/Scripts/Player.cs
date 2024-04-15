@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 	
 	public void TakeDamage(int damage)
 	{
-		SoundManager.Instance.PlaySound("TakeDamage");
+		
 		int BlockedDamage = 0;
 		
 		if(MutatorList.Instance.ContainsDefenceBuff() && damage > 0)
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 				MutatorList.Instance.Remove(mutators);
 			}
 		}		
-		
+		SoundManager.Instance.PlaySound("TakeDamage");
 		if(BlockedDamage > 0 && damage - BlockedDamage <= 0)
 			ThoughtBubble.Instance.OnDefendMessage();
 		// else
@@ -141,6 +141,7 @@ public class Player : MonoBehaviour
 	
 	public void Die()
 	{
+		SoundManager.Instance.PlaySound("PlayerDeath");
 		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.PlayerDeadTurn,false,false);
 		transform.DOShakeScale(1f).OnComplete(()=>
 		{

@@ -20,6 +20,8 @@ public class VisualAnimationController : MonoBehaviour
 		VisualObject.transform.localPosition = transform.position;
 		SpriteRenderer sr = VisualObject.GetComponent<SpriteRenderer>();
 		
+		SoundManager.Instance?.PlaySound("PlayerSummon");
+		
 		//set to white but transperant
 		sr.sprite = cardData.Image;
 		
@@ -59,6 +61,7 @@ public class VisualAnimationController : MonoBehaviour
 		VisualObject.transform.localPosition = transform.position;
 		SpriteRenderer sr = VisualObject.GetComponent<SpriteRenderer>();
 		
+		SoundManager.Instance?.PlaySound("PlayerMiscSummon");
 		//set to white but transperant
 		sr.sprite = cardData.Image;
 		
