@@ -56,7 +56,61 @@ public class ThoughtBubble : MonoBehaviour
         ThoughtBubbleCanvas.gameObject.SetActive(false);
     }
 
-    //public void 
+    public void OnDefendMessage()
+    {
+        string[] defendMessages =
+        {
+           "Yes! I didn't feel a thing!",
+           "Hehe, it tickles!",
+           "I feel invincible!",
+           "Nice try, Mr. Plant!",
+           "I put that equipment to good use!"
+        };
+        string outputMessage = defendMessages[Random.Range(0, defendMessages.Length)];
+        NewThought(outputMessage);
+    }
+
+    public void OnBossMessage()
+    {
+        string[] bossMessages =
+        {
+           "Wow, he's huge!",
+           "Ok, now here's a real challenge!",
+           "Uh oh, now I've done it...",
+           "Ok, I wasn't expecting this!",
+           "Time to give it all I've got."
+        };
+        string outputMessage = bossMessages[Random.Range(0, bossMessages.Length)];
+        NewThought(outputMessage);
+    }
+
+    public void OnBuffAttackMessage()
+    {
+        string[] buffMessages =
+        {
+           "That one felt powerful!",
+           "This'll pack a punch!",
+           "I feel strong!",
+           "Take this, thorned beast!",
+           "Let's deal some damage!"
+        };
+        string outputMessage = buffMessages[Random.Range(0, buffMessages.Length)];
+        NewThought(outputMessage);
+    }
+
+    public void OnNetUseMessage()
+    {
+        string[] netMessages =
+        {
+           "Feeling trapped, fiend?",
+           "Looks like you're stuck there!",
+           "You look good with that net on!",
+           "What's the matter, can't move?",
+           "Good luck attacking me now!"
+        };
+        string outputMessage = netMessages[Random.Range(0, netMessages.Length)];
+        NewThought(outputMessage);
+    }
 
     private void Update()
     {

@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 139
       width: 86
       height: 59
-    spriteID: 9da3a92442dc60844a289a2263c31b93
+    spriteID: 68e7ecfedafb9cd4a8de07a09fbb06d6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 4
       width: 88
       height: 59
-    spriteID: 269cb3f606d66c24b963418f1a96edc9
+    spriteID: 2d456e0cdb0db9a44a85aac656222bbb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 71
       width: 85
       height: 60
-    spriteID: ccfc74b69a745f44b8094ba646c8627e
+    spriteID: 6c118bf376b2f424d990da9e54756f78
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -197,7 +197,7 @@ ScriptedImporter:
         y: 11
         width: 86
         height: 59
-      spriteId: 9da3a92442dc60844a289a2263c31b93
+      spriteId: 68e7ecfedafb9cd4a8de07a09fbb06d6
     - name: thought bubble_Frame_1
       frameIndex: 1
       cellRect:
@@ -205,7 +205,7 @@ ScriptedImporter:
         y: 11
         width: 88
         height: 59
-      spriteId: 269cb3f606d66c24b963418f1a96edc9
+      spriteId: 2d456e0cdb0db9a44a85aac656222bbb
     - name: thought bubble_Frame_2
       frameIndex: 2
       cellRect:
@@ -213,7 +213,7 @@ ScriptedImporter:
         y: 11
         width: 85
         height: 60
-      spriteId: ccfc74b69a745f44b8094ba646c8627e
+      spriteId: 6c118bf376b2f424d990da9e54756f78
     linkedCells: []
     parentIndex: -1
   platformSettings: []
