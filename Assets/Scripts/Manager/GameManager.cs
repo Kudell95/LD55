@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour
 	{
 		if(finalboss)
 		{
-			//TODO: Display Victory Screen, Fireworks etc...
+			TurnBasedManager.Instance.StartTurn(Enums.TurnStates.VictoryTurn,false,false);
+			VictoryMenu.Instance.Victory();
 			return;
 		}
 		
@@ -83,8 +84,7 @@ public class GameManager : MonoBehaviour
 			CurrentDifficulty = CurrentDifficulty + 1;
 		}
 		
-		GetNewOpponent(CurrentDifficulty,boss,finalboss);
-		
+		GetNewOpponent(CurrentDifficulty,boss,finalboss);		
 		
 	}
 
@@ -110,12 +110,14 @@ public class GameManager : MonoBehaviour
 
 	public void TogglePause()
 	{
-		if (Time.timeScale == 0.0f)
+		if (Paused)
 		{
+			Paused = false;
 			Play();
 		}
 		else
 		{
+			Paused = true;
 			Pause();
 		}
 	}

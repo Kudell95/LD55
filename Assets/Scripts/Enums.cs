@@ -77,6 +77,8 @@ public class Enums : MonoBehaviour
 		PlayerTurn,
 		OpponentTurn,
 		OpponentSpawnTurn,
+		PlayerDeadTurn,
+		VictoryTurn,
 		
 	}
 }

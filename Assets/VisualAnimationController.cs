@@ -9,6 +9,7 @@ public class VisualAnimationController : MonoBehaviour
    public GameObject ObjectPrefab;
    public Transform AnimationDestination;
    public Transform prefabParent;
+   public GameObject SpawnParticlePrefab;
    
    public void PlayAttackAnimation(CardDataSO cardData, TweenCallback onAttackApex, TweenCallback onComplete)
    {
@@ -22,7 +23,10 @@ public class VisualAnimationController : MonoBehaviour
 		//set to white but transperant
 		sr.sprite = cardData.Image;
 		
-		//TODO: Particle effects here...
+		
+		GameObject particle = Instantiate(SpawnParticlePrefab, prefabParent);
+		particle.transform.localPosition = transform.position;
+		Destroy(particle, 1.3f);
 		
 		sr.DOFade(0, 0).OnComplete(()=>
 		{
@@ -59,6 +63,9 @@ public class VisualAnimationController : MonoBehaviour
 		sr.sprite = cardData.Image;
 		
 		//TODO: Particle effects here...
+		GameObject particle = Instantiate(SpawnParticlePrefab, prefabParent);
+		particle.transform.localPosition = transform.position;
+		Destroy(particle, 1.3f);
 		
 		sr.DOFade(0, 0).OnComplete(()=>
 		{

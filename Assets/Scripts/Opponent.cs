@@ -40,7 +40,7 @@ public class Opponent : MonoBehaviour, IOpponent
 	
 	public void Attack()
 	{
-		
+		SoundManager.Instance.PlaySound("OpponentAttack");
 		OpponentAbilitySO selectedAbility = GetRandomAbility();
 		if(selectedAbility == null)			
 		{
@@ -107,8 +107,12 @@ public class Opponent : MonoBehaviour, IOpponent
 
 	public void Die()
 	{
-		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.OpponentSpawnTurn,false,true);
-		//TODO: implement death animation
+		SoundManager.Instance.PlaySound("OpponentDie");
+		
+		if(OpponentData.FinalBoss)
+			TurnBasedManager.Instance.StartTurn(Enums.TurnStates.OpponentSpawnTurn,false,false);
+		else
+			TurnBasedManager.Instance.StartTurn(Enums.TurnStates.OpponentSpawnTurn,false,true);
 		// animationHelper.OnHit(transform);
 		SpriteOriginPoint.transform.DOScaleY(0,0.2f).OnComplete(()=>
 		{
@@ -136,6 +140,7 @@ public class Opponent : MonoBehaviour, IOpponent
 	
 	public void Heal(int amount)
 	{
+		SoundManager.Instance.PlaySound("OpponentHeal");
 		if(Health + amount > OpponentData.Health)
 		{
 			Health = OpponentData.Health;
@@ -151,6 +156,7 @@ public class Opponent : MonoBehaviour, IOpponent
 	
 	public void TakeDamage(int damage)
 	{
+		SoundManager.Instance.PlaySound("OpponentTakeDamage");
 		healthModifierText.ShowDamage(damage);
 		if(Health - damage <= 0)
 		{

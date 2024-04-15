@@ -10,6 +10,7 @@ public class OpponentVitalsVisual : MonoBehaviour
 	public Sprite FullHealthIcon;
 	public Sprite EmptyHealthIcon;
 	
+
 	
 	private void Awake() {
 		Opponent.OnHealthUpdated += OnHealthUpdated;

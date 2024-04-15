@@ -18,6 +18,8 @@ public class PlayerVitalsVisuals : MonoBehaviour
 	public Sprite EmptyManaIcon;
 	
 	
+	
+	
 	private void Awake() {
 		Player.OnHealthUpdated += OnHealthUpdated;
 		Player.OnManaUpdated += OnManaUpdated;
