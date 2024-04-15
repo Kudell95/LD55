@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
-  m_Name: UggBoots
+  m_Name: GumBoots
   m_EditorClassIdentifier: 
-  Name: Ugg Boots
+  Name: Gum Boots
   Description: Keeps your feet dry and protected from plant related injury.
   Mana: 3
   CardRarity: 2
   Image: {fileID: -2006727079, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
-  CardAbilities: []
-  BroadAbilityType: 0
+  CardAbilities:
+  - {fileID: 11400000, guid: d45d8df25010ef544b43598a26e1a47c, type: 2}
+  BroadAbilityType: 2
+  ActiveTillEndOfRound: 0
+  SingleUse: 1
