@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
 		//ensure timescale running etc...
 		Play();
 		
+		
 		GetNewOpponent(CurrentDifficulty);		
 	}
 
@@ -91,10 +92,11 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void onOpponentReadyForFight()
-	{
+	{		
 		//if the opponent is ready to fight, tell the turn manager to start a player turn.
 		if(isFreshStart)
 		{
+			ThoughtBubble.Instance.OnStartPlayerMessage();
 			DrawCards(ConfigManager.Instance.ConfigObject.CardsForStartOfRound);	
 		}
 		else

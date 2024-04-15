@@ -25,12 +25,15 @@ public class ThoughtBubble : MonoBehaviour
 			Instance = this;
 		else
 			Destroy(this);
+			
+			
+		ThoughtBubbleCanvas.gameObject.SetActive(false);
+		AnimateBubble();
 	}
 
 	public void Start()
 	{
-		ThoughtBubbleCanvas.gameObject.SetActive(false);
-		AnimateBubble();
+		
 	}
 	public void NewThought(string message)
 	{
