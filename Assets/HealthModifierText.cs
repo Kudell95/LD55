@@ -43,11 +43,15 @@ public class HealthModifierText : MonoBehaviour
 		}
 		else
 		{
-			string text = $"{damage.ToString()}";
-			Show(DamageColour, text);
+			string text = $"-{damage.ToString()}";
+			if(buffedDamage)
+				Show(BuffedColour, text);
+			else
+				Show(DamageColour, text);
 			var particle = Instantiate(DamageParticlePrefab,transform);
 			Destroy(particle,1.5f);
-			Show(BlockedColour,$"Blocked {BlockedDamage}");
+			if(BlockedDamage > 0)
+				Show(BlockedColour,$"Blocked {BlockedDamage}");
 		}
 	}
 	
