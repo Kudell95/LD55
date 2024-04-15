@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Garden Fork
   m_EditorClassIdentifier: 
   Name: Garden Fork
-  Description: A simple gardening and/or stabbing implement.
+  Description: A simple gardening and/or stabbing implement. Deals 2 damage.
   Mana: 2
   CardRarity: 0
   Image: {fileID: -1092934116, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
-  CardAbilities: []
+  CardAbilities:
+  - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
   BroadAbilityType: 0
   ActiveTillEndOfRound: 0
   SingleUse: 0
