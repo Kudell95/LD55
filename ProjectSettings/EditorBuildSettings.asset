@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThormyTestEnv.unity
     guid: 7d282de7282d5824da834e69a4afab52
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PawndaTestEnv.unity
     guid: 55a6c5047ad383b4286dea0b75f08c69
   m_configObjects: {}

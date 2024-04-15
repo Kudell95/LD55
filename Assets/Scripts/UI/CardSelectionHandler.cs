@@ -80,7 +80,7 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 
 	public void OnSelect(BaseEventData eventData)
 	{
-		if(TurnBasedManager.Instance.IsPlayerTurn)
+		if(TurnBasedManager.Instance.IsPlayerTurn && !GameManager.Paused && !GameManager.Instance.InputBlocked)
 		{
 			StartCoroutine(AnimateCardOnHover(true));
 			_selected = true;

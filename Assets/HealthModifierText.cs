@@ -13,6 +13,8 @@ public class HealthModifierText : MonoBehaviour
 	
 	public Color DamageColour;
 	public Color HealColour;
+	public Color MissColour;
+	
 	
 	private Vector3 _startPosition;
 	
@@ -26,8 +28,15 @@ public class HealthModifierText : MonoBehaviour
 	
 	public void ShowDamage(int damage)
 	{
-		string text = $"-{damage.ToString()}";
-		Show(DamageColour, text);
+		if(damage == 0)
+		{
+			Show(MissColour, "Miss");
+		}
+		else
+		{
+			string text = $"-{damage.ToString()}";
+			Show(DamageColour, text);
+		}
 	}
 	
 	public void ShowHeal(int heal)

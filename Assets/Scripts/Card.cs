@@ -15,8 +15,18 @@ public class Card : ICard
 
 	public void PlayCard()
 	{
+		
+		GameManager.Instance.PlayerController.RemoveMana(CardData.Mana);
+		
+		if(CardData.CardAbilities == null || CardData.CardAbilities.Count == 0)
+		{
+			GameManager.Instance.InputBlockers.Pop();
+			return;
+		}
+		
 		foreach(CardAbilitySO ability in CardData.CardAbilities)		
 		{
+			
 			//if we are not placing, just skip...
 			if(ability.AbilityActionType != Enums.AbilityActionType.Place)
 				continue;
@@ -25,25 +35,44 @@ public class Card : ICard
 			{
 				case Enums.AbilityType.Attack:
 					//will reference Opponent and attack that opponent based on power of card.
-					GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(ability.Power);
+					GameManager.Instance.ObjectAnimationController.PlayAttackAnimation(CardData, ()=>
+					{
+						GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(ability.Power);
+					}, ()=>
+					{
+						GameManager.Instance.InputBlockers.Pop();
+					});
+					
 					break;
 				case Enums.AbilityType.Heal:
-					GameManager.Instance.PlayerController.Heal(ability.Power);
+					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
+					{
+						GameManager.Instance.PlayerController.Heal(ability.Power);
+						GameManager.Instance.InputBlockers.Pop();
+					});
 					break;
 				case Enums.AbilityType.Repel:
+					GameManager.Instance.InputBlockers.Pop();
 					//TODO: Perform debuff
 					break;
 				case Enums.AbilityType.AttackRange:
 					int attackPower = UnityEngine.Random.Range(ability.AttackRangeStart, ability.AttackRangeEnd);
-					GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(attackPower);
+					GameManager.Instance.ObjectAnimationController.PlayAttackAnimation(CardData, ()=>
+					{
+						GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(attackPower);
+					}, ()=>
+					{
+						GameManager.Instance.InputBlockers.Pop();
+					});
+					
 					return;
 				default:
 					Debug.LogWarning("Ability type not implemented: " + ability.AbilityType);
+					// GameManager.Instance.InputBlockers.Pop();
 					break;
 			}
 			
 		}
-		GameManager.Instance.PlayerController.RemoveMana(CardData.Mana);
 	}
 
 	public Card Clone()
