@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
 		if(Health - damage <= 0)
 		{
 			Health = 0;
+			OnHealthUpdated?.Invoke(Health);			
 			Die();
 			return;
 		}

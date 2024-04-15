@@ -86,9 +86,9 @@ public class TurnBasedManager : MonoBehaviour
 			case Enums.TurnStates.PlayerTurn:
 				return "Player's Turn";
 			case Enums.TurnStates.OpponentTurn:
-				return "Opponent's Turn";
+				return "Plant's Turn";
 			case Enums.TurnStates.OpponentSpawnTurn:
-				return "Opponent Killed. Waiting for next opponent...";
+				return "Plant eradicated. Waiting for next opponent...";
 			default:
 				return "";
 		}
