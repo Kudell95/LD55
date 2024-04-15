@@ -18,7 +18,6 @@ public class ThoughtBubble : MonoBehaviour
 	[SerializeField] private float _displayTimer = 3f;
 
 	private Coroutine DisplayLineCoroutine;
-	private Coroutine DisplayTimerCoroutine;
 	
 	private void Awake() {
 		if(Instance == null)
@@ -85,7 +84,7 @@ public class ThoughtBubble : MonoBehaviour
 	{
 		string[] bossMessages =
 		{
-		   "Wow, he's huge! Look's like the plant boss!",
+		   "Wow, he's huge! Look's like a plant boss!",
 		   "Ok, now here's a real challenge!",
 		   "Uh oh, now I've done it...",
 		   "Ok, I wasn't expecting this!",
@@ -151,12 +150,47 @@ public class ThoughtBubble : MonoBehaviour
 		NewThought(outputMessage);
 	}
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.K))
-		{
-			OnStartPlayerMessage();
-		}
+    public void OnPlayerHitMessage()
+    {
+        string[] playerHitMessages =
+        {
+           "Ouch, that hurt!",
+           "Ooh! I felt that one!",
+           "Grr! The flesh is weak but the soul continues on!",
+           "Darn! You'll pay for that!",
+           "I must.. *Argh*.. go on..."
+        };
+        string outputMessage = playerHitMessages[Random.Range(0, playerHitMessages.Length)];
+        NewThought(outputMessage);
+    }
 
-	}
+    public void OnLegendaryAttackMessage()
+    {
+        string[] legendaryAttackMessages =
+        {
+           "65cc's of mechanical power!",
+           "Oh... heck yeah! My favourite tool.",
+           "This is going to hurt you.. A LOT!",
+           "Aha.. HA HA HA HA HA HA",
+           "Now this is gardening! Brr! Vroom!"
+        };
+        string outputMessage = legendaryAttackMessages[Random.Range(0, legendaryAttackMessages.Length)];
+        NewThought(outputMessage);
+    }
+
+    public void OnFinalBossMessage()
+    {
+        string[] finalBossMessages =
+        {
+           "He looks tough, time to finish this!",
+           "Oh boy, this job might be beyond the scope of a gardener...", // wanted this to be more likely to pop up.
+           "Oh boy, this job might be beyond the scope of a gardener...",
+           "Oh boy, this job might be beyond the scope of a gardener...",
+           "Time to end this, right here and now!",
+           "Come on then, if you think you're tough enough!",
+           "I'll show you what it really means to garden!"
+        };
+        string outputMessage = finalBossMessages[Random.Range(0, finalBossMessages.Length)];
+        NewThought(outputMessage);
+    }
 }
