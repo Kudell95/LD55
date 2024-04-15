@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: A Net???
   Description: what the fuck does this do
-  Mana: 7
+  Mana: 6
   CardRarity: 3
   Image: {fileID: 1079969876, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
-  CardAbilities: []
-  BroadAbilityType: 0
+  CardAbilities:
+  - {fileID: 11400000, guid: cb18ca7768807d04280a3fd87e7c13bb, type: 2}
+  BroadAbilityType: 3
+  ActiveTillEndOfRound: 0
+  SingleUse: 1

@@ -104,6 +104,13 @@ public class Player : MonoBehaviour
 		OnManaUpdated?.Invoke(Mana);
 	}
 	
+	
+	public void AddBuff(CardDataSO card, int power)
+	{
+		//TODO: Implement This
+	}
+	
+	
 	public void Die()
 	{
 		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.PlayerDeadTurn,false,false);

@@ -152,6 +152,7 @@ public class GameManager : MonoBehaviour
 	}
 	
 	
+	
 	private void OnDestroy() {
 		OpponentManager.OnOpponentReadyForFight -= onOpponentReadyForFight;
 		OnCardAddComplete -= onCardAddComplete;

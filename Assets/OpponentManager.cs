@@ -32,6 +32,23 @@ public class OpponentManager : MonoBehaviour
 		if(state != Enums.TurnStates.OpponentTurn)
 			return;			
 			
+		if(MutatorList.Instance.ContainsSkipTurnMutator(out Mutator mutator))
+		{
+			
+			if(mutator.CardData.SingleUse)
+				MutatorList.Instance.Remove(mutator);
+				
+			LeanTween.delayedCall(1f, ()=>
+			{
+				NotificationManager.Instance.Notify("Skipping turn with " + mutator.CardData.name);
+				LeanTween.delayedCall(2f, ()=>
+				{
+					TurnBasedManager.Instance.EndTurn();					
+				});
+			});
+			return;
+		}
+			
 		OpponentObject.Attack();
 	}
 	
