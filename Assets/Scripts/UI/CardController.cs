@@ -98,10 +98,7 @@ public class CardController : MonoBehaviour
 		ImageRectTransform.DOLocalMoveY(ImageRectTransform.position.y + 0f, 2.2f).OnComplete(()=>
 		{
 			
-			ItemImage.DOFade(0f, 1f).OnComplete(()=>
-			{
-				Destroy(this.gameObject);
-			});
+			ItemImage.DOFade(0f, 1f);
 		
 		});
 		
@@ -126,9 +123,12 @@ public class CardController : MonoBehaviour
 			return;
 		}
 		
+		GameManager.Instance.InputBlockers.Push("CardController");
 		AnimateUseCard();
 		CurrentCard.PlayCard();
-		GameManager.OnCardUsed?.Invoke();		
+		GameManager.OnCardUsed?.Invoke();	
+		
+		Destroy(this.gameObject,2f);	
 	}
 
 	public void OnDestroy()

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 	public Player PlayerController;
 	public CardDB CardDatabase;
 	
+	public VisualAnimationController ObjectAnimationController;
 	public OpponentManager OpponentManagerObject;
 
 	public OpponentDB OpponentList;
@@ -19,6 +20,20 @@ public class GameManager : MonoBehaviour
 	public static Action<int> OnCardsAdded;
 	public static Action OnCardAddComplete;
 	public static Action OnCardUsed;
+	
+	public Stack<string> InputBlockers = new Stack<string>();
+	
+	public bool InputBlocked 
+	{
+		get
+		{
+			if(InputBlockers == null || InputBlockers.Count == 0) return false;
+			
+			return InputBlockers.Count > 0;
+		}	
+	}
+	public static bool Paused;
+	
 	
 	int MinionCounter;
 	bool finalboss = false;

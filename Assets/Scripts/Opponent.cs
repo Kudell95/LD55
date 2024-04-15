@@ -156,11 +156,12 @@ public class Opponent : MonoBehaviour, IOpponent
 		{
 			Health = 0;			
 			OnHealthUpdated?.Invoke(Health);
+			animationHelper.OnHit(SpriteOriginPoint.transform, OpponentSpriteRenderer);
 			Die();
 			return;
 		}
 		Health -= damage;
-		animationHelper.OnHit(SpriteOriginPoint.transform);
+		animationHelper.OnHit(SpriteOriginPoint.transform, OpponentSpriteRenderer);
 		OnHealthUpdated?.Invoke(Health);
 	}
 	
