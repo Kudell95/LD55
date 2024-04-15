@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
 	public static Action<int> OnHealthUpdated;
 	public static Action<int> OnManaUpdated;
 	
+	AnimationHelper _animationHelper;
+	public SpriteRenderer VisualsSpriteRenderer;
+	
 	
 	private void Awake() {
 		if(ConfigManager.Instance == null)
@@ -31,7 +34,7 @@ public class Player : MonoBehaviour
 		_StartingMana = ConfigManager.Instance.ConfigObject.StartingMana;
 		Health = _StartingHealth;
 		Mana = _StartingMana;
-		
+		_animationHelper = GetComponent<AnimationHelper>();
 	}
 	
 	
@@ -52,8 +55,8 @@ public class Player : MonoBehaviour
 			Die();
 			return;
 		}
-		Health -= damage;		
-		//TODO: implement damage animation
+		Health -= damage;
+		_animationHelper.OnHit(transform,VisualsSpriteRenderer);
 		OnHealthUpdated?.Invoke(Health);
 	}
 	
@@ -100,5 +103,8 @@ public class Player : MonoBehaviour
 		//TODO: play death animation. 
 		//Signal player death.
 		//Block all actions and show death screen.
+		
+		
+		
 	}
 }

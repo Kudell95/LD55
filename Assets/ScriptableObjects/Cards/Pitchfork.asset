@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Pitchfork
   Description: Stabs target dealing three ticks of damage between 0 - 3.
   Mana: 3
-  CardRarity: 1
+  CardRarity: 0
   Image: {fileID: -1092934116, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
   - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}

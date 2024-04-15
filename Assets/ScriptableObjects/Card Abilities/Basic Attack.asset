@@ -17,4 +17,7 @@ MonoBehaviour:
 
 '
   AbilityType: 0
-  Power: 2
+  AbilityActionType: 0
+  Power: 0
+  AttackRangeStart: 0
+  AttackRangeEnd: 0
