@@ -13,7 +13,6 @@ public class Card : ICard
 		throw new System.NotImplementedException();
 	}
 
-	//TODO: This will grab the card data, loop through the abilities and perform actions based on the ability type
 	public void PlayCard()
 	{
 		foreach(CardAbilitySO ability in CardData.CardAbilities)		
@@ -22,22 +21,22 @@ public class Card : ICard
 			if(ability.AbilityActionType != Enums.AbilityActionType.Place)
 				continue;
 			
-			//TODO: Maybe should implement events for attack/heal etc... as there will only be one enemy at a time for now no need to worry about targets etc...
 			switch(ability.AbilityType)
 			{
 				case Enums.AbilityType.Attack:
-					//TODO: Perform attack
 					//will reference Opponent and attack that opponent based on power of card.
 					GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(ability.Power);
 					break;
 				case Enums.AbilityType.Heal:
-					//TODO: Perform healing.
-					//will reference player and heal that player based on power of card.
 					GameManager.Instance.PlayerController.Heal(ability.Power);
 					break;
 				case Enums.AbilityType.Repel:
 					//TODO: Perform debuff
 					break;
+				case Enums.AbilityType.AttackRange:
+					int attackPower = UnityEngine.Random.Range(ability.AttackRangeStart, ability.AttackRangeEnd);
+					GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(attackPower);
+					return;
 				default:
 					Debug.LogWarning("Ability type not implemented: " + ability.AbilityType);
 					break;

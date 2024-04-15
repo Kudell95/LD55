@@ -25,6 +25,7 @@ public class Enums : MonoBehaviour
 		Attack,
 		Heal,
 		Repel,
+		AttackRange,
 	}
 	
 	public enum BroadAbilityType
@@ -74,8 +75,8 @@ public class Enums : MonoBehaviour
 	{
 		InitialTurn,
 		PlayerTurn,
-		
 		OpponentTurn,
+		OpponentSpawnTurn,
 		
 	}
 }

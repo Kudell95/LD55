@@ -31,19 +31,25 @@ public class TurnBasedManager : MonoBehaviour
 	
 	public Enums.TurnStates CurrentTurnState { get; private set; } = Enums.TurnStates.InitialTurn;
 	
-	public void StartTurn(Enums.TurnStates turnState, bool drawCards = false)
+	public void StartTurn(Enums.TurnStates turnState, bool drawCards = false, bool Notify = true)
 	{		
 		if(turnState == Enums.TurnStates.PlayerTurn && drawCards)
 		{
 			GameManager.Instance.DrawCards(ConfigManager.Instance.ConfigObject.CardsReceivedEndOfTurn);
 			GameManager.Instance.PlayerController.AddMana(ConfigManager.Instance.ConfigObject.ManaRestoredAtEndOfRound);
 			return;
-		}			
+		}
+		
+		// if(turnState == Enums.TurnStates.OpponentSpawnTurn)
+		// {
+		// 	GameManager.Instance.PlayerController.AddMana(ConfigManager.Instance.ConfigObject.ManaRestoredAtEndOfRound);
+		// }
+			
 		CurrentTurnState = turnState;
 		OnTurnStarted?.Invoke(turnState);
 		
-		
-		NotificationManager.Instance?.Notify(getTurnText(turnState));
+		if(Notify)
+			NotificationManager.Instance?.Notify(getTurnText(turnState));
 	}
 	
 	public void EndTurn()
@@ -68,6 +74,9 @@ public class TurnBasedManager : MonoBehaviour
 	}
 	
 	
+	
+	
+	
 	public string getTurnText(Enums.TurnStates turnStates)
 	{
 		switch(turnStates)
@@ -76,6 +85,8 @@ public class TurnBasedManager : MonoBehaviour
 				return "Player's Turn";
 			case Enums.TurnStates.OpponentTurn:
 				return "Opponent's Turn";
+			case Enums.TurnStates.OpponentSpawnTurn:
+				return "Opponent Killed. Waiting for next opponent...";
 			default:
 				return "";
 		}

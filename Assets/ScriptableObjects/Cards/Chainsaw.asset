@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Chainsaw
   m_EditorClassIdentifier: 
   Name: Chainsaw
-  Description: A legendary gardenning tool, only able to be summoned by the greatest
-    of wizards...
-  Mana: 5
+  Description: The ultimate plant killer. Deals 7 damage. Make plant very unhappy.
+  Mana: 6
   CardRarity: 3
-  Image: {fileID: -1541073465, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
+  Image: {fileID: 1004743760, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
   CardAbilities:
   - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
+  BroadAbilityType: 0

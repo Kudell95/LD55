@@ -6,6 +6,7 @@ using DG.Tweening;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class Opponent : MonoBehaviour, IOpponent
 {
@@ -22,6 +23,10 @@ public class Opponent : MonoBehaviour, IOpponent
 	public static Action OnOpponentDeath;
 	public HealthModifierText healthModifierText;
 	
+	public static Action<int> OnHealthInitialised;
+	public static Action<int> OnHealthUpdated;
+	
+	private AnimationHelper animationHelper;
 	
 	float _opponentOriginalScaleY;
 	
@@ -30,7 +35,7 @@ public class Opponent : MonoBehaviour, IOpponent
 		SpriteOriginPoint.transform.DOScaleY(0,0);
 		
 		SpriteOriginPoint.transform.localScale = new Vector3(SpriteOriginPoint.transform.localScale.x, 0, SpriteOriginPoint.transform.localScale.z);
-		
+		animationHelper = GetComponent<AnimationHelper>();
 	}
 	
 	public void Attack()
@@ -102,8 +107,16 @@ public class Opponent : MonoBehaviour, IOpponent
 
 	public void Die()
 	{
-		
-		
+		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.OpponentSpawnTurn,false,true);
+		//TODO: implement death animation
+		// animationHelper.OnHit(transform);
+		SpriteOriginPoint.transform.DOScaleY(0,0.2f).OnComplete(()=>
+		{
+			LeanTween.delayedCall(2f,()=>
+			{				
+				OnOpponentDeath?.Invoke();
+			});
+		});
 	}
 
 	public Opponent Clone()
@@ -133,6 +146,7 @@ public class Opponent : MonoBehaviour, IOpponent
 		}
 		
 		healthModifierText.ShowHeal(amount);
+		OnHealthUpdated?.Invoke(Health);
 	}
 	
 	public void TakeDamage(int damage)
@@ -140,17 +154,18 @@ public class Opponent : MonoBehaviour, IOpponent
 		healthModifierText.ShowDamage(damage);
 		if(Health - damage <= 0)
 		{
-			Health = 0;
+			Health = 0;			
+			OnHealthUpdated?.Invoke(Health);
 			Die();
 			return;
 		}
 		Health -= damage;
+		animationHelper.OnHit(SpriteOriginPoint.transform);
+		OnHealthUpdated?.Invoke(Health);
 	}
 	
 	public void SpawnNewOpponent(OpponentDataSO newOpponentData)
 	{
-		//TODO: flesh this out a bit more with some animations etc...
-		//How do we wait to continue. events???
 		
 		OpponentData = newOpponentData;
 		Health = OpponentData.Health;
@@ -164,12 +179,9 @@ public class Opponent : MonoBehaviour, IOpponent
 				SpriteOriginPoint.transform.DOMoveY(0.5f, 1.5f).OnComplete(()=>{SpriteOriginPoint.transform.DOScaleY(0.9f,0.3f);}).SetLoops(-1,LoopType.Yoyo);
 			});			
 		});
-		
+		OnHealthInitialised?.Invoke(Health);
 	
 		
-		
-		//play animation here.
-		//once animation done.
 		// OpponentManager.OnOpponentReadyForFight?.Invoke();
 	}
 	

@@ -19,6 +19,8 @@ public class ConfigSO : ScriptableObject
 	
 	[Header("Opponents")]
 	public float OpponentHealThreshold;
+	public int NumberOfMinionsPerDifficulty;
+	
 	
 	[Header("Cards")]
 	public int CardsForStartOfRound;

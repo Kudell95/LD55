@@ -38,7 +38,7 @@ public class CardHolderManager : MonoBehaviour
 			CardController controller = card.GetComponent<CardController>();
 			controller.SetCard(cardData);
 			cardsInHand++;		
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(.5f);
 		}
 		
 		

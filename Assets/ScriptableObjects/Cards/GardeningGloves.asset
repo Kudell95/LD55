@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71604c32e81227f4fb1f4dc11752c6c9, type: 3}
-  m_Name: Pitchfork
+  m_Name: GardeningGloves
   m_EditorClassIdentifier: 
-  Name: Pitchfork
-  Description: Stabs target dealing three ticks of damage between 0 - 3.
-  Mana: 3
+  Name: Gardening Gloves
+  Description: Protects you from spiky, pointy things!
+  Mana: 5
   CardRarity: 1
-  Image: {fileID: -1092934116, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
-  CardAbilities:
-  - {fileID: 11400000, guid: a8d782c77762e954aa812811ba51188d, type: 2}
+  Image: {fileID: 857870459, guid: c6d2b3702d5355b468d65a2f54bc3c4d, type: 3}
+  CardAbilities: []
   BroadAbilityType: 0

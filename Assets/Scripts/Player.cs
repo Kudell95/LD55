@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 	
 	
 	private void Awake() {
+		if(ConfigManager.Instance == null)
+			return;
 		_StartingHealth = ConfigManager.Instance.ConfigObject.StartingHealth;
 		_StartingMana = ConfigManager.Instance.ConfigObject.StartingMana;
 		Health = _StartingHealth;
@@ -51,6 +53,7 @@ public class Player : MonoBehaviour
 			return;
 		}
 		Health -= damage;		
+		//TODO: implement damage animation
 		OnHealthUpdated?.Invoke(Health);
 	}
 	
@@ -94,6 +97,8 @@ public class Player : MonoBehaviour
 	
 	public void Die()
 	{
-		
+		//TODO: play death animation. 
+		//Signal player death.
+		//Block all actions and show death screen.
 	}
 }
