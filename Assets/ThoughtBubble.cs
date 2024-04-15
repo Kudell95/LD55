@@ -142,10 +142,10 @@ public class ThoughtBubble : MonoBehaviour
 		string[] playerStartMessages =
 		{
 		   "These plants have got to go!",
-		   "Come on, stay focused!",
-		   "Can't you see I'm busy here?",
-		   "Seriously? Now's not the time, dude.",
-		   "Quite curious, aren't you?"
+		   "Time to summon some tools!",
+		   "And I thought I retired from summoning...",
+		   "It's about time I dusted off the ol' book!",
+		   "I'll show you what it really meants to garden!"
 		};
 		string outputMessage = playerStartMessages[Random.Range(0, playerStartMessages.Length)];
 		NewThought(outputMessage);
