@@ -14,7 +14,8 @@ public class HealthModifierText : MonoBehaviour
 	public Color DamageColour;
 	public Color HealColour;
 	public Color MissColour;
-	
+	public GameObject HealParticlePrefab;
+	public GameObject DamageParticlePrefab;
 	
 	private Vector3 _startPosition;
 	
@@ -36,6 +37,8 @@ public class HealthModifierText : MonoBehaviour
 		{
 			string text = $"-{damage.ToString()}";
 			Show(DamageColour, text);
+			var particle = Instantiate(DamageParticlePrefab,transform);
+			Destroy(particle,1.5f);
 		}
 	}
 	
@@ -43,6 +46,8 @@ public class HealthModifierText : MonoBehaviour
 	{
 		string text = $"+{heal.ToString()}";
 		Show(HealColour, text);
+		var particle = Instantiate(HealParticlePrefab,transform);
+		Destroy(particle,1.5f);
 	}
 	
 	

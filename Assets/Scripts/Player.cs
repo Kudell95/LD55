@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
 	
 	public void TakeDamage(int damage)
 	{
+		SoundManager.Instance.PlaySound("TakeDamage");
 		HealthText.ShowDamage(damage);
 		Debug.Log("Damage Taken");
 		if(Health - damage <= 0)
@@ -64,6 +66,8 @@ public class Player : MonoBehaviour
 	
 	public void Heal(int amount)
 	{
+		SoundManager.Instance.PlaySound("Heal");
+		
 		if((Health + amount) > _StartingHealth)
 		{
 			Health = _StartingHealth;
@@ -80,6 +84,7 @@ public class Player : MonoBehaviour
 	
 	public void AddMana(int amount)
 	{
+		SoundManager.Instance.PlaySound("AddMana");
 		if((Mana + amount) > _StartingMana)
 			Mana = _StartingMana;
 		else
@@ -90,6 +95,7 @@ public class Player : MonoBehaviour
 	
 	public void RemoveMana(int amount)	
 	{
+		SoundManager.Instance.PlaySound("RemoveMana");
 		if(Mana - amount < 0)
 			Mana = 0;
 		else
@@ -100,11 +106,13 @@ public class Player : MonoBehaviour
 	
 	public void Die()
 	{
-		//TODO: play death animation. 
-		//Signal player death.
-		//Block all actions and show death screen.
-		
-		
-		
+		TurnBasedManager.Instance.StartTurn(Enums.TurnStates.PlayerDeadTurn,false,false);
+		transform.DOShakeScale(1f).OnComplete(()=>
+		{
+			transform.DOScaleX(0,0.2f).OnComplete(()=>
+			{
+				GameOverMenu.Instance.GameOver();
+			});
+		});		
 	}
 }

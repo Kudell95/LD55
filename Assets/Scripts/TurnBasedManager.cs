@@ -33,6 +33,12 @@ public class TurnBasedManager : MonoBehaviour
 	
 	public void StartTurn(Enums.TurnStates turnState, bool drawCards = false, bool Notify = true)
 	{		
+		if(CurrentTurnState == Enums.TurnStates.PlayerDeadTurn)
+			return;
+			
+		if(CurrentTurnState == Enums.TurnStates.VictoryTurn)
+			return;
+		
 		if(turnState == Enums.TurnStates.PlayerTurn && drawCards)
 		{
 			GameManager.Instance.DrawCards(ConfigManager.Instance.ConfigObject.CardsReceivedEndOfTurn);
@@ -40,10 +46,6 @@ public class TurnBasedManager : MonoBehaviour
 			return;
 		}
 		
-		// if(turnState == Enums.TurnStates.OpponentSpawnTurn)
-		// {
-		// 	GameManager.Instance.PlayerController.AddMana(ConfigManager.Instance.ConfigObject.ManaRestoredAtEndOfRound);
-		// }
 			
 		CurrentTurnState = turnState;
 		OnTurnStarted?.Invoke(turnState);
