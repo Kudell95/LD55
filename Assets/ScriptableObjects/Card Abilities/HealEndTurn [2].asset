@@ -16,7 +16,7 @@ MonoBehaviour:
   Description: Heals the player at end of turn.
   AbilityType: 6
   AbilityActionType: 0
-  Power: 0
+  Power: 2
   SkipTurn: 0
-  AttackRangeStart: 1
-  AttackRangeEnd: 3
+  AttackRangeStart: 0
+  AttackRangeEnd: 0

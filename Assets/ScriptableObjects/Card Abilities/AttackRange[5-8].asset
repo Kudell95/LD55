@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  AbilityType: 0
+  AbilityType: 3
   AbilityActionType: 0
   Power: 0
   SkipTurn: 0
-  AttackRangeStart: 0
-  AttackRangeEnd: 0
+  AttackRangeStart: 5
+  AttackRangeEnd: 8
