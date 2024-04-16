@@ -20,7 +20,7 @@ public class Card : ICard
 		
 		if(CardData.CardAbilities == null || CardData.CardAbilities.Count == 0)
 		{
-			GameManager.Instance.InputBlockers.Pop();
+			GameManager.Instance.UnblockInput();
 			return;
 		}
 		
@@ -40,7 +40,7 @@ public class Card : ICard
 						GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(ability.Power);
 					}, ()=>
 					{
-						GameManager.Instance.InputBlockers.Pop();
+						GameManager.Instance.UnblockInput();
 					});
 					
 					//TODO: change this if more legendaries
@@ -52,13 +52,13 @@ public class Card : ICard
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
 					{
 						GameManager.Instance.PlayerController.Heal(ability.Power);
-						GameManager.Instance.InputBlockers.Pop();
+						GameManager.Instance.UnblockInput();
 					});
 					break;
 				case Enums.AbilityType.DefenceBuff:				
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
 					{
-						GameManager.Instance.InputBlockers.Pop();
+						GameManager.Instance.UnblockInput();
 						MutatorList.Instance.Add(CardData);
 					});
 					
@@ -67,7 +67,7 @@ public class Card : ICard
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
 					{
 						//just add the mutator
-						GameManager.Instance.InputBlockers.Pop();
+						GameManager.Instance.UnblockInput();
 						MutatorList.Instance.Add(CardData);
 					});
 					
@@ -76,7 +76,7 @@ public class Card : ICard
 					ThoughtBubble.Instance.OnBuffAttackMessage();
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
 					{
-						GameManager.Instance.InputBlockers.Pop();
+						GameManager.Instance.UnblockInput();
 						MutatorList.Instance.Add(CardData);
 					});
 					
@@ -84,7 +84,7 @@ public class Card : ICard
 				case Enums.AbilityType.HealForRound:
 					GameManager.Instance.ObjectAnimationController.PlayMiscObjectAnimation(CardData, ()=>
 					{
-						GameManager.Instance.InputBlockers.Pop();
+						GameManager.Instance.UnblockInput();
 						MutatorList.Instance.Add(CardData);
 					});
 					
@@ -96,7 +96,7 @@ public class Card : ICard
 						GameManager.Instance.OpponentManagerObject.OpponentObject.TakeDamage(attackPower);
 					}, ()=>
 					{
-						GameManager.Instance.InputBlockers.Pop();
+						GameManager.Instance.UnblockInput();
 					});
 					
 					return;
