@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
 	
 	public Stack<string> InputBlockers = new Stack<string>();
 	
+	
+	public Action OnInputUnblocked;
+	
 	public bool InputBlocked 
 	{
 		get
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
 		}	
 	}
 	public static bool Paused;
+	
 	
 	
 	int MinionCounter;
@@ -66,6 +70,19 @@ public class GameManager : MonoBehaviour
 		ThoughtBubble.Instance.OnStartPlayerMessage();
 		
 		GetNewOpponent(CurrentDifficulty);		
+	}
+	
+	public void UnblockInput()
+	{
+		if(InputBlockers.Count > 0)
+		{
+			InputBlockers.Pop();
+		}
+		
+		if(InputBlockers.Count == 0)
+		{
+			OnInputUnblocked?.Invoke();
+		}
 	}
 
 	private void onOpponentDeath()

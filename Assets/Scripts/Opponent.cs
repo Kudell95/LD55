@@ -30,8 +30,11 @@ public class Opponent : MonoBehaviour, IOpponent
 	
 	float _opponentOriginalScaleY;
 	
+	Vector3 originalPosition;
+	
 	private void Awake() {
 		_opponentOriginalScaleY = SpriteOriginPoint.localScale.y;
+		originalPosition = SpriteOriginPoint.transform.position;
 		SpriteOriginPoint.transform.DOScaleY(0,0);
 		
 		SpriteOriginPoint.transform.localScale = new Vector3(SpriteOriginPoint.transform.localScale.x, 0, SpriteOriginPoint.transform.localScale.z);
@@ -205,6 +208,8 @@ public class Opponent : MonoBehaviour, IOpponent
 		Health = OpponentData.Health;
 		OpponentSpriteRenderer.sprite = OpponentData.Image;
 		SpriteOriginPoint.transform.DOKill();
+		
+		SpriteOriginPoint.transform.position = originalPosition;
 		
 		SoundManager.Instance.PlaySound("OpponentGrowl");
 		SpriteOriginPoint.transform.DOScaleY(_opponentOriginalScaleY,1f).OnComplete(()=>{			

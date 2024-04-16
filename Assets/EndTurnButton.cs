@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,8 +19,15 @@ public class EndTurnButton : MonoBehaviour
 		_button = GetComponent<Button>();
 		SetDisabled();
 		TurnBasedManager.Instance.OnTurnStarted += onTurnStarted;
+		GameManager.Instance.OnInputUnblocked += onInputUnblocked;
 	}
-	
+
+	private void onInputUnblocked()
+	{
+		if(TurnBasedManager.Instance.CurrentTurnState == Enums.TurnStates.PlayerTurn)
+			SetEnabled();
+	}
+
 	public void onTurnStarted(Enums.TurnStates turnState)
 	{
 		if(turnState == Enums.TurnStates.PlayerTurn)
@@ -33,6 +41,14 @@ public class EndTurnButton : MonoBehaviour
 	{
 		SoundManager.Instance?.PlaySound("ButtonClick");
 		TurnBasedManager.Instance.EndTurn();
+	}
+	
+	private void Update() {
+		//TODO: maybe just use events here?
+		if(GameManager.Instance.InputBlocked)
+		{
+			SetDisabled();
+		}	
 	}
 	
 
@@ -52,5 +68,7 @@ public class EndTurnButton : MonoBehaviour
 	
 	private void OnDestroy() {
 		TurnBasedManager.Instance.OnTurnStarted -= onTurnStarted;
+		GameManager.Instance.OnInputUnblocked -= onInputUnblocked;
+		
 	}
 }
