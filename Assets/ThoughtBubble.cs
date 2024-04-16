@@ -74,7 +74,8 @@ public class ThoughtBubble : MonoBehaviour
 		   "Hehe, it tickles!",
 		   "I feel invincible!",
 		   "Nice try, Mr. Plant!",
-		   "I put that equipment to good use!"
+		   "I put that equipment to good use!",
+		   "See, you're all stem and no flower!"
 		};
 		string outputMessage = defendMessages[Random.Range(0, defendMessages.Length)];
 		NewThought(outputMessage);
@@ -88,7 +89,8 @@ public class ThoughtBubble : MonoBehaviour
 		   "Ok, now here's a real challenge!",
 		   "Uh oh, now I've done it...",
 		   "Ok, I wasn't expecting this!",
-		   "Time to give it all I've got."
+		   "Time to give it all I've got.",
+		   "Pick on someone your own... species!"
 		};
 		string outputMessage = bossMessages[Random.Range(0, bossMessages.Length)];
 		NewThought(outputMessage);
@@ -158,7 +160,16 @@ public class ThoughtBubble : MonoBehaviour
            "Ooh! I felt that one!",
            "Grr! The flesh is weak but the soul continues on!",
            "Darn! You'll pay for that!",
-           "I must.. *Argh*.. go on..."
+           "I must.. *Argh*.. go on...",
+		   "Watch it! This is my favourite hat!",
+		   "Ouch, that's not fair!",
+		   "That stings!",
+		   "You're a real thorn in my side!",
+		   "Ok, no more mister nice wizard!",
+		   "My patience is running thin, petal boy!",
+		   "Careful, you might just make me mad...",
+		   "Can't you just go away? I'm getting annoyed.",
+		   "I'd really appreciate it if you didn't hurt me."
         };
         string outputMessage = playerHitMessages[Random.Range(0, playerHitMessages.Length)];
         NewThought(outputMessage);
@@ -203,7 +214,9 @@ public class ThoughtBubble : MonoBehaviour
            "Did I mention I was retired?",
            "Uhh... That was a warning shot!",
            "Ok, ok.. maybe we can negotiate?",
-           "I don't know what you expected from an old man..."
+           "I don't know what you expected from an old man...",
+		   "I missed? Aren't you a stationary plant?",
+		   "You're more nimble than you seem, immobile plant!"
         };
         string outputMessage = missMessages[Random.Range(0, missMessages.Length)];
         NewThought(outputMessage);

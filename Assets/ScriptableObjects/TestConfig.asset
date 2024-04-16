@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b8f24744276384abf92ea3b9f5cdb5, type: 3}
   m_Name: TestConfig
   m_EditorClassIdentifier: 
-  CommonCardWeight: 0.8
-  RareCardWeight: 0.5
-  EpicCardWeight: 0.2
-  LegendaryCardWeight: 0.05
+  CommonCardWeight: 45
+  RareCardWeight: 25
+  EpicCardWeight: 20
+  LegendaryCardWeight: 10
   StartingHealth: 8
   StartingMana: 6
   MaxCardsInHand: 6
