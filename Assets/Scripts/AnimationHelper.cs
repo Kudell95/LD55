@@ -25,6 +25,17 @@ public class AnimationHelper : MonoBehaviour
 		
 	}
 	
+	public void OnHit(Transform _transform, SpriteRenderer spriteRenderer, Color onHitColor)
+	{
+		_transform.DOShakePosition(0.1f, 0.5f, 10, 50, false);
+		Color color = spriteRenderer.color;
+		spriteRenderer.DOColor(onHitColor, 0.1f).OnComplete(()=>
+		{
+			spriteRenderer.DOColor(color, 0.1f);
+		});
+		
+	}
+	
 	
 	
 	public void OnHit(Transform _transform, SpriteRenderer spriteRenderer, TweenCallback onComplete)

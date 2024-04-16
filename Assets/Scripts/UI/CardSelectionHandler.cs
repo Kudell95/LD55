@@ -19,6 +19,8 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 	
 	[HideInInspector]
 	private bool _selected = false;
+	
+	private BaseEventData SavedOnSelectedEventData;
 
 	private Vector3 _startPos;
 	private Vector3 _startScale;
@@ -30,10 +32,14 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 	}
 	
 	private void Update() {
-		if (_selected && Input.GetMouseButtonDown(0))
-		{
+		if (_selected && Input.GetMouseButtonDown(0) && !GameManager.Paused && !GameManager.Instance.InputBlocked)
+		{			
+			GameManager.Instance.InputBlockers.Push("CardController");
 			OnCardClicked?.Invoke();
 		}
+		
+		if(SavedOnSelectedEventData != null)
+			OnSelect(SavedOnSelectedEventData);
 	}
 
 	private IEnumerator AnimateCardOnHover(bool startingAnimation)
@@ -82,10 +88,12 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 	{
 		if(TurnBasedManager.Instance.IsPlayerTurn && !GameManager.Paused && !GameManager.Instance.InputBlocked)
 		{
+			SavedOnSelectedEventData = null;
 			StartCoroutine(AnimateCardOnHover(true));
-			_selected = true;
+			_selected = true;			
 		}else
 		{
+			SavedOnSelectedEventData = eventData;
 			//reset variable here just in case (or if we add enter key binding to new turn...)
 			_selected = false;
 		}
@@ -95,5 +103,6 @@ public class CardSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPointe
 	{
 		StartCoroutine(AnimateCardOnHover(false));
 		_selected = false;
+		SavedOnSelectedEventData = null;
 	}
 }

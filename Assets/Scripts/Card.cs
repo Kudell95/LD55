@@ -104,6 +104,8 @@ public class Card : ICard
 					Debug.LogWarning("Ability type not implemented: " + ability.AbilityType);
 					// GameManager.Instance.InputBlockers.Pop();
 					break;
+					
+					
 			}
 			
 		}

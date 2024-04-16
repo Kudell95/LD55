@@ -92,7 +92,12 @@ public class Player : MonoBehaviour
 			return;
 		}
 		Health -= damage;
-		_animationHelper.OnHit(transform,VisualsSpriteRenderer);
+		
+		if(damage == 0)
+			_animationHelper.OnHit(transform,VisualsSpriteRenderer,Color.white);
+		else
+			_animationHelper.OnHit(transform,VisualsSpriteRenderer);
+			
 		OnHealthUpdated?.Invoke(Health);
 	}
 	

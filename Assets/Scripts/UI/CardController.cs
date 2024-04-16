@@ -112,6 +112,7 @@ public class CardController : MonoBehaviour
 		CardFrameImage.transform.DOLocalRotate(new Vector3(0f, 0f, 5f), 0.1f).SetEase(Ease.InOutQuad).SetLoops(4,LoopType.Yoyo).OnComplete(()=> 
 		{
 			CardFrameImage.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 0.1f);
+			GameManager.Instance.UnblockInput();
 		});
 	}
 	
@@ -121,10 +122,10 @@ public class CardController : MonoBehaviour
 		{
 			ThoughtBubble.Instance.OnNoManaMessage();
 			UnableToUseCard();
+			
 			return;
 		}
 		
-		GameManager.Instance.InputBlockers.Push("CardController");
 		AnimateUseCard();
 		CurrentCard.PlayCard();
 		GameManager.OnCardUsed?.Invoke();	

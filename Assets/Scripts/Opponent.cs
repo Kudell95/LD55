@@ -166,7 +166,7 @@ public class Opponent : MonoBehaviour, IOpponent
 	{
 		int BuffedDamage = 0;
 		
-		if(MutatorList.Instance.ContainsAttackBuff() && damage > 0)
+		if(MutatorList.Instance.ContainsAttackBuff())
 		{
 			BuffedDamage = MutatorList.Instance.GetTotalAttackbuff(out List<Mutator> mutators);
 			
@@ -197,7 +197,12 @@ public class Opponent : MonoBehaviour, IOpponent
 			return;
 		}
 		Health -= damage;
-		animationHelper.OnHit(SpriteOriginPoint.transform, OpponentSpriteRenderer);
+		
+		if(damage == 0)
+			animationHelper.OnHit(SpriteOriginPoint.transform,OpponentSpriteRenderer,Color.white);
+		else
+			animationHelper.OnHit(SpriteOriginPoint.transform,OpponentSpriteRenderer);
+			
 		OnHealthUpdated?.Invoke(Health);
 	}
 	

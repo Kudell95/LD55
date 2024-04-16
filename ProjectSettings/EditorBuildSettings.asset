@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/UIAdditiveScene.unity
     guid: e9b6c72b79338f046baf4deb847e8d51
   - enabled: 1
-    path: Assets/Scenes/ThormyTestEnv.unity
+    path: Assets/Scenes/GameScene.unity
     guid: 7d282de7282d5824da834e69a4afab52
   - enabled: 0
     path: Assets/Scenes/PawndaTestEnv.unity

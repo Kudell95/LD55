@@ -53,7 +53,7 @@ public class MutatorList : MonoBehaviour
 	
 	public bool ContainsAttackBuff()
 	{
-		return Mutators.Any(x=>x.CardData.CardAbilities.Any(x=>x.AbilityType == Enums.AbilityType.DefenceBuff));
+		return Mutators.Any(x=>x.CardData.CardAbilities.Any(x=>x.AbilityType == Enums.AbilityType.AttackBuff));
 	}
 	
 	public bool ContainsAnyHealForRound()
